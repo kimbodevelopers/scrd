@@ -1,5 +1,7 @@
 (function($) {
-  $(".boiler-right").click(function() {
-    console.log("Hi Troy");
-  });
+  $(document).ready(function () {
+    $('.dropdown-menu').click(function (event) {
+      event.stopPropagation();
+    });
+});
 })(jQuery);

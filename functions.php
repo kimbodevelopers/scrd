@@ -47,3 +47,14 @@ if ( $check_server == "localhost" ) {
 
 }
 add_action( 'wp_enqueue_scripts', 'website_scripts' );
+
+if ( function_exists( 'register_nav_menus' ) ) {
+	register_nav_menus(
+		array(
+			'nav-main-menu'   => 'Main Navigation Menu',
+			'footer-main-menu' => 'Main Footer Menu',
+			)
+	);
+}
+
+require get_template_directory() . '/inc/custom-walker-nav-menu.php';
