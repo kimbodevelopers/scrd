@@ -1,6 +1,8 @@
 <?php defined('ABSPATH') or die(""); ?>
 <?php get_header(); ?>
 
-This is the front
+<?php get_template_part('inc/components/popular-services'); ?>
+
+<?php get_template_part('inc/components/featured-parks-and-recreation') ?>
 
 <?php get_footer(); ?>

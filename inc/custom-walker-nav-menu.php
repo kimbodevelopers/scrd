@@ -2,6 +2,8 @@
 
 class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
 
+    private $idx = 0;
+
 /**
  * What the class handles.
  *
@@ -36,6 +38,7 @@ public $db_fields = array(
  * @see Walker::start_lvl()
  *
  * @param string   $output Used to append additional content (passed by reference).
+ * @param WP_Post  $data_object       Menu item data object.
  * @param int      $depth  Depth of menu item. Used for padding.
  * @param stdClass $args   An object of wp_nav_menu() arguments.
  */
@@ -81,8 +84,11 @@ public function start_lvl( &$output, $depth = 0, $args = null) {
         $output .= "<div class='accordion' id='accordionNav'>";
     }
 
+
+    $this->idx++;
+
     if($depth > 0) {
-        $output .= "<div id='collapse$depth' class='accordion-collapse collapse' aria-labelledby='headingOne' data-bs-parent='#accordionNav'>";
+        $output .= "<div id='collapse" . $this->idx-1 . "-" . $depth . "'" . " class='accordion-collapse collapse' aria-labelledby='headingOne' >";
     }
 
 }
@@ -278,7 +284,7 @@ public function start_el( &$output, $data_object, $depth = 0, $args = null, $cur
         if($depth > 0 && $class === "menu-item-has-children") {
             $item_output .= 
             "
-            <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$depth' aria-expanded='true' aria-controls='collapse$depth'>
+            <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
     
             ";
         }

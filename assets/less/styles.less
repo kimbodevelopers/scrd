@@ -1,2 +1,16 @@
 @import 'header.less';
 @import 'variables.less';
+@import 'components/popular-services.less';
+
+html {
+    .site-row {
+        max-width: 1200px;
+        margin: auto;
+
+        @media @medium-down {
+            max-width: unset;
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+    }
+}

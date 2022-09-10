@@ -1,5 +1,8 @@
-a:4:{s:4:"root";s:66:"C:/mamp/htdocs/scrd/wp-content/themes/scrd/assets/less/styles.less";s:8:"compiled";s:431:".navbar .megamenu {
-  padding: 1rem;
+a:4:{s:4:"root";s:66:"C:/mamp/htdocs/scrd/wp-content/themes/scrd/assets/less/styles.less";s:8:"compiled";s:589:"header .navbar {
+  padding: 0;
+}
+header .navbar .accordion {
+  display: flex;
 }
 @media only screen and (min-width: 992px) {
   .navbar .has-megamenu {
@@ -20,4 +23,11 @@ a:4:{s:4:"root";s:66:"C:/mamp/htdocs/scrd/wp-content/themes/scrd/assets/less/sty
     margin-top: 10px;
   }
 }
-";s:5:"files";a:3:{s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\styles.less";i:1662506419;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\header.less";i:1662505827;s:69:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\variables.less";i:1662506411;}s:7:"updated";i:1662506427;}
+.navbar-nav .menu-item:hover .sub-menu {
+  display: block;
+}
+html .site-row {
+  max-width: 1200px;
+  margin: auto;
+}
+";s:5:"files";a:4:{s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\styles.less";i:1662768227;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\header.less";i:1662760688;s:69:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\variables.less";i:1662767648;s:87:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\popular-services.less";i:1662768080;}s:7:"updated";i:1662768231;}

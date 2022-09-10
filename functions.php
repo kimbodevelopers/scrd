@@ -57,4 +57,48 @@ if ( function_exists( 'register_nav_menus' ) ) {
 	);
 }
 
+if(function_exists('acf_add_options_page')) {
+	acf_add_options_page();
+
+	acf_add_options_sub_page('Header', array(
+		'page_title' => 'Header',
+		'menu_title' => 'Header',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
+	acf_add_options_sub_page('Footer / Address', array(
+		'page_title' => 'Footer / Address',
+		'menu_title' => 'Footer / Address',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
+	acf_add_options_sub_page('Popular Services', array(
+		'page_title' => 'Popular Services',
+		'menu_title' => 'Popular Services',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
+	acf_add_options_sub_page('Featured Parks and Rec', array(
+		'page_title' => 'Featured Parks and Rec',
+		'menu_title' => 'Featured Parks and Rec',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+}
+
 require get_template_directory() . '/inc/custom-walker-nav-menu.php';
+
+add_filter( 'use_block_editor_for_post', '__return_false' ); 
+add_theme_support('post-thumbnails');
+add_post_type_support( 'parks-and-recreation', 'thumbnail' );
