@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:66:"C:/mamp/htdocs/scrd/wp-content/themes/scrd/assets/less/styles.less";s:8:"compiled";s:589:"header .navbar {
+a:4:{s:4:"root";s:66:"C:/mamp/htdocs/scrd/wp-content/themes/scrd/assets/less/styles.less";s:8:"compiled";s:6760:"header .navbar {
   padding: 0;
 }
 header .navbar .accordion {
@@ -23,11 +23,220 @@ header .navbar .accordion {
     margin-top: 10px;
   }
 }
+.navbar-nav .dropdown-menu[data-bs-popper] {
+  margin-top: 0;
+}
 .navbar-nav .menu-item:hover .sub-menu {
   display: block;
 }
-html .site-row {
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+.title-text {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 30px;
+}
+@media only screen and (max-width: 576px) {
+  .title-text {
+    margin-bottom: 15px;
+  }
+}
+.title-text._50 {
+  font-size: 50px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 991px) {
+  .title-text._50 {
+    font-size: 36px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .title-text._50 {
+    font-size: 30px;
+  }
+}
+.body-text {
+  font-family: 'Nunito Sans', sans-serif;
+}
+.body-text._17 {
+  font-size: 17px;
+  font-weight: 400;
+}
+.body-text._19 {
+  font-size: 19px;
+  font-weight: bold;
+}
+.body-text._20 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.body-text._26 {
+  font-size: 26px;
+  font-weight: bold;
+}
+.popular-services-container .popular-services-row.site-component-row {
+  max-width: calc(1200px - 20px);
+}
+@media only screen and (min-width: 1200px) {
+  .popular-services-container .popular-services-row .popular-service-column {
+    width: 20%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 0px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .popular-services-container .popular-services-row .popular-service-column {
+    width: calc(100% / 3);
+    margin-bottom: 15px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .popular-services-container .popular-services-row .popular-service-column {
+    width: 50%;
+    flex-grow: 1;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .popular-services-container .popular-services-row .popular-service-column {
+    width: 100%;
+  }
+}
+.popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper {
+  background-color: #F8F8F5;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 10px solid #3099ff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: 0.25s ease-in-out border-bottom;
+}
+.popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper:hover {
+  border-bottom: 10px solid #0054A5;
+  transition: 0.25s ease-in-out border-bottom;
+}
+.popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper:hover .icon-wrapper svg {
+  font-size: 45px;
+  color: #0054A5;
+  transition: 0.25s ease-in-out color;
+}
+.popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper h3 {
+  max-width: 120px;
+  margin: 0;
+  color: #0054A5;
+}
+.popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper .icon-wrapper {
+  min-width: 45px;
+}
+.popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper .icon-wrapper svg {
+  font-size: 45px;
+  color: #3099ff;
+  transition: 0.25s ease-in-out color;
+}
+.featured-parks-and-recreation-container .featured-parks-and-recreation-row {
+  justify-content: space-between;
+}
+@media only screen and (max-width: 991px) {
+  .featured-parks-and-recreation-container .featured-parks-and-recreation-row {
+    justify-content: center;
+  }
+  .featured-parks-and-recreation-container .featured-parks-and-recreation-row h2 {
+    max-width: calc(275px * 2);
+  }
+}
+.featured-parks-and-recreation-container .featured-parks-and-recreation-row .featured-parks-and-recreation-column {
+  padding-bottom: 30px;
+}
+@media only screen and (min-width: 577px) {
+  .featured-parks-and-recreation-container .featured-parks-and-recreation-row .featured-parks-and-recreation-column {
+    max-width: 275px;
+    padding-bottom: 0px;
+  }
+}
+.featured-parks-and-recreation-container .featured-parks-and-recreation-row .featured-parks-and-recreation-column .featured-card-wrapper {
+  transition: 0.25s linear transform;
+  padding-bottom: 15px;
+}
+.featured-parks-and-recreation-container .featured-parks-and-recreation-row .featured-parks-and-recreation-column .featured-card-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(50,50,93,0.25) 0px 13px 27px -5px, rgba(0,0,0,0.3) 0px 8px 16px -8px;
+  transition: 0.25s linear transform;
+}
+.featured-parks-and-recreation-container .featured-parks-and-recreation-row .featured-parks-and-recreation-column img {
+  width: 100%;
+  height: 100%;
+  max-height: 275px;
+  object-fit: cover;
+}
+@media only screen and (max-width: 576px) {
+  .featured-parks-and-recreation-container .featured-parks-and-recreation-row .featured-parks-and-recreation-column img {
+    max-height: 100vw;
+  }
+}
+.featured-parks-and-recreation-container .featured-parks-and-recreation-row .featured-parks-and-recreation-column .body-text {
+  padding: 15px;
+  max-height: 75px;
+  min-height: 75px;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+html .site-component-container {
+  padding: 50px 0;
+}
+@media only screen and (max-width: 991px) {
+  html .site-component-container {
+    padding: 25px 0;
+  }
+}
+html .site-component-container .site-component-row {
   max-width: 1200px;
   margin: auto;
 }
-";s:5:"files";a:4:{s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\styles.less";i:1662768227;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\header.less";i:1662760688;s:69:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\variables.less";i:1662767648;s:87:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\popular-services.less";i:1662768080;}s:7:"updated";i:1662768231;}
+@media only screen and (max-width: 991px) {
+  html .site-component-container .site-component-row {
+    max-width: unset;
+    width: 100%;
+  }
+}
+html .site-component-container .button-row {
+  justify-content: center;
+  margin-top: 70px;
+}
+@media only screen and (max-width: 991px) {
+  html .site-component-container .button-row {
+    margin-top: 35px;
+  }
+}
+html .site-component-container .button-row .button-column .site-button {
+  border: 3px solid #0054A5;
+  color: #0054A5;
+  text-align: center;
+  border-radius: 6px;
+  padding: 15px;
+  display: block;
+  margin: auto;
+  text-decoration: none;
+  transition: 0.25s linear color;
+}
+html .site-component-container .button-row .button-column .site-button:hover {
+  color: white;
+  background-color: #0054A5;
+  transition: 0.25s linear color;
+}
+@media only screen and (min-width: 768px) {
+  html .site-component-container .button-row .button-column .site-button {
+    min-width: 380px;
+    width: 380px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  html .site-component-container .button-row .button-column .site-button {
+    width: 100%;
+  }
+}
+";s:5:"files";a:6:{s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\styles.less";i:1663013201;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\header.less";i:1663000490;s:69:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\variables.less";i:1663009221;s:65:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\fonts.less";i:1663012151;s:87:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\popular-services.less";i:1663007320;s:100:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\featured-parks-and-recreation.less";i:1663013109;}s:7:"updated";i:1663013202;}

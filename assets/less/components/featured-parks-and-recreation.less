@@ -1,0 +1,63 @@
+.featured-parks-and-recreation-container {
+
+    .featured-parks-and-recreation-row {
+
+        justify-content: space-between;
+
+        @media @medium-down {
+            justify-content: center;
+
+            h2 {
+                max-width: ~'calc(275px * 2)';
+            }
+        }
+
+
+        .featured-parks-and-recreation-column {
+
+            padding-bottom: 30px;
+
+            @media @x-small-up {
+                max-width: 275px;
+                padding-bottom: 0px;
+            }
+
+            .featured-card-wrapper {
+                transition: 0.25s linear transform;
+                padding-bottom: 15px;
+
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                    transition: 0.25s linear transform;
+                }
+
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                max-height: 275px;
+                object-fit: cover;
+
+                @media @x-small-down {
+                    max-height: 100vw;
+                }
+                
+            }
+
+            .body-text {
+                padding: 15px;
+                max-height: 75px;
+                min-height: 75px;
+                overflow: hidden;
+                position: relative;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+
+            }
+        }
+    }
+}

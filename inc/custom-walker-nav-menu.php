@@ -86,9 +86,11 @@ public function start_lvl( &$output, $depth = 0, $args = null) {
 
 
     $this->idx++;
+	
+	$index = $this->idx-1;
 
     if($depth > 0) {
-        $output .= "<div id='collapse" . $this->idx-1 . "-" . $depth . "'" . " class='accordion-collapse collapse' aria-labelledby='headingOne' >";
+        $output .= "<div id='collapse" . $index . "-" . $depth . "'" . " class='accordion-collapse collapse' aria-labelledby='headingOne' >";
     }
 
 }

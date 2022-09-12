@@ -1,8 +1,74 @@
 .popular-services-container {
+
     .popular-services-row {
+
+        &.site-component-row {
+            max-width: ~'calc(1200px - 20px)';
+        }
+
         .popular-service-column {
+
+            @media @large-up {
+                width: 20%;
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-bottom: 0px;
+            }
+
+            @media @large-down {
+                width: ~'calc(100% / 3)';
+                margin-bottom: 15px;
+            }
+
+            @media @medium-down {
+                width: 50%;
+                flex-grow: 1;
+            }
+
+            @media @x-small-down {
+                width: 100%;
+            }
             .popular-service-item-wrapper {
                 background-color: @off-white;
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                border-bottom: 10px solid @primary-light-blue-2;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                transition: 0.25s ease-in-out border-bottom;
+
+                &:hover {
+
+                    border-bottom: 10px solid @primary-dark-blue;
+                    transition: 0.25s ease-in-out border-bottom;
+
+                    .icon-wrapper {
+    
+                        svg {
+                            font-size: 45px;
+                            color: @primary-dark-blue;
+                            transition: 0.25s ease-in-out color;
+                        }
+                    }
+                }
+
+
+                h3 {
+                    max-width: 120px;
+                    margin: 0;
+                    color: @primary-dark-blue;
+                }
+
+                .icon-wrapper {
+                    min-width: 45px;
+
+                    svg {
+                        font-size: 45px;
+                        color: @primary-light-blue-2;
+                        transition: 0.25s ease-in-out color;
+                    }
+                }
             }
         }
     }
