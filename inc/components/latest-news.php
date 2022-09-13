@@ -7,18 +7,17 @@
 
     <?php 
 
-            $news = new WP_Query(array(
-                'post_type' => 'news',
-                'posts_per_page' => 4,
-                'post__status' => 'published',
-                'order' => 'DESC',
-            ));
+        $latest_news = new WP_Query(array(
+            'post_type' => 'news',
+            'posts_per_page' => 4,
+            'post__status' => 'published',
+            'order' => 'DESC',
+        ));
 
-            $wp_query = $news;
-        ?>
+        $wp_query = $latest_news;
+    ?>
 
     <div class="row site-component-row small-cards-row">
-        <?php setup_postdata($wp_query); ?>
 
         <?php while($wp_query->have_posts()) : $wp_query->the_post(); ?>
             
@@ -41,7 +40,6 @@
             </div>
 
         <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
 
 
     </div>

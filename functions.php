@@ -106,8 +106,17 @@ if(function_exists('acf_add_options_page')) {
 	));
 
 	acf_add_options_sub_page('Latest News', array(
-		'page_title' => 'Featured Services',
-		'menu_title' => 'Featured Services',
+		'page_title' => 'Latest News',
+		'menu_title' => 'Latest News',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
+	acf_add_options_sub_page('Current Projects', array(
+		'page_title' => 'Current Projects',
+		'menu_title' => 'Current Projects',
 		'capability' => 'edit_posts',
 		'parent_slug' => 'theme-option',
 		'position' => 'false',

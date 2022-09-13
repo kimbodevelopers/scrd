@@ -286,7 +286,7 @@ public function start_el( &$output, $data_object, $depth = 0, $args = null, $cur
         if($depth > 0 && $class === "menu-item-has-children") {
             $item_output .= 
             "
-            <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
     
             ";
         }

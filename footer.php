@@ -4,10 +4,6 @@
 
 		<footer>
 			
-				
-			
-			
-			
 
 		</footer><!-- /#footer -->
 	</div><!-- /#wrapper -->
