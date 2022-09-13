@@ -5,4 +5,6 @@
 
 <?php get_template_part('inc/components/featured-parks-and-recreation') ?>
 
+<?php get_template_part('inc/components/featured-services') ?>
+
 <?php get_footer(); ?>
