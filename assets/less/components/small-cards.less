@@ -1,6 +1,6 @@
-.featured-parks-and-recreation-container {
+.small-cards-container {
 
-    .featured-parks-and-recreation-row {
+    .small-cards-row {
 
         justify-content: space-between;
 
@@ -13,7 +13,7 @@
         }
 
 
-        .featured-parks-and-recreation-column {
+        .small-cards-column {
 
             padding-bottom: 30px;
 
@@ -22,7 +22,7 @@
                 padding-bottom: 0px;
             }
 
-            .featured-card-wrapper {
+            .small-card-wrapper {
                 transition: 0.25s linear transform;
                 padding-bottom: 15px;
 
@@ -32,6 +32,15 @@
                     transition: 0.25s linear transform;
                 }
 
+            }
+
+            a {
+                text-decoration: none;
+                color: @muted-black;
+
+                &:hover {
+                    opacity: unset;
+                }
             }
 
             img {

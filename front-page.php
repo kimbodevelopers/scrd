@@ -7,4 +7,6 @@
 
 <?php get_template_part('inc/components/featured-services') ?>
 
+<?php get_template_part('inc/components/latest-news') ?>
+
 <?php get_footer(); ?>

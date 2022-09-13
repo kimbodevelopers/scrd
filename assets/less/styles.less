@@ -2,7 +2,7 @@
 @import 'variables.less';
 @import 'fonts.less';
 @import 'components/popular-services.less';
-@import 'components/featured-parks-and-recreation.less';
+@import 'components/small-cards.less';
 @import 'components/featured-services.less';
 
 
@@ -13,6 +13,10 @@ html {
 
         @media @medium-down {
             padding: 25px 0;
+        }
+
+        &:nth-child(even) {
+            background-color: @off-white;
         }
 
         .site-component-row {
@@ -66,11 +70,8 @@ html {
         
                 }
             }
-
-
         }
-
     }
-    
+
 
 }
