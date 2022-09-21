@@ -1,7 +1,24 @@
 header {
+
+    @header-box-shadow:rgba(50, 50, 93, 0.25) 0px -20px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+ 
+
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 50;
+    margin-top: -140px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px -20px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+    @media @medium-down {
+        margin-top: -70px;
+    }
+
     .navbar {
         padding: 0;
         height: 100%;
+        background-color: white;
+        height: 70px;
 
         @media @medium-up {
             height: 140px;
@@ -10,6 +27,20 @@ header {
         .nav-container {
             height: inherit;
 
+            .navbar-brand {
+
+                padding-left: 15px;
+
+                img {
+                    width: 110px;
+                    height: auto;
+
+                    @media @medium-down {
+                        width: 60px;
+                    }
+                }
+            }
+
             .navbar-toggler {
                 border: 0;
             }
@@ -17,19 +48,25 @@ header {
             .navbar-toggler:focus {
                 box-shadow: none;
             }
+            
         }
 
         #main_nav {
             justify-content: flex-end;
-            height: inherit;
+            background-color: white;
+            height: 100%;
+            
+            @media @medium-down {
+                height: unset;
+            }
 
             .menu-main-nav-container, .navbar-nav {
-                height: inherit;
+                height: 100%;
                 
                 .menu-item {
 
                     @media @medium-up {
-                        height: inherit;
+                        height: 100%;
                     }
 
                     width: 100%;
@@ -64,6 +101,16 @@ header {
                         border: 0;
                         border-radius: 0;
                     }
+                }
+                >.menu-item{
+                    >.sub-menu {
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+                        @media @medium-down  {
+                            box-shadow: unset;
+                        }
+                    }
+
                 }
             }
         }

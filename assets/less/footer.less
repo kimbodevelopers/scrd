@@ -7,6 +7,75 @@ footer {
         padding: 100px 0px 30px;
     }
 
+    .site-component-row {
+        a {
+            color: white;
+            text-decoration: none;
+    
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+
+
+    .footer-column.top.left {
+        .address-wrapper {
+            .address-title {
+                margin-bottom: 30px;
+
+            }
+            
+            p {
+                margin-bottom: 5px;
+
+                svg {
+                    padding-right: 5px;
+                }
+            }
+
+            @media @medium-down {
+                .address-title {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    .footer-column.top.right {
+
+        flex-wrap: wrap;
+
+        .external-links-row {
+
+            padding: 78px 0 58px;
+
+            @media @medium-down {
+                padding: 35px 0;
+            }
+
+            .external-links-column {
+                padding-right: 20px;
+                width: max-content;
+            }
+        }
+
+        .social-icons-row {
+            padding-bottom: 45px;
+
+            .social-icon-column {
+                width: max-content;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+        
+    }
+
     .address-wrapper {
 
         margin-bottom: 35px;
@@ -28,19 +97,49 @@ footer {
             display: flex;
             flex-direction: row;
 
+            @media @medium-down {
+                margin: 0;
+            }
+
+            .menu-item {
+                width: max-content;
+                @media @medium-down {
+                    padding: 0;
+                }
+            }
+
             a {
-                color: white;
-                text-decoration: none;
                 padding: 0 20px;
 
-                &:hover {
-                    opacity: 0.7;
+                @media @medium-down {
+                    padding: 0 20px 0 0;
                 }
             }
 
             @media @medium-up {
                 a:nth-child(1) {
                     padding-left: 0;
+                }
+            }
+        }
+    }
+
+    .footer-bottom-row {
+
+        padding-top: 35px;
+
+        @media @medium-down {
+            padding-top: 20px;
+        }
+
+        .footer-bottom-column {
+            width: max-content;
+
+            &.footer-author {
+                margin-left: auto;
+
+                @media @medium-down {
+                    margin-left: unset;
                 }
             }
         }

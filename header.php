@@ -52,8 +52,6 @@
 				</button>
 				<div class="collapse navbar-collapse" id="main_nav">
 
-
-
 					<?php
 						$main_menu_param = array(
 							'theme_location' => 'nav-main-menu',
