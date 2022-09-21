@@ -147,6 +147,45 @@ header .navbar .accordion .accordion-collapse {
 .navbar-nav .dropdown-menu[data-bs-popper] {
   margin-top: 0;
 }
+footer {
+  background-color: #0054A5;
+  padding: 50px 0px 30px;
+  color: white;
+}
+@media only screen and (min-width: 992px) {
+  footer {
+    padding: 100px 0px 30px;
+  }
+}
+footer .address-wrapper {
+  margin-bottom: 35px;
+}
+footer .address-wrapper .address-title {
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+footer .address-wrapper p {
+  margin: 0;
+}
+footer .menu-footer-nav-container .footer-main-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+footer .menu-footer-nav-container .footer-main-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0 20px;
+}
+footer .menu-footer-nav-container .footer-main-menu a:hover {
+  opacity: 0.7;
+}
+@media only screen and (min-width: 992px) {
+  footer .menu-footer-nav-container .footer-main-menu a:nth-child(1) {
+    padding-left: 0;
+  }
+}
 * {
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -175,6 +214,11 @@ header .navbar .accordion .accordion-collapse {
 }
 .body-text {
   font-family: 'Nunito Sans', sans-serif;
+}
+.body-text._16 {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
 }
 .body-text._17 {
   font-size: 17px;
