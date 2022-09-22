@@ -11,5 +11,9 @@
 
     <?php get_template_part('inc/components/current-projects') ?>
 
+    <?php get_template_part('inc/components/get-informed-section') ?>
+
+    <?php get_template_part('inc/components/information-notification') ?>
+
 
 <?php get_footer(); ?>

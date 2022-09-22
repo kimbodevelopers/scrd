@@ -122,6 +122,24 @@ if(function_exists('acf_add_options_page')) {
 		'position' => 'false',
 		'icon_urol' => 'false',
 	));
+
+	acf_add_options_sub_page('Get Informed', array(
+		'page_title' => 'Get Informed',
+		'menu_title' => 'Get Informed',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
+	acf_add_options_sub_page('Notification / Information', array(
+		'page_title' => 'Notification / Information',
+		'menu_title' => 'Notification / Information',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
 }
 
 require get_template_directory() . '/inc/custom-walker-nav-menu.php';
