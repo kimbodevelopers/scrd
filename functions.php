@@ -140,6 +140,15 @@ if(function_exists('acf_add_options_page')) {
 		'position' => 'false',
 		'icon_urol' => 'false',
 	));
+
+	acf_add_options_sub_page('Upcoming Events and Announcements', array(
+		'page_title' => 'Upcoming Events and Announcements',
+		'menu_title' => 'Upcoming Events and Announcements',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
 }
 
 require get_template_directory() . '/inc/custom-walker-nav-menu.php';
@@ -147,3 +156,59 @@ require get_template_directory() . '/inc/custom-walker-nav-menu.php';
 add_filter( 'use_block_editor_for_post', '__return_false' ); 
 add_theme_support('post-thumbnails');
 add_post_type_support( 'parks-and-recreation', 'thumbnail' );
+
+function add_acf_columns ( $columns ) {
+	return array_merge ( $columns, array ( 
+	  'date_of_event' => __ ( 'Date of Event' ),
+	) );
+  }
+  add_filter ( 'manage_events-announcements_posts_columns', 'add_acf_columns' );
+
+/*
+ * Add columns to exhibition post list
+ */
+ function events_announcements_custom_column ( $column, $post_id ) {
+	switch ( $column ) {
+	  case 'date_of_event':
+
+		if(get_post_meta ( $post_id, 'date_of_event', true )) {
+			$new_date = date('F j Y', strtotime(get_post_meta ( $post_id, 'date_of_event', true )));
+			echo $new_date;
+		} else {
+			echo '-';
+		}
+
+
+		break;
+	}
+  }
+  add_action ( 'manage_events-announcements_posts_custom_column', 'events_announcements_custom_column', 10, 2 );
+
+/**
+* make column sortable
+*/
+function events_announcements_column_register_sortable($columns){
+	$columns['date_of_event'] = 'date_of_event';
+	return $columns;
+  }
+  
+add_filter('manage_edit-events-announcements_sortable_columns','events_announcements_column_register_sortable');
+
+function events_announcements_columns_orderby( $query ) {
+
+    if( ! is_admin() )
+        return;
+
+    $orderby = $query->get( 'orderby');
+
+    switch( $orderby ){
+        case 'date_of_event': 
+            $query->set('meta_key','date_of_event');
+            $query->set('orderby','meta_value');
+            break;
+        default: break;
+    }
+
+}
+
+add_action( 'pre_get_posts', 'events_announcements_columns_orderby' );

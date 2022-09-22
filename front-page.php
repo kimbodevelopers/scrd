@@ -15,5 +15,6 @@
 
     <?php get_template_part('inc/components/information-notification') ?>
 
+    <?php get_template_part('inc/components/upcoming-events-and-announcements') ?>
 
 <?php get_footer(); ?>
