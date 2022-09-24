@@ -24,9 +24,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito&display=swap" rel="stylesheet">
 
-
-
-
 	<?php wp_head(); ?>
 </head>
 
@@ -36,37 +33,77 @@
 	<?php wp_body_open(); ?>
 
 	<div id="wrapper">
-		<header>
+		<header id="header">
 
+			<nav class="navbar navbar-expand-lg">
+				
+				<div class="container-fluid nav-container">
+					<a class="navbar-brand" href="#">
+						<?php if(get_field('brand_logo', 'option')) : ?>
+							<div><img src="<?php echo esc_url(get_field('brand_logo', 'option')['url']); ?>" alt="<?php echo esc_attr($operations_image['alt']); ?>" /></div>
+						<?php endif; ?>
 
-		<nav class="navbar navbar-expand-lg">
+						<span class="title-text _27 header-title"><?php the_field('nav_title', 'option') ?></span>
+					</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="main_nav">
+
+						<?php
+							$sub_menu_param = array(
+								'theme_location' => 'nav-sub-menu',
+								'menu_class' => 'header-sub-menu',
+								'walker' => new Custom_Walker_Nav_Menu()
+								
+							);
+						?>
+
+						<div class='sub-nav-wrapper'>
+							<?php wp_nav_menu($sub_menu_param); ?>
+							<div class="search-wrapper">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+							<?php echo do_shortcode('[gtranslate]'); ?>
+						</div>
+
+						<?php
+							$main_menu_param = array(
+								'theme_location' => 'nav-main-menu',
+								'menu_class' => 'header-main-menu navbar-nav',
+								'walker' => new Custom_Walker_Nav_Menu()
+								
+							);
+						?>
+
+						<?php wp_nav_menu($main_menu_param); ?>
+
+						
+
+					</div> <!-- navbar-collapse.// -->
+				</div> <!-- container-fluid.// -->
+			</nav>
 			
-			<div class="container-fluid nav-container">
-				<a class="navbar-brand" href="#">
-					<?php if(get_field('brand_logo', 'option')) : ?>
-						<img src="<?php echo esc_url(get_field('brand_logo', 'option')['url']); ?>" alt="<?php echo esc_attr($operations_image['alt']); ?>" />
-					<?php endif; ?>
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="main_nav">
+			<div class="search-container container-fluid site-component-container">
+				<div class="row site-component-row search-form-row">
+					<div class="col-11">
 
-					<?php
-						$main_menu_param = array(
-							'theme_location' => 'nav-main-menu',
-							'menu_class' => 'header-main-menu navbar-nav',
-							'walker' => new Custom_Walker_Nav_Menu()
-							
-						);
-					?>
+						<form method="get" class="searchform" id="searchform" action="<?php echo esc_url( home_url( '/')); ?>">
+							<input type="text" class="field" name="s" id="searchInput" onkeyup="fetchResults()" placeholder="<?php esc_html_e('Search...'); ?>">
+							<?php if( 'any' != $post_type) { ?>
+								<input type="hidden" class="search-bar" name="post_type" value="<?php echo esc_attr($post_type); ?>">
+							<?php } ?>
+						</form>
 
-					<?php wp_nav_menu($main_menu_param); ?>
+					</div>
+					<div class="col-1">
+						<div class="close-search"><i class="fa-solid fa-xmark"></i></div>
+					</div>
 
-				</div> <!-- navbar-collapse.// -->
-			</div> <!-- container-fluid.// -->
-		</nav>
-		
+				</div>
+				<div id="datafetch" class="row site-component-row"></div>
+
+			</div>
 
 		</header>
 

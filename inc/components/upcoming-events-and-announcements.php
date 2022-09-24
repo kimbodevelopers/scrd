@@ -20,6 +20,7 @@
                 
                 ),
             ));
+            
             $wp_query = $career_positions;
 
         ?>

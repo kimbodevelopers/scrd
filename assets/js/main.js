@@ -4,6 +4,30 @@
       event.stopPropagation();
     });
 
+    const searchFunction = () => {
+      $('.search-wrapper').click(function() {
+        if(!$('.search-container').hasClass('show-search')) {
+          $('.search-container').addClass('show-search');
+          $('html').css({'overflow' : 'hidden'})
+
+        } else {
+          $('.search-container').removeClass('show-search')
+          $('html').css({'overflow' : 'unset'})
+        }
+      })
+
+      $('.close-search').click(function() {
+        if($('.search-container').hasClass('show-search')) {
+          $('.search-container').removeClass('show-search');
+          $('html').css({'overflow' : 'unset'})
+
+        } else {
+          $('.search-container').addClass('show-search')
+          $('html').css({'overflow' : 'hidden'})
+        }
+      })
+    }
+
     const menuHover = () => {
 				
       let hoverMenuItemsShow = () => {
@@ -111,6 +135,7 @@
     }
 
     menuHover();
+    searchFunction();
     
 });
 })(jQuery);

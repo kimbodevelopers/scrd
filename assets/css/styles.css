@@ -27,6 +27,7 @@ header .navbar .nav-container {
 }
 header .navbar .nav-container .navbar-brand {
   padding-left: 15px;
+  display: flex;
 }
 header .navbar .nav-container .navbar-brand img {
   width: 110px;
@@ -37,25 +38,80 @@ header .navbar .nav-container .navbar-brand img {
     width: 60px;
   }
 }
+header .navbar .nav-container .navbar-brand .header-title {
+  margin: auto auto 20px 20px;
+  line-height: 1.2;
+}
 header .navbar .nav-container .navbar-toggler {
   border: 0;
 }
 header .navbar .nav-container .navbar-toggler:focus {
   box-shadow: none;
 }
+header .navbar .nav-container a {
+  color: #575757;
+}
 header .navbar #main_nav {
   justify-content: flex-end;
   background-color: white;
   height: 100%;
+  flex-direction: column;
 }
 @media only screen and (max-width: 991px) {
   header .navbar #main_nav {
     height: unset;
+    margin-top: -15px;
   }
+}
+@media only screen and (max-width: 576px) {
+  header .navbar #main_nav {
+    margin-top: -1px;
+  }
+}
+header .navbar #main_nav .sub-nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-top: 10px;
+}
+header .navbar #main_nav .sub-nav-wrapper .search-wrapper {
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+}
+header .navbar #main_nav .sub-nav-wrapper .switcher {
+  display: flex;
+  align-items: center;
+  right: 0;
+}
+header .navbar #main_nav .sub-nav-wrapper .switcher .selected a {
+  padding: 0 3px;
+}
+header .navbar #main_nav .sub-nav-wrapper .switcher .option {
+  position: absolute;
+  top: 45px;
+}
+header .navbar #main_nav .menu-nav-sub-menu-container {
+  margin-left: auto;
+}
+header .navbar #main_nav .menu-nav-sub-menu-container .header-sub-menu {
+  display: flex;
+  list-style: none;
+  height: 60px;
+  margin: 0;
+}
+header .navbar #main_nav .menu-nav-sub-menu-container .menu-item {
+  padding: 0 15px;
+  align-items: center;
+  display: flex;
+}
+header .navbar #main_nav .menu-nav-sub-menu-container .menu-item a {
+  text-decoration: none;
 }
 header .navbar #main_nav .menu-main-nav-container,
 header .navbar #main_nav .navbar-nav {
   height: 100%;
+  margin-left: auto;
 }
 header .navbar #main_nav .menu-main-nav-container .menu-item,
 header .navbar #main_nav .navbar-nav .menu-item {
@@ -103,6 +159,12 @@ header .navbar #main_nav .navbar-nav .menu-item .sub-menu {
 header .navbar #main_nav .menu-main-nav-container >.menu-item >.sub-menu,
 header .navbar #main_nav .navbar-nav >.menu-item >.sub-menu {
   box-shadow: rgba(50,50,93,0.25) 0px 13px 27px -5px, rgba(0,0,0,0.3) 0px 8px 16px -8px;
+}
+@media only screen and (min-width: 992px) {
+  header .navbar #main_nav .menu-main-nav-container >.menu-item >.sub-menu,
+  header .navbar #main_nav .navbar-nav >.menu-item >.sub-menu {
+    min-height: 200px;
+  }
 }
 @media only screen and (max-width: 991px) {
   header .navbar #main_nav .menu-main-nav-container >.menu-item >.sub-menu,
@@ -189,6 +251,33 @@ header .navbar .accordion .accordion-collapse {
 }
 .navbar-nav .dropdown-menu[data-bs-popper] {
   margin-top: 0;
+}
+html header .search-container {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 1s linear opacity;
+}
+html header .search-container .search-form-row .field {
+  width: 100%;
+}
+html header .search-container #datafetch {
+  overflow-y: scroll;
+  height: 100%;
+}
+html header .search-container #datafetch .search-card-title {
+  white-space: normal;
+}
+html header .show-search {
+  display: block;
+  background-color: white !important;
+  opacity: 1;
+  transition: 1s linear opacity;
 }
 footer {
   background-color: #0054A5;
@@ -443,7 +532,7 @@ footer .footer-bottom-row .footer-bottom-column.footer-author {
   }
 }
 .popular-services-container .popular-services-row.site-component-row {
-  max-width: calc(1140px - 20px);
+  max-width: calc(1200px - 20px);
 }
 @media only screen and (min-width: 1200px) {
   .popular-services-container .popular-services-row .popular-service-column {
@@ -875,7 +964,7 @@ html .site-component-container:nth-child(even) {
   background-color: #F8F8F5;
 }
 html .site-component-container .site-component-row {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: auto;
 }
 @media only screen and (max-width: 991px) {

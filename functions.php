@@ -52,6 +52,7 @@ if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus(
 		array(
 			'nav-main-menu'   => 'Main Navigation Menu',
+			'nav-sub-menu'   => 'Navigation Sub Menu',
 			'footer-main-menu' => 'Main Footer Menu',
 			)
 	);
@@ -212,3 +213,90 @@ function events_announcements_columns_orderby( $query ) {
 }
 
 add_action( 'pre_get_posts', 'events_announcements_columns_orderby' );
+
+
+add_action('wp_ajax_data_fetch', 'data_fetch');
+add_action('wp_ajax_nopriv_data_fetch', 'data_fetch');
+
+function data_fetch() {
+    $the_query = new WP_Query( 
+        array( 
+            'posts_per_page' => -1,
+            's' => esc_attr( $_POST['keyword']),
+			'orderby'=>'post_type',
+			'order'=>'asc'
+        )
+    );
+ ?>
+	
+
+   <?php if( $the_query->have_posts() ) : ?>
+
+		<div class=""><pre><?php print_r(get_post_types()) ; ?></pre></div>
+
+		<?php $post_types = get_post_types(); ?>
+
+		<?php foreach($post_types as $post_type) : ?>
+			<?php echo $post_type; ?>
+		<?php endforeach; ?>
+
+
+        <?php while($the_query->have_posts() ) : $the_query->the_post(); ?>
+
+			<?php if(get_post_type() !== 'page') : ?>
+				<div class="col-md-4">
+					<a href="<?php the_permalink(); ?>">
+						<h2 class="search-card-title"><?php the_title() ?></h2>
+						<p><?php echo get_post_type(); ?></p>
+					</a>
+				</div>
+			<?php endif; ?>
+
+        <?php endwhile; ?>
+
+    <?php wp_reset_postdata(); ?>
+
+    <?php else : ?>
+        <?php echo '<h3>No Results Found</h3>'; ?>
+    <?php endif; ?>
+
+    <?php die(); 
+}
+
+// add the ajax fetch js
+add_action('wp_footer', 'ajax_fetch');
+function ajax_fetch() {
+?>
+
+<script type="text/javascript">
+    function fetchResults() {
+        let keyword = $('#searchInput').val();
+
+		$('.searchform').submit(function() {
+			return false;
+		});
+
+        if(keyword == '') {
+            $('#datafetch').html('');
+
+        } else {
+
+            $.ajax({
+                url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                type: 'post',
+                data: {
+                    action: 'data_fetch', 
+                    keyword: keyword 
+                },
+                success: function(data) {
+                    $('#datafetch').html(data);
+                }
+            });
+        }
+		
+    }
+</script>
+
+<?php
+
+}
