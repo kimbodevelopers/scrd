@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:66:"C:/mamp/htdocs/scrd/wp-content/themes/scrd/assets/less/styles.less";s:8:"compiled";s:29433:"header {
+a:4:{s:4:"root";s:66:"C:/mamp/htdocs/scrd/wp-content/themes/scrd/assets/less/styles.less";s:8:"compiled";s:29644:"header {
   position: fixed;
   background-color: white;
   width: 100%;
@@ -263,12 +263,19 @@ html header .search-container {
   opacity: 0;
   transition: 1s linear opacity;
 }
+html header .search-container .search-form-row {
+  height: min-content;
+}
 html header .search-container .search-form-row .field {
   width: 100%;
 }
 html header .search-container #datafetch {
-  overflow-y: scroll;
+  overflow-y: auto;
+  display: flex;
   height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
 }
 html header .search-container #datafetch .search-card-title {
   white-space: normal;
@@ -567,6 +574,8 @@ footer .footer-bottom-row .footer-bottom-column.footer-author {
   border-bottom: 10px solid #3099ff;
   border-radius: 6px;
   transition: 0.25s ease-in-out border-bottom;
+  word-break: break-word;
+  height: 100%;
 }
 .popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper:hover {
   border-bottom: 10px solid #0054A5;
@@ -578,9 +587,9 @@ footer .footer-bottom-row .footer-bottom-column.footer-author {
   transition: 0.25s ease-in-out color;
 }
 .popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper h3 {
-  max-width: 120px;
   margin: 0;
   color: #0054A5;
+  padding-right: 5px;
 }
 .popular-services-container .popular-services-row .popular-service-column .popular-service-item-wrapper .icon-wrapper {
   min-width: 45px;
@@ -1009,4 +1018,4 @@ html .site-component-container .button-row .button-column .site-button:hover {
     width: 100%;
   }
 }
-";s:5:"files";a:12:{s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\styles.less";i:1663951071;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\header.less";i:1663977241;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\footer.less";i:1663788307;s:69:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\variables.less";i:1663887219;s:65:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\fonts.less";i:1663882361;s:87:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\popular-services.less";i:1663951090;s:82:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\small-cards.less";i:1663871295;s:82:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\large-cards.less";i:1663097846;s:83:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\get-informed.less";i:1663799391;s:95:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\information-notification.less";i:1663871353;s:104:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\upcoming-events-and-announcements.less";i:1663886886;s:88:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\featured-services.less";i:1663864583;}s:7:"updated";i:1663977243;}
+";s:5:"files";a:12:{s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\styles.less";i:1663951071;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\header.less";i:1664295744;s:66:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\footer.less";i:1663788307;s:69:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\variables.less";i:1663887219;s:65:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\fonts.less";i:1663882361;s:87:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\popular-services.less";i:1664296600;s:82:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\small-cards.less";i:1663871295;s:82:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\large-cards.less";i:1663097846;s:83:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\get-informed.less";i:1663799391;s:95:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\information-notification.less";i:1663871353;s:104:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\upcoming-events-and-announcements.less";i:1663886886;s:88:"C:\MAMP\htdocs\scrd\wp-content\themes\scrd\assets\less\components\featured-services.less";i:1663864583;}s:7:"updated";i:1664296602;}

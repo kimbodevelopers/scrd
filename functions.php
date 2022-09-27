@@ -178,8 +178,6 @@ function add_acf_columns ( $columns ) {
 		} else {
 			echo '-';
 		}
-
-
 		break;
 	}
   }
@@ -229,38 +227,110 @@ function data_fetch() {
     );
  ?>
 	
+	<?php $post_types_array = [] ?>
 
    <?php if( $the_query->have_posts() ) : ?>
 
-		<div class=""><pre><?php print_r(get_post_types()) ; ?></pre></div>
-
 		<?php $post_types = get_post_types(); ?>
 
-		<?php foreach($post_types as $post_type) : ?>
-			<?php echo $post_type; ?>
-		<?php endforeach; ?>
 
+		<?php while($the_query->have_posts() ) : $the_query->the_post(); ?>
+			<?php foreach($post_types as $post_type) : ?>
+				<?php array_push($post_types_array, $post_type); ?>
 
-        <?php while($the_query->have_posts() ) : $the_query->the_post(); ?>
-
-			<?php if(get_post_type() !== 'page') : ?>
-				<div class="col-md-4">
-					<a href="<?php the_permalink(); ?>">
-						<h2 class="search-card-title"><?php the_title() ?></h2>
-						<p><?php echo get_post_type(); ?></p>
-					</a>
-				</div>
-			<?php endif; ?>
-
+			<?php endforeach; ?>
         <?php endwhile; ?>
 
     <?php wp_reset_postdata(); ?>
+
 
     <?php else : ?>
         <?php echo '<h3>No Results Found</h3>'; ?>
     <?php endif; ?>
 
-    <?php die(); 
+    <?php // die(); ?>
+
+
+	<?php foreach(array_unique($post_types_array) as $post_type) : ?>
+		<?php  if($post_type !== 'attachment' && $post_type !== 'revision' && $post_type !== 'nav_menu_item' && $post_type !== 'custom_css' && $post_type !== 'customize_changeset' &&
+     $post_type !== 'oembed_cache' && $post_type !== 'user_request' && $post_type !== 'wp_block' && $post_type !== 'wp_template' &&
+     $post_type !== 'wp_template_part' && $post_type !== 'wp_global_styles' && $post_type !== 'wp_navigation' && $post_type !== 'acf-field-group' && $post_type !== 'acf-field-group' && $post_type !== 'acf-field')  : ?>
+		
+			<?php 
+				$the_query_filtered = new WP_Query( 
+					array( 
+						'posts_per_page' => -1,
+						's' => esc_attr( $_POST['keyword']),
+						'post_type' => $post_type,
+					)
+				);
+			
+			?>
+
+				<?php $type_title = []; ?>
+			<div class="search-post-row row">
+
+
+				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
+					<?php if(get_the_title()) : ?>
+						<?php array_push($type_title, $post_type); ?>
+					<?php endif; ?>
+
+				<?php endwhile; ?>
+
+
+
+				<?php if(str_replace('-', ' ', $type_title[0] ) == 'events announcements' ) : ?>
+					<?php if($type_title[0]) : ?><h1><?php echo 'Events and Announcements' ; ?></h1><?php endif ?>
+				<?php else :  ?>
+
+					<?php 
+						$smallwordsarray = array(
+							'of','a','the','and','an','or','nor','but','is','if','then','else','when',
+							'at','from','by','on','off','for','in','out','over','to','into','with'
+						);	
+
+						$remove_hyphen_word = str_replace('-', ' ', $type_title[0]);
+
+						$words = explode(' ', $remove_hyphen_word);
+
+						foreach ($words as $key => $word) {
+							if (!$key or !in_array($word, $smallwordsarray))
+							$words[$key] = ucwords($word);
+						}
+
+						$newtitle = implode(' ', $words);
+					?>
+					
+			
+								
+					<h1><?php echo $newtitle; ?></h1>
+				
+					
+						
+					
+				<?php endif; ?>
+
+
+				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
+
+					<div class="col-md-4 search-post-column">
+						<a href="<?php the_permalink(); ?>">
+							<h2 class="search-card-title"><?php  the_title() ?></h2>
+							<p><?php echo get_post_type(); ?></p>
+						</a>
+					</div>
+
+				<?php endwhile; ?>
+			</div>
+
+		<?php endif; ?>
+
+
+	<?php endforeach; ?>
+	<?php  die(); ?>
+
+<?
 }
 
 // add the ajax fetch js
@@ -279,6 +349,9 @@ function ajax_fetch() {
         if(keyword == '') {
             $('#datafetch').html('');
 
+
+
+
         } else {
 
             $.ajax({
@@ -295,6 +368,10 @@ function ajax_fetch() {
         }
 		
     }
+
+
+	
+
 </script>
 
 <?php

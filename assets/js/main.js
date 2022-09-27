@@ -26,7 +26,12 @@
           $('html').css({'overflow' : 'hidden'})
         }
       })
+
+
+        
     }
+
+    
 
     const menuHover = () => {
 				
@@ -87,6 +92,7 @@
           }
         })
       }
+
       
       $(function() {
         if ($(window).width() >= 991) {
@@ -97,16 +103,6 @@
           hoverMenuItemsHide();
         } else {
           
-  // 				$('#menu-main-navigation-menu >.menu-item a').click(function(e) {
-            
-  // 					if(!$(this).parent().find('.sub-menu').hasClass('show')) {
-  // 						$(this).parent().find('.sub-menu .accordion').removeClass('extend')
-  // 					} else {
-  // 						$(this).parent().find('.sub-menu .accordion').addClass('extend')
-  
-  // 					}
-            
-  // 				})
   
           $('#menu-main-navigation-menu >.menu-item a .menu-image-title').click(function(e) {
                       
@@ -134,8 +130,9 @@
 
     }
 
-    menuHover();
     searchFunction();
+    menuHover();
+
     
 });
 })(jQuery);

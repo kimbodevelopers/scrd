@@ -332,14 +332,20 @@ html {
     
     
             .search-form-row {
+                height: min-content;
+
                 .field {
                     width: 100%;
                 }
             }
     
             #datafetch {
-                overflow-y: scroll;
+                overflow-y: auto;
+                display: flex;
                 height: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
 
                 .search-card-title {
                     white-space: normal;
