@@ -7,8 +7,12 @@
         ?>
             <div class="col-lg-4 col-sm-6 notification-information-column">
                 <div class="notification-information-wrapper top">
-                    <h3 class="title-text _27"><?php echo $title; ?></h3>
-                    <?php echo $icon; ?>
+                    <div class="title-wrapper">
+                        <h3 class="title-text _27"><?php echo $title; ?></h3>
+                    </div>
+                    <div class="icon-wrapper">
+                        <?php echo $icon; ?>
+                    </div>
                 </div>
 
                 <div class="notification-information-wrapper bottom">

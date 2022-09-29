@@ -1,0 +1,36 @@
+.accordion {
+
+    &.a1 {
+        .accordion-button:not(.collapsed) {
+            background-color: unset;
+        }
+    
+        .accordion-item {
+            border: 0;
+        }
+    
+        .accordion-button {
+            color: @primary-dark-blue;
+            border-top: 1px solid @grey-5;
+            margin: 0;
+            padding: 25px 15px;
+    
+            &:focus {
+                box-shadow: unset;
+                border-color: unset;
+                border-top: 1px solid @grey-5;
+            }
+        }
+    
+        .accordion-collapse {
+            border-top: 1px solid @grey-5;
+        }
+    
+        .accordion-body {
+            color: @dark-teal;
+            padding: 30px 40px;
+        }
+    }
+
+
+}

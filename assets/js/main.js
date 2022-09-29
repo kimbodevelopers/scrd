@@ -25,13 +25,8 @@
           $('.search-container').addClass('show-search')
           $('html').css({'overflow' : 'hidden'})
         }
-      })
-
-
-        
+      })   
     }
-
-    
 
     const menuHover = () => {
 				
@@ -130,8 +125,23 @@
 
     }
 
+    const titleHeight = () => {
+
+      let maxHeightArray = [];
+
+      $('.notification-information-row .notification-information-column .title-wrapper').each(function() {
+        let maxHeight = $(this).height();
+        maxHeightArray.push(maxHeight);
+      })
+
+      let max = Math.max(...maxHeightArray);
+
+      $('.notification-information-row .notification-information-column .title-wrapper').height(max)
+    }
+
     searchFunction();
     menuHover();
+    titleHeight();
 
     
 });

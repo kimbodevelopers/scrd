@@ -222,7 +222,7 @@ function data_fetch() {
             'posts_per_page' => -1,
             's' => esc_attr( $_POST['keyword']),
 			'orderby'=>'post_type',
-			'order'=>'asc'
+			'order'=>'asc',
         )
     );
  ?>
@@ -261,13 +261,13 @@ function data_fetch() {
 					array( 
 						'posts_per_page' => -1,
 						's' => esc_attr( $_POST['keyword']),
-						'post_type' => $post_type,
+						'post_type' => array($post_type, $_POST['keyword']),
 					)
 				);
 			
 			?>
 
-				<?php $type_title = []; ?>
+			<?php $type_title = []; ?>
 			<div class="search-post-row row">
 
 
@@ -278,10 +278,8 @@ function data_fetch() {
 
 				<?php endwhile; ?>
 
-
-
 				<?php if(str_replace('-', ' ', $type_title[0] ) == 'events announcements' ) : ?>
-					<?php if($type_title[0]) : ?><h1><?php echo 'Events and Announcements' ; ?></h1><?php endif ?>
+					<?php if($type_title[0]) : ?><h1 class="title-text _25"><?php echo 'Events and Announcements' ; ?></h1><?php endif ?>
 				<?php else :  ?>
 
 					<?php 
@@ -301,13 +299,8 @@ function data_fetch() {
 
 						$newtitle = implode(' ', $words);
 					?>
-					
-			
-								
-					<h1><?php echo $newtitle; ?></h1>
-				
-					
-						
+	
+					<h1 class="title-text _25"><?php echo $newtitle; ?></h1>
 					
 				<?php endif; ?>
 
@@ -315,17 +308,27 @@ function data_fetch() {
 				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
 
 					<div class="col-md-4 search-post-column">
-						<a href="<?php the_permalink(); ?>">
-							<h2 class="search-card-title"><?php  the_title() ?></h2>
-							<p><?php echo get_post_type(); ?></p>
-						</a>
+
+
+						<div class="search-post-wrapper">
+							<a href="<?php the_permalink(); ?>">
+								<h2 class="search-card-title body-text _20"><?php  the_title() ?></h2>
+								<section class="content-wrapper">
+									<?php the_content(); ?>
+								</section>
+							</a>
+
+
+						</div>
+
+
 					</div>
 
 				<?php endwhile; ?>
+
 			</div>
 
 		<?php endif; ?>
-
 
 	<?php endforeach; ?>
 	<?php  die(); ?>
@@ -374,6 +377,9 @@ function ajax_fetch() {
 
 </script>
 
+
+
 <?php
 
 }
+

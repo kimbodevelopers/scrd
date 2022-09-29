@@ -1,5 +1,10 @@
 
 <div class="container-fluid site-component-container upcoming-events-and-announcements-container">
+
+    <div class="row site-component-row">
+        <h2 class="title-text _50 col-12">Events and Announcements</h2>
+    </div>
+
     <div class="row site-component-row upcoming-events-and-announcements-row">
         <?php 
             $today = date('Ymd');
@@ -20,12 +25,10 @@
                 
                 ),
             ));
-            
-            $wp_query = $career_positions;
 
         ?>
 
-        <?php while($wp_query->have_posts()) : $wp_query->the_post() ;
+        <?php while($career_positions->have_posts()) : $career_positions->the_post() ;
             $date_of_event = get_field('date_of_event');
             $day = date('d', strtotime($date_of_event));
             $month = date("F",strtotime($date_of_event));
@@ -53,7 +56,7 @@
                 </a>
             </div>
 
-        <?php wp_reset_postdata(); ?>
+        <?php wp_reset_query(); ?>
         <?php endwhile; ?>
     </div>
 </div>
