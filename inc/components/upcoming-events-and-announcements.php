@@ -9,7 +9,7 @@
         <?php 
             $today = date('Ymd');
 
-            $career_positions = new WP_Query(array(
+            $event_announcements = new WP_Query(array(
                 'post_type' => 'events-announcements',
                 'posts_per_page' => 3,
                 'post__status' => 'published',
@@ -28,7 +28,7 @@
 
         ?>
 
-        <?php while($career_positions->have_posts()) : $career_positions->the_post() ;
+        <?php while($event_announcements->have_posts()) : $event_announcements->the_post() ;
             $date_of_event = get_field('date_of_event');
             $day = date('d', strtotime($date_of_event));
             $month = date("F",strtotime($date_of_event));

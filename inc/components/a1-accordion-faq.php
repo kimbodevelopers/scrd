@@ -12,12 +12,12 @@
             $answer = get_sub_field('answer');
         ?>
             <div class="accordion-item">
-                <h3 class="accordion-header" id="flush-heading-<?php echo get_row_index() ?>">
-                <button class="accordion-button collapsed title-text _21" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-<?php echo get_row_index() ?>" aria-expanded="false" aria-controls="flush-collapse-<?php echo get_row_index() ?>">
+                <h3 class="accordion-header" id="flush-heading-a1-<?php echo get_row_index() ?>">
+                <button class="accordion-button collapsed title-text _21" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-a1-<?php echo get_row_index() ?>" aria-expanded="false" aria-controls="flush-collapse-a1-<?php echo get_row_index() ?>">
                     <?php echo $question ?>
                 </button>
                 </h3>
-                <div id="flush-collapse-<?php echo get_row_index() ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<?php echo get_row_index() ?>" data-bs-parent="#accordionFlushA1">
+                <div id="flush-collapse-a1-<?php echo get_row_index() ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<?php echo get_row_index() ?>" data-bs-parent="#accordionFlushA1">
                 <div class="accordion-body body-text _17"><?php echo $answer ?></div>
                 </div>
             </div>

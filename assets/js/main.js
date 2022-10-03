@@ -139,10 +139,34 @@
       $('.notification-information-row .notification-information-column .title-wrapper').height(max)
     }
 
+    const meetingFilter = () => {
+      $('.term-list_item').on('click', function() {
+        $('.term-list_item').removeClass('active');
+        $(this).addClass('active');
+
+      
+        $.ajax({
+          type: 'POST',
+
+          url: '/scrd/wp-admin/admin-ajax.php',
+          dataType: 'html',
+
+
+          data: {
+            action: 'filter_meetings',
+            term: $(this).data('slug'),
+          },
+          success: function(res) {
+            $('.meeting-items').html(res);
+          }
+        })
+      });
+    }
+
     searchFunction();
     menuHover();
     titleHeight();
-
+    meetingFilter();
     
 });
 })(jQuery);

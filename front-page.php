@@ -13,7 +13,6 @@
 
     <?php get_template_part('inc/components/latest-news') ?>
 
-
     <?php get_template_part('inc/components/current-projects') ?>
 
     <?php get_template_part('inc/components/get-informed-section') ?>
@@ -26,6 +25,6 @@
 
     <?php get_template_part('inc/components/a1-accordion-faq') ?>
 
-    
+    <?php get_template_part('inc/components/a2-accordion-meeting') ?>
 
 <?php get_footer(); ?>

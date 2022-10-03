@@ -23,8 +23,8 @@ if ( $check_server == "localhost" ) {
 	//<<--- CHANGE THIS TO THE LIVE SITE USERNAME ****/
   $site_path = "/home/kimboagency8627/scrd.kimboagency.com/wp-content/themes/scrd/assets"; /**** <<--- CHANGE THIS TO THE LIVE SITE USERNAME ****/
 }
-
 	include( $site_path . '/scripts/php/lessc.inc.php' );
+	
 	$inputFile  = $site_path . '/less/styles.less';
 	$outputFile = $site_path . '/css/styles.css';
 
@@ -44,6 +44,7 @@ if ( $check_server == "localhost" ) {
 	    file_put_contents($cacheFile, serialize($newCache));
 	    file_put_contents($outputFile, $newCache['compiled']);
 	}
+
 
 }
 add_action( 'wp_enqueue_scripts', 'website_scripts' );
@@ -304,7 +305,6 @@ function data_fetch() {
 					
 				<?php endif; ?>
 
-
 				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
 
 					<div class="col-md-4 search-post-column">
@@ -317,19 +317,11 @@ function data_fetch() {
 									<?php the_content(); ?>
 								</section>
 							</a>
-
-
 						</div>
-
-
 					</div>
-
 				<?php endwhile; ?>
-
 			</div>
-
 		<?php endif; ?>
-
 	<?php endforeach; ?>
 	<?php  die(); ?>
 
@@ -352,9 +344,6 @@ function ajax_fetch() {
         if(keyword == '') {
             $('#datafetch').html('');
 
-
-
-
         } else {
 
             $.ajax({
@@ -369,17 +358,72 @@ function ajax_fetch() {
                 }
             });
         }
-		
-    }
-
-
-	
+    }	
 
 </script>
-
-
 
 <?php
 
 }
+
+function filter_meetings() {
+
+	$ajaxposts = new WP_Query(array(
+		'post_type' => 'meetings',
+		'posts_per_page' => -1,
+		'order' => 'desc',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'meeting_types',
+				'field' => 'slug',
+				'terms' => $_POST['term']
+			)
+		)
+	));
+
+	$response = '';
+
+	if($ajaxposts->have_posts()) {
+		$response .= '<div class="container-fluid  site-component-container">';
+		$response .= '<div class="row site-component-row">';
+		$response .= '<div class="accordion accordion-flush col-md-10 col-12 a1" id="accordionFlushA2">';
+
+		$post_index = 0;
+		while($ajaxposts->have_posts()) : $ajaxposts->the_post(); $post_index++;
+		
+			$question = get_the_title();
+			$answer = get_the_content();
+
+
+			$response .= "
+				<div class='accordion-item'>
+					<h3 class='accordion-header' id='flush-heading-$post_index'>
+	
+						<button class='accordion-button collapsed title-text _21' type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapse-$post_index' aria-expanded='false' aria-controls='flush-collapse-$post_index'>
+							$question
+						</button>
+					</h3>
+					
+					<div id='flush-collapse-$post_index' class='accordion-collapse collapse' aria-labelledby='flush-heading-$post_index' data-bs-parent='#accordionFlushA2'>
+						<div class='accordion-body body-text _17'>$answer</div>
+					</div>
+				</div>
+			";
+			
+		endwhile;
+		wp_reset_query();
+		$response .= '</div>';
+		$response .= '</div>';
+		$response .= '</div>';
+	} else {
+		$response = 'empty';
+	}
+
+	echo $response;
+	
+	exit;
+}
+add_action('wp_ajax_filter_meetings', 'filter_meetings');
+add_action('wp_ajax_nopriv_filter_meetings', 'filter_meetings');
+
 
