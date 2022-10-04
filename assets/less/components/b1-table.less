@@ -1,0 +1,33 @@
+.site-component-container.b1-table-container {
+    .b1-table-column {
+        max-width: 800px;
+        padding: 25px 15px;
+
+        @media @medium-down {
+            padding: 20px 15px;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid @grey-5;
+        }
+
+        a {
+            display: flex;
+            justify-content: space-between;
+            text-decoration: none;
+            width: 100%;
+            align-items: center;
+
+        }
+
+        .title-text {
+            color: @primary-dark-blue;
+            margin: auto 0;
+        }
+
+        svg {
+            font-size: 40px;
+            color: @primary-light-blue-2;
+        }
+    }
+}
