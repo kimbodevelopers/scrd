@@ -2,9 +2,12 @@
 
 
     <div class="container-fluid large-cards-container site-component-container">
+
+        <?php if(get_sub_field('title')) : ?>
         <div class="row site-component-row">
-            <h2 class="title-text _50 col-12">Frequently Asked Questions</h2>
+            <h2 class="title-text _50 col-12"><?php echo get_sub_field('title') ?></h2>
         </div>
+        <?php endif; ?>
 
         <div class="row site-component-row large-cards-row">
             <div class="accordion accordion-flush col-md-10 col-12 a1" id="accordionFlushA1">

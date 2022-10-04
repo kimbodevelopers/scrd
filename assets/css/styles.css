@@ -502,6 +502,20 @@ footer .footer-bottom-row .footer-bottom-column.footer-author {
     font-size: 25px;
   }
 }
+.title-text._40 {
+  font-size: 40px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 991px) {
+  .title-text._40 {
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .title-text._40 {
+    font-size: 26px;
+  }
+}
 .title-text._44 {
   font-size: 44px;
   font-weight: 600;
@@ -990,8 +1004,68 @@ footer .footer-bottom-row .footer-bottom-column.footer-author {
   color: #475859;
   padding: 30px 40px;
 }
-.t1-title {
+.accordion .accordion-body ul {
+  padding-left: 20px;
+}
+.site-component-container.t1-container .t1-row .t1-column {
+  max-width: 800px;
+}
+.site-component-container.t1-container .t1-row h1,
+.site-component-container.t1-container .t1-row h2,
+.site-component-container.t1-container .t1-row h3 {
   color: #0054A5;
+}
+.site-component-container.t1-container .t1-row h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 991px) {
+  .site-component-container.t1-container .t1-row h1 {
+    font-size: 36px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .site-component-container.t1-container .t1-row h1 {
+    font-size: 30px;
+  }
+}
+.site-component-container.t1-container .t1-row h2 {
+  font-size: 40px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 991px) {
+  .site-component-container.t1-container .t1-row h2 {
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .site-component-container.t1-container .t1-row h2 {
+    font-size: 26px;
+  }
+}
+.site-component-container.t1-container .t1-row h3 {
+  font-size: 25px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 991px) {
+  .site-component-container.t1-container .t1-row h3 {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .site-component-container.t1-container .t1-row h3 {
+    font-size: 16px;
+  }
+}
+.site-component-container.t1-container .t1-row h1,
+.site-component-container.t1-container .t1-row h2,
+.site-component-container.t1-container .t1-row h3,
+.site-component-container.t1-container .t1-row h4 {
+  margin-bottom: 30px;
+}
+.site-component-container.t1-container .t1-row ul {
+  padding-left: 20px;
+  margin: 25px 0;
 }
 .site-component-container.b1-table-container .b1-table-column {
   max-width: 800px;
