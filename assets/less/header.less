@@ -143,10 +143,14 @@ header {
 
                     width: 100%;
 
-                    >.nav-link {
+                    >a, >.nav-link {
                         height: inherit;
                         display: flex;
                         align-items: center;
+                        text-decoration: none;
+                    }
+
+                    >.nav-link {
 
                         @media @medium-down {
                             padding: 15px;
@@ -157,8 +161,8 @@ header {
                         }
 
                         &::after {
-                            content: '\f078';
-                            font-family: "Font Awesome 5 Pro";
+                            font-family: "Font Awesome 5 Free";
+                            content: '\f107';
                             background-image: unset;
                             color: #575757;
                             width: fit-content;
@@ -285,17 +289,6 @@ header {
             padding: 0 15px;
             transition: 0.25s ease-in-out transform;
 
-
-            // >:after {
-            //     transform: rotate(0deg);
-            //     transition: 0.25s ease-in-out transform;
-            // }
-
-            // &:hover {
-            //     >:after {
-            //         transform: rotate(180deg);
-            //     }
-            // }
         }
     }
 	
@@ -303,17 +296,6 @@ header {
 		margin-top: 0;
 	}
 	
-    // @media @medium-up {
-    //     .menu-item:hover {
-    //         .sub-menu {
-    //             display: block;
-    
-    //         }
-    //     }
-    // }
-
-
-
 }
 
 html {
