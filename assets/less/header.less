@@ -57,6 +57,7 @@ header {
 
             a {
                 color: @dark-grey;
+                padding: 0;
             }
             
         }
@@ -122,6 +123,8 @@ header {
                     padding: 0 15px;
                     align-items: center;
                     display: flex;
+                    
+   
 
                     a {
                         text-decoration: none;
@@ -139,6 +142,7 @@ header {
 
                     @media @medium-up {
                         height: 100%;
+                        padding-bottom: 5px;
                     }
 
                     width: 100%;
@@ -161,7 +165,7 @@ header {
                         }
 
                         &::after {
-                            font-family: "Font Awesome 5 Free";
+                            font-family: "FontAwesome";
                             content: '\f107';
                             background-image: unset;
                             color: #575757;
@@ -199,16 +203,17 @@ header {
             display: flex;
             margin: auto;
             max-width: 1200px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
 
             @media @medium-down {
                 flex-direction: column;
             }
 
             >.accordion-item {
-                width: 20%;
+                width: 25%;
                 height: inherit; 
                 display: flex;
-                // align-items: center;
                 border: unset;
                 background-color: unset;
             }
@@ -223,14 +228,21 @@ header {
                     list-style: none;
                 }
 
+                .accordion-button {
+                    border-top: unset;
+                    padding: 5px;
+                    border-radius: unset;
+                    margin-bottom: 5px;
+                }
+
                 .accordion-button, .accordion-button:not(.collapsed) {
                     &:focus {
                         box-shadow: none;
                     }
 
                     &::after {
-                        content: '\f078';
-                        font-family: "Font Awesome 5 Pro";
+                        content: '\f107';
+                        font-family: "FontAwesome";
                         background-image: unset;
                         color: @dark-grey;
                         width: fit-content;
@@ -245,7 +257,7 @@ header {
                 }
 
                 .accordion-button:not(.collapsed) {
-                    background-color: unset;
+                    background-color: @primary-light-blue-4;
                     box-shadow: unset;
                     width: 100%;
                 }

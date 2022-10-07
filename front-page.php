@@ -6,7 +6,7 @@
 
     <?php get_template_part('inc/components/popular-services'); ?>
 
-    <?php get_template_part('inc/components/featured-parks-and-recreation') ?>
+    <?php get_template_part('inc/components/featured-parks') ?>
 
     <?php get_template_part('inc/components/featured-services') ?>
 
@@ -18,12 +18,9 @@
 
     <?php get_template_part('inc/components/information-notification') ?>
 
-
-
     <?php get_template_part('inc/components/upcoming-events-and-announcements') ?>
 
     <?php get_template_part('inc/components/a1-accordion-faq') ?>
 
-    <?php get_template_part('inc/components/a2-accordion-meeting') ?>
 
 <?php get_footer(); ?>

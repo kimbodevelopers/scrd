@@ -4,6 +4,16 @@
 ?>
 
 
+<div class="container-fluid site-component-container t1-container">
+    <div class="row site-component-row t1-row">
+        <?php
+        if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        ?>
+    </div>
+</div>
+
 <?php if( have_rows('water_content') ): ?>
     <?php while( have_rows('water_content') ): the_row(); ?>
         <?php get_template_part('inc/components/t1-text-group') ?>

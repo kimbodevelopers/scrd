@@ -98,6 +98,24 @@ if(function_exists('acf_add_options_page')) {
 		'icon_urol' => 'false',
 	));
 
+	acf_add_options_sub_page('Featured Parks', array(
+		'page_title' => 'Featured Parks',
+		'menu_title' => 'Featured Parks',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
+	acf_add_options_sub_page('Featured Recreation', array(
+		'page_title' => 'Featured Recreation',
+		'menu_title' => 'Featured Recreation',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
 	acf_add_options_sub_page('Featured Services', array(
 		'page_title' => 'Featured Services',
 		'menu_title' => 'Featured Services',
@@ -154,6 +172,15 @@ if(function_exists('acf_add_options_page')) {
 }
 
 require get_template_directory() . '/inc/custom-walker-nav-menu.php';
+
+
+add_action( 'init', 'gp_register_taxonomy_for_object_type' );
+function gp_register_taxonomy_for_object_type() {
+    register_taxonomy_for_object_type( 'post_tag', 'portfolio' );
+};
+
+
+
 
 add_filter( 'use_block_editor_for_post', '__return_false' ); 
 add_theme_support('post-thumbnails');
