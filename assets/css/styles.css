@@ -1156,7 +1156,7 @@ footer .footer-bottom-row .footer-bottom-column.footer-author {
   transition: 0.25s ease-in-out color;
 }
 .featured-services-container .featured-services-row .featured-services-column .featured-services-wrapper h3 {
-  color: ;
+  color: #011C40;
 }
 .featured-services-container .featured-services-row .featured-services-column .featured-services-wrapper .title-icon {
   display: flex;
@@ -1189,7 +1189,7 @@ html a:hover {
   opacity: 0.7;
 }
 html .site-component-container {
-  padding: 35px 0;
+  padding: 50px 0;
 }
 @media only screen and (max-width: 991px) {
   html .site-component-container {

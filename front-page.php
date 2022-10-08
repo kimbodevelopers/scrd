@@ -3,6 +3,7 @@
 /* Template Name: Home */
 ?>
 
+    <?php get_template_part('inc/components/h1-hero') ?>
 
     <?php get_template_part('inc/components/popular-services'); ?>
 
