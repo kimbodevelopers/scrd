@@ -178,13 +178,22 @@
     }
 
     const heroSlider = () => {
-      $('.hero-slider').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        adaptiveHeight: true
-      });
+
+      let minHeightArray = [];
+
+      $('.carousel .carousel-item img').each(function() {
+        let minHeight = $(this).height();
+
+        console.log('min-height ', minHeight)
+
+        minHeightArray.push(minHeight);
+
+        let min = Math.min(...minHeightArray);
+
+        $('.carousel .carousel-item img').height(min)
+      })
+
+    
     }
 
     searchFunction();
