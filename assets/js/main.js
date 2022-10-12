@@ -177,30 +177,11 @@
       });
     }
 
-    const heroSlider = () => {
-
-      let minHeightArray = [];
-
-      $('.carousel .carousel-item img').each(function() {
-        let minHeight = $(this).height();
-
-        console.log('min-height ', minHeight)
-
-        minHeightArray.push(minHeight);
-
-        let min = Math.min(...minHeightArray);
-
-        $('.carousel .carousel-item img').height(min)
-      })
-
-    
-    }
 
     searchFunction();
     // menuHover();
     titleHeight();
     meetingFilter();
-    heroSlider();
     
 });
 })(jQuery);

@@ -1,7 +1,28 @@
 .carousel {
+
+    .active.carousel-item-right, .carousel-item-next,
+    .active.carousel-item-left, .carousel-item-prev
+    {
+        -webkit-transform: unset;
+        transform: unset;
+    }
+
     .carousel-item {
+        height: 100%;
+
         img {
             object-fit: cover;
+            height: 50vw;
+            max-height: 60vh;
+            width: auto;
+
+            @media @small-down {
+                height: 450px;
+            }
+
+            @media @x-small-down {
+                height: 350px;
+            }
         }
     }
 }

@@ -1,73 +1,139 @@
 <?php defined('ABSPATH') or die(""); ?>
 <?php get_header(); 
 /* Template Name: Single Park */
+global $post;
 ?>
-<div class="container-fluid site-component-container">
-    <div class="row site-component-row">
-        <h2 class="title-text _50 col-12"><?php the_title(); ?></h2>
-    </div>
+<div class="container-fluid site-component-container single-parks-container">
 
-    <div class="row site-component-row">
+    <div class="row site-component-row single-parks-row">
 
-        <?php if(wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0]) : ?>                
-            <img class="single-page-image" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0] ; ?>" >
-        <?php endif; ?>
+        <div class="col-12 single-parks-title-column">
+            <?php if(get_the_title()) : ?>
+                <div class="col-12 title-column">
+                    <h1 class="title-text english _50 col-12"><?php the_title(); ?></h1>
+                </div>
+            <?php endif; ?>
 
+            <?php if(get_field('aboriginal_title')) : ?>
+                <div class="col-12 title-column">
+                    <h2 class="title-text aboriginal _50 col-12"><?php the_field('aboriginal_title'); ?></h2>
+                </div>
+            <?php endif; ?>
+        </div>
 
-        <?php if(get_field('address')) : ?>
-            <p><?php the_field('address'); ?>
-                <?php if(get_field('address_link')) : ?>
-                    <span><a href="<?php echo get_field('address_link')['url']; ?>" target="__blank">(View in Google Maps)</a></span>
-                <?php endif; ?>
-            </p>
-        <?php endif; ?>
+        <div class="col-md-6 single-parks-column left">
+            <?php $areas = get_the_terms($post->ID, array('taxonomy' => 'area')); ?>
 
-        <?php if(get_the_content()) :  ?>
-            <div><?php the_content(); ?></div>
-        <?php endif; ?>
-
-
-        <?php if(get_field('location')) : ?>
-            <p><strong>Location</strong>: <?php the_field('location') ?></p>
-        <?php endif; ?>
-
-        <?php if(get_field('measure_of_area')) : ?>
-            <p><strong>Area</strong>: <?php the_field('measure_of_area') ?></p>
-        <?php endif; ?>
-
-        <?php if(get_field('amenities')) : ?>
-            <div><span><strong>Amenities</strong>: </span><span><?php the_field('amenities'); ?></span></div>
-        <?php endif; ?>
-
-        <?php if(get_field('pronunciation_introduction')) : ?>
-            <div class="">
-                <p><?php the_field('pronunciation_introduction') ?></p>
-            </div>
-        <?php endif; ?>
-
-        <?php if(get_field('pronunciation')) : ?>
-            <div><strong>Pronunciation</strong>: <?php the_field('pronunciation'); ?></div>
-        <?php endif; ?>
-
-        <?php if(get_field('map_download')) : ?>
-            <p><strong>Map</strong>: <a href="<?php the_field('map_download') ?>" target="__blank"><?php the_title(); ?></a></p>
-        <?php endif; ?>
-
-
-        <div>Learn more about the project in this document.</div>
-
-        <?php $area_terms = get_terms(array('taxonomy' => 'area')); ?>
-
-        <?php if($area_terms) : ?>
-            <?php foreach($area_terms as $area) : ?>
-                <p><?php echo $area->name ?></p>
-                <p><?php // echo $area->slug ?></p>
+            <?php foreach($areas as $area) : ?>
+                <h2 class="title-text _33"><?php echo $area->name ?></h1>
             <?php endforeach; ?>
-        <?php endif; ?>
 
+            <?php if(get_the_content()) :  ?>
+                <div><?php the_content(); ?></div>
+            <?php endif; ?>
 
+            <?php if(get_field('location')) : ?>
+                <h3 class="title-text _25">Location</h3>
+                <p><?php the_field('location') ?></p>
+            <?php endif; ?>
 
+            <?php if(get_field('amenities')) : ?>
+                <h3 class="title-text _25">Amenities</h3>
+                <p><?php the_field('amenities'); ?></p>
+            <?php endif; ?>
+
+            <?php if(get_field('more_info_features')) : ?>
+                <h3 class="title-text _25">More Info / Features</h3>
+                <p><?php the_field('more_info_features'); ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div class="col-md-6 single-parks-column right">
+            <?php if(wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0]) : ?>                
+                <img class="single-page-image" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0] ; ?>" >
+            <?php endif; ?>
+
+            <?php if(get_field('address')) : ?>
+                <p><strong>Address</strong>: <?php the_field('address'); ?>
+                    <?php if(get_field('address_link')) : ?>
+                        <span><a href="<?php echo get_field('address_link')['url']; ?>" target="__blank">(Google Maps)</a></span>
+                    <?php endif; ?>
+                </p>
+            <?php endif; ?>
+
+            <?php if(get_field('measure_of_area')) : ?>
+                <p><strong>Area</strong>: <?php the_field('measure_of_area') ?></p>
+            <?php endif; ?>
+
+            <?php if(get_field('map_download')) : ?>
+                <p><strong>Map</strong>: <a href="<?php the_field('map_download') ?>" target="__blank"><?php the_title(); ?></a> (PDF)</p>
+            <?php endif; ?>
+
+        </div>
 
     </div>
+
+
+    <?php if(get_field('aboriginal_title')) : ?>
+        <div class="row site-component-row single-parks-row pronunciation-row">
+
+            <?php if(get_field('aboriginal_title')) : ?>
+                <div class="col-12">
+                    <h2 class="title-text _33 aboriginal-title"><?php the_field('aboriginal_title'); ?></h2>
+                </div>
+            <?php endif; ?>
+
+
+            <div class="col-md-6">
+                <?php if(get_field('pronunciation_introduction')) : ?>
+                    <p class="text-section"><?php the_field('pronunciation_introduction') ?></p>
+                <?php endif; ?>
+
+                <?php if(get_field('learn_more')) : ?>
+                    <div>Learn more about the <a href="<?php the_field('learn_more'); ?>">project in this document</a>.</div>
+                <?php endif; ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php if(get_field('pronunciation')) : ?>
+                    <div class="text-section"><strong>Pronunciation</strong>: <?php the_field('pronunciation'); ?></div>
+                <?php endif; ?>
+
+                <?php if(get_field('pronunciation_description')) : ?>
+                    <p class="text-section"><strong>Description</strong>: <?php the_field('pronunciation_description') ?></p>
+                <?php endif; ?>
+
+                <?php if(get_field('meaning')) : ?>
+                    <p class="text-section"><strong>Meaning</strong>: <?php the_field('meaning') ?></p>
+                <?php endif; ?>
+            </div>
+
+        </div>
+    <?php endif; ?>
+
+    <?php if(get_field('parks_contact', 'option')) : ?>
+        <?php while(have_rows('parks_contact', 'option')) : the_row(); 
+            $department_name = get_sub_field('department_name');
+            $phone_number = get_sub_field('phone_number');
+            $email = get_sub_field('email');
+        ?>
+        <div class="row site-component-row department-contact-row">
+            <p class="body-text _17"><strong>Contact Us</strong></p>
+            
+            <?php if($department_name) : ?>
+                <p class="body-text _17"><?php echo $department_name; ?></p>
+            <?php endif; ?>
+
+            <?php if($phone_number) : ?>
+                <p class="body-text _17">Phone: <a href="tel:+1-<?php echo $phone_number; ?>"><?php echo $phone_number; ?></a></p>
+            <?php endif; ?>
+
+            <?php if($email) : ?>
+                <p class="body-text _17">Email: <a href="mailto:<?php echo $email ?>"><?php echo $email; ?></a></p>
+            <?php endif; ?>
+
+        </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </div>
 <?php get_footer(); ?>

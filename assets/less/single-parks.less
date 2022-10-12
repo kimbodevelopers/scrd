@@ -1,0 +1,92 @@
+.single-parks-container {
+
+    .single-parks-row {
+        max-width: 1000px;
+        padding-bottom: 30px;
+
+        @media @medium-down {
+            padding-bottom: 20px;
+        }
+
+        .single-parks-title-column {
+            margin-bottom: 30px;
+
+            @media @medium-down {
+                margin-bottom: 20px;
+            }
+
+            .title-column {
+                padding: 0;
+
+                .title-text.english {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .title-text {
+            margin-bottom: 15px;
+            color: @primary-dark-blue;
+
+            @media @medium-down {
+                margin-bottom: 10px;
+            }
+        }
+
+        .title-column {
+
+            .title-text {
+                padding: 0;
+
+                &.english {
+                    color: @primary-dark-blue;
+                }
+    
+                &.aboriginal {
+                    color: @dark-grey;
+                }
+            }
+        }
+
+        .text-section {
+            margin-bottom: 35px;
+
+            @media @medium-down {
+                margin-bottom: 20px;
+            }
+        }
+
+        .single-parks-column {
+            &.right {
+                .single-page-image {
+                    width: 100%;
+                    margin-bottom: 30px;
+
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+
+    }
+
+    .pronunciation-row {
+        background-color: @brand-beige;
+        padding: 40px 30px;
+
+        @media @medium-down {
+            padding: 20px 15px;
+        }
+
+        .aboriginal-title {
+            margin-bottom: 25px;
+
+            @media @medium-down {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+}

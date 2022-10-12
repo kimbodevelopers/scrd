@@ -25,9 +25,6 @@
 
     <div class="row site-component-row large-cards-row">
 
-        <?php echo do_shortcode('[caf_filter id="530"]'); ?>
-
-
         <?php while($wp_query->have_posts()) : $wp_query->the_post(); ?>
             <?php get_template_part('inc/components/large-card') ?>
         <?php endwhile; ?>

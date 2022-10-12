@@ -3,6 +3,7 @@
 
 @import 'variables.less';
 @import 'fonts.less';
+@import 'single-parks.less';
 
 @import 'components/popular-services.less';
 @import 'components/small-cards.less';
@@ -63,6 +64,10 @@ html {
 
                 width: 100%;
             }
+
+            a {
+                color: @primary-dark-blue;
+            }
         }
 
         .button-row {
@@ -104,6 +109,19 @@ html {
                     }
         
                 }
+            }
+        }
+
+        .department-contact-row {
+
+            margin-top: 30px;
+
+            @media @medium-down {
+                margin-top: 20px;
+            }
+
+            p {
+                margin-bottom: 10px;
             }
         }
     }

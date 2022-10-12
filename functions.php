@@ -169,6 +169,15 @@ if(function_exists('acf_add_options_page')) {
 		'position' => 'false',
 		'icon_urol' => 'false',
 	));
+
+	acf_add_options_sub_page('Departments Contact List', array(
+		'page_title' => 'Departments Contact List',
+		'menu_title' => 'Departments Contact List',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
 }
 
 require get_template_directory() . '/inc/custom-walker-nav-menu.php';
