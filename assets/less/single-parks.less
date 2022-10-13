@@ -49,19 +49,51 @@
         }
 
         .text-section {
-            margin-bottom: 35px;
+            margin-bottom: 20px;
 
             @media @medium-down {
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
         }
 
         .single-parks-column {
+
+            &.left {
+                img {
+                    width: 100%;
+                }
+
+                .b1-table-row {
+                    .b1-table-column {
+                        padding: 10px 0;
+
+                        svg {
+                            font-size: 32px;
+                        }
+                    }
+                }
+            }
+
             &.right {
                 .single-page-image {
                     width: 100%;
                     margin-bottom: 30px;
+                }
 
+                #carouselParkIndicator {
+                    margin-bottom: 30px;
+
+                    @media @medium-down {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .carousel-item {
+                    max-height: 500px;
+
+                    @media @medium-down {
+                        max-height: 350px;
+                    }
                 }
 
                 p {
