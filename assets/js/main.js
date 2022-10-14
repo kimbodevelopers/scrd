@@ -177,11 +177,17 @@
       });
     }
 
+    const parkFilter = () => {
+      $('.reset-filter').on('click', function() {
+          $('.parks-filter input[type=checkbox]').prop('checked', false)
+        })
+      }
+
 
     searchFunction();
     // menuHover();
     titleHeight();
     meetingFilter();
-    
+    parkFilter();
 });
 })(jQuery);

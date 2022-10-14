@@ -78,6 +78,8 @@
                 .single-page-image {
                     width: 100%;
                     margin-bottom: 30px;
+                    max-height: 375px;
+                    min-height: 300px;
                 }
 
                 #carouselParkIndicator {
@@ -105,11 +107,25 @@
     }
 
     .pronunciation-row {
-        background-color: @brand-beige;
-        padding: 40px 30px;
+        margin: auto;
+        max-width: 1200px;
 
         @media @medium-down {
             padding: 20px 15px;
+        }
+        
+        .pronunciation-title-column {
+            padding: 35px 30px 0;
+            background-color: @brand-beige;
+        }
+
+        .pronunciation-column {
+            background-color: @brand-beige;
+            padding: 0 30px 50px;
+
+            @media @medium-down {
+                padding: 0 20px 50px;
+            }
         }
 
         .aboriginal-title {

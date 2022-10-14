@@ -21,7 +21,7 @@ global $post;
             <?php endif; ?>
         </div>
 
-        <div class="col-md-6 single-parks-column left">
+        <div class="col-lg-5 col-md-6 single-parks-column left">
             <?php $areas = get_the_terms($post->ID, array('taxonomy' => 'area')); ?>
 
             <?php foreach($areas as $area) : ?>
@@ -61,7 +61,7 @@ global $post;
             <?php endif; ?>
         </div>
 
-        <div class="col-md-6 single-parks-column right">
+        <div class="col-lg-4 col-md-6 single-parks-column right">
 
 
             <?php $park_images = get_field('parks_gallery'); ?>
@@ -152,16 +152,16 @@ global $post;
 
 
     <?php if(get_field('aboriginal_title')) : ?>
-        <div class="row site-component-row single-parks-row pronunciation-row">
+        <div class="row pronunciation-row">
 
             <?php if(get_field('aboriginal_title')) : ?>
-                <div class="col-12">
+                <div class="col-lg-9 pronunciation-title-column">
                     <h2 class="title-text _33 aboriginal-title"><?php the_field('aboriginal_title'); ?></h2>
                 </div>
             <?php endif; ?>
 
 
-            <div class="col-md-6">
+            <div class="col-lg-4 col-md-6 pronunciation-column">
                 <?php if(get_field('pronunciation_introduction')) : ?>
                     <p class="text-section"><?php the_field('pronunciation_introduction') ?></p>
                 <?php endif; ?>
@@ -171,7 +171,7 @@ global $post;
                 <?php endif; ?>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-lg-5 col-md-6 pronunciation-column">
                 <?php if(get_field('pronunciation')) : ?>
                     <div class="text-section"><strong>Pronunciation</strong>: <?php the_field('pronunciation'); ?></div>
                 <?php endif; ?>

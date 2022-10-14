@@ -1,6 +1,9 @@
 <?php defined('ABSPATH') or die(""); ?>
 <?php get_header(); 
 /* Template Name: Parks */
+
+global $post;
+
 ?>
 
 
@@ -8,8 +11,72 @@
     <div class="row site-component-row">
         <h2 class="title-text _50 col-12"><?php the_title() ?></h2>
     </div>
-	
 
+    <?php $park_types = get_terms(array(
+        'taxonomy' => 'park_type',
+        'hide_empty' => true,
+    )); 
+    
+    $submitted_park_types = [];
+
+    if(isset($_POST['submit'])){
+
+        if(!empty($_POST['park_type'])) {
+
+            foreach($_POST['park_type'] as $value){
+                $submitted_park_types[] = $value;
+            }
+        }
+
+        if(empty($_POST['park_type'])) {
+
+            foreach($park_types as $park_type) {
+                $submitted_park_types[] = $park_type->slug;
+            }
+        }
+    }
+
+    if(isset($_POST['reset'])){
+        if(!empty($_POST['reset'])) {
+            foreach($park_types as $park_type) {
+                $submitted_park_types[] = $park_type->slug;
+            }
+        }
+    }
+    
+    ?>
+
+
+	
+    <div  class="row site-component-row">
+        <form method="post" action="" class="parks-filter">
+
+            <?php if(isset($_POST['park_type'])) : ?>
+                <?php $post_array = $_POST['park_type'] ?>
+
+            <?php else : ?>
+                <?php $post_array = []; ?>
+            <?php endif; ?>
+
+            <?php foreach($park_types as $park_type) : ?>
+                <label for="<?php echo $park_type->slug ?>"><?php echo $park_type->name ?></label>
+                <input type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $post_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+
+                <br>
+
+            <?php endforeach; ?>
+
+            <input type="submit" value="Submit" name="submit">
+            <input class="reset-filter" type="submit" value="Reset" name="reset">
+        </form>
+
+        <script>
+        $('.reset-filter').on('click', function() {
+            $('.parks-filter input[type=checkbox]').prop('checked', false)
+        })
+        </script>
+
+    </div>
 
     <?php 
 
@@ -22,6 +89,9 @@
             $paged = 1;
         }
 
+
+
+
         $park_posts = new WP_Query(array(
             'post_type' => 'parks',
             'posts_per_page' => 9,
@@ -29,11 +99,26 @@
             'order' => 'asc',
             'orderby' => 'title',
             'paged' => $paged,
+            'tax_query' => array(
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'park_type',
+                    'field' => 'slug',
+                    'terms' => $submitted_park_types
+                ),
+
+                // array(
+                //     'taxonomy' => 'area',
+                //     'field'    => 'slug',
+                //     'terms'    => array('area-a'),
+                // ),
+            
+
+            )
         ));
 
         $wp_query = $park_posts;
-    ?>
-
+    ?>    
 
     <div class="row site-component-row large-cards-row">
 

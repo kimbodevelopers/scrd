@@ -692,6 +692,8 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
 .single-parks-container .single-parks-row .single-parks-column.right .single-page-image {
   width: 100%;
   margin-bottom: 30px;
+  max-height: 375px;
+  min-height: 300px;
 }
 .single-parks-container .single-parks-row .single-parks-column.right #carouselParkIndicator {
   margin-bottom: 30px;
@@ -713,12 +715,25 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
   margin: 0;
 }
 .single-parks-container .pronunciation-row {
-  background-color: #F2F2EF;
-  padding: 40px 30px;
+  margin: auto;
+  max-width: 1200px;
 }
 @media only screen and (max-width: 991px) {
   .single-parks-container .pronunciation-row {
     padding: 20px 15px;
+  }
+}
+.single-parks-container .pronunciation-row .pronunciation-title-column {
+  padding: 35px 30px 0;
+  background-color: #F2F2EF;
+}
+.single-parks-container .pronunciation-row .pronunciation-column {
+  background-color: #F2F2EF;
+  padding: 0 30px 50px;
+}
+@media only screen and (max-width: 991px) {
+  .single-parks-container .pronunciation-row .pronunciation-column {
+    padding: 0 20px 50px;
   }
 }
 .single-parks-container .pronunciation-row .aboriginal-title {
@@ -848,7 +863,7 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
   -webkit-box-orient: vertical;
 }
 .large-cards-container .large-cards-row {
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 @media only screen and (max-width: 991px) {
   .large-cards-container .large-cards-row {
