@@ -12,11 +12,23 @@
 
 
     <?php 
+
+        $paged = ( get_query_var('paged') ) ? absint( get_query_var('paged') ) : 1;
+        if( get_query_var('paged') ) {
+            $paged = get_query_var('paged');
+        } elseif (get_query_var('page')) {
+            $paged = get_query_var('page');
+        } else {
+            $paged = 1;
+        }
+
         $park_posts = new WP_Query(array(
             'post_type' => 'parks',
             'posts_per_page' => 9,
             'post__status' => 'published',
-            'order' => 'DESC',
+            'order' => 'asc',
+            'orderby' => 'title',
+            'paged' => $paged,
         ));
 
         $wp_query = $park_posts;
@@ -29,6 +41,18 @@
             <?php get_template_part('inc/components/large-card') ?>
         <?php endwhile; ?>
 
+    </div>
+
+
+    <div class="row pagination-row site-component-row">
+        <div class="col-12 text-center">
+            <div class="pagination-wrapper">
+                <?php echo paginate_links(array(
+                    'next_text' => '<span class="paginate-icon next-icon"><i class="fa-solid fa-chevron-right"></i></span>',
+                    'prev_text' => '<span class="paginate-icon prev-icon"><i class="fa-solid fa-chevron-left"></i></span>'
+                )); ?>
+            </div>
+        </div>
     </div>
 
 </div>

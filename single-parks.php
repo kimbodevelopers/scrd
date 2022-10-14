@@ -125,6 +125,19 @@ global $post;
                 </p>
             <?php endif; ?>
 
+
+            <?php if(have_rows('alternative_addresses')) : ?>
+                <?php while(have_rows('alternative_addresses')) : the_row(); 
+                    $alternative_address = get_sub_field('alternative_address');
+                    $alternative_address_link = get_sub_field('alternative_address_link');
+                ?>
+                    <p class="body-text _17">
+                        <?php echo $alternative_address ?>
+                        <span><a href="<?php echo $alternative_address_link['url']; ?>" target="__blank">(Google Maps)</a></span>
+                    </p>
+                <?php endwhile; ?>
+            <?php endif; ?>
+
             <?php if(get_field('measure_of_area')) : ?>
                 <p class="body-text _17"><strong>Area</strong>: <?php the_field('measure_of_area') ?></p>
             <?php endif; ?>
