@@ -618,6 +618,16 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
   font-size: 21px;
   font-weight: normal;
 }
+@media only screen and (max-width: 991px) {
+  .body-text._21 {
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .body-text._21 {
+    font-size: 17px;
+  }
+}
 .body-text._26 {
   font-size: 26px;
   font-weight: bold;
@@ -1257,6 +1267,26 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
   .carousel .carousel-item img {
     height: 350px;
   }
+}
+.p2-container .p2-row .image-column img {
+  width: 100%;
+  height: auto;
+}
+@media only screen and (max-width: 991px) {
+  .p2-container .p2-row .image-column img {
+    margin-bottom: 20px;
+  }
+}
+.p2-container .p2-row .content-column {
+  margin-left: 20px;
+}
+@media only screen and (max-width: 991px) {
+  .p2-container .p2-row .content-column {
+    margin-left: 0;
+  }
+}
+.p2-container .p2-row .content-column ul {
+  padding-left: 15px;
 }
 .picture-container iframe {
   min-height: 600px;
