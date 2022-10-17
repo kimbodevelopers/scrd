@@ -12,38 +12,11 @@ global $post;
         <h2 class="title-text _50 col-12"><?php the_title() ?></h2>
     </div>
 
-    <?php $park_types = get_terms(array(
-        'taxonomy' => 'park_type',
-        'hide_empty' => true,
-    )); 
-    
-    $submitted_park_types = [];
-
-    if(isset($_POST['submit'])){
-
-        if(!empty($_POST['park_type'])) {
-
-            foreach($_POST['park_type'] as $value){
-                $submitted_park_types[] = $value;
-            }
-        }
-
-        if(empty($_POST['park_type'])) {
-
-            foreach($park_types as $park_type) {
-                $submitted_park_types[] = $park_type->slug;
-            }
-        }
-    }
-
-    if(isset($_POST['reset'])){
-        if(!empty($_POST['reset'])) {
-            foreach($park_types as $park_type) {
-                $submitted_park_types[] = $park_type->slug;
-            }
-        }
-    }
-    
+    <?php 
+        $park_types = get_terms(array(
+            'taxonomy' => 'park_type',
+            'hide_empty' => true,
+        )); 
     ?>
 
 
