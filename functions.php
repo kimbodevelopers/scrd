@@ -181,7 +181,6 @@ if(function_exists('acf_add_options_page')) {
 }
 
 require get_template_directory() . '/inc/custom-walker-nav-menu.php';
-require get_template_directory() . '/inc/park-filter.php';
 
 add_action( 'init', 'gp_register_taxonomy_for_object_type' );
 function gp_register_taxonomy_for_object_type() {

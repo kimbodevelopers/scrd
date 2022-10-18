@@ -12,11 +12,17 @@ global $post;
         <h2 class="title-text _50 col-12"><?php the_title() ?></h2>
     </div>
 
-    <?php 
-        $park_types = get_terms(array(
-            'taxonomy' => 'park_type',
-            'hide_empty' => true,
-        )); 
+    <?php $park_types = get_terms(array(
+        'taxonomy' => 'park_type',
+        'hide_empty' => true,
+    )); 
+    
+    $submitted_park_types = [];
+
+    require get_template_directory() . '/inc/park-filter.php';
+
+    
+    
     ?>
 
 
@@ -25,15 +31,14 @@ global $post;
         <form method="post" action="" class="parks-filter">
 
             <?php if(isset($_POST['park_type'])) : ?>
-                <?php $post_array = $_POST['park_type'] ?>
-
+                <?php $park_array = $_POST['park_type'] ?>
             <?php else : ?>
-                <?php $post_array = []; ?>
+                <?php $park_array = []; ?>
             <?php endif; ?>
 
             <?php foreach($park_types as $park_type) : ?>
                 <label for="<?php echo $park_type->slug ?>"><?php echo $park_type->name ?></label>
-                <input type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $post_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+                <input type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $park_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
 
                 <br>
 
