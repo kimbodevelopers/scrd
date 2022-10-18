@@ -12,23 +12,29 @@ global $post;
         <h2 class="title-text _50 col-12"><?php the_title() ?></h2>
     </div>
 
-    <?php $park_types = get_terms(array(
+    <?php 
+    
+    $park_types = get_terms(array(
         'taxonomy' => 'park_type',
+        'hide_empty' => true,
+    )); 
+
+    $areas = get_terms(array(
+        'taxonomy' => 'area',
         'hide_empty' => true,
     )); 
     
     $submitted_park_types = [];
+    $submitted_areas = [];
 
     require get_template_directory() . '/inc/park-filter.php';
 
-    
-    
     ?>
 
 
 	
     <div  class="row site-component-row">
-        <form method="post" action="" class="parks-filter">
+        <form method="post" action="" class="parks-filter row">
 
             <?php if(isset($_POST['park_type'])) : ?>
                 <?php $park_array = $_POST['park_type'] ?>
@@ -36,23 +42,38 @@ global $post;
                 <?php $park_array = []; ?>
             <?php endif; ?>
 
-            <?php foreach($park_types as $park_type) : ?>
-                <label for="<?php echo $park_type->slug ?>"><?php echo $park_type->name ?></label>
-                <input type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $park_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+            <?php if(isset($_POST['area'])) : ?>
+                <?php $area_array = $_POST['area'] ?>
+            <?php else : ?>
+                <?php $area_array = []; ?>
+            <?php endif; ?>
 
-                <br>
+            <div class="col-md-6">
+                <?php foreach($park_types as $park_type) : ?>
+                    <label for="<?php echo $park_type->slug ?>"><?php echo $park_type->name ?></label>
+                    <input type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $park_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
 
-            <?php endforeach; ?>
+                    <br>
 
-            <input type="submit" value="Submit" name="submit">
-            <input class="reset-filter" type="submit" value="Reset" name="reset">
+                <?php endforeach; ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php foreach($areas as $area) : ?>
+                    <label for="<?php echo $area->slug ?>"><?php echo $area->name ?></label>
+                    <input type="checkbox" name="area[]" value="<?php echo $area->slug ?>" <?php if(in_array($area->slug, $area_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+
+                    <br>
+
+                <?php endforeach; ?>
+            </div>
+
+            <div class="col-12">
+                <input type="submit" value="Submit" name="submit">
+                <input class="reset-filter" type="submit" value="Reset" name="reset">
+            </div>
+
         </form>
-
-        <script>
-        $('.reset-filter').on('click', function() {
-            $('.parks-filter input[type=checkbox]').prop('checked', false)
-        })
-        </script>
 
     </div>
 
@@ -78,18 +99,18 @@ global $post;
             'orderby' => 'title',
             'paged' => $paged,
             'tax_query' => array(
-                'relation' => 'OR',
+                'relation' => 'AND',
                 array(
                     'taxonomy' => 'park_type',
                     'field' => 'slug',
                     'terms' => $submitted_park_types
                 ),
 
-                // array(
-                //     'taxonomy' => 'area',
-                //     'field'    => 'slug',
-                //     'terms'    => array('area-a'),
-                // ),
+                array(
+                    'taxonomy' => 'area',
+                    'field'    => 'slug',
+                    'terms'    => $submitted_areas,
+                ),
             
 
             )
