@@ -1,5 +1,18 @@
 .p2-container {
     .p2-row {
+
+        padding-bottom: 50px;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+
+            @media @medium-down {
+                flex-direction: unset;
+                justify-content: unset;
+            }
+        }
+
         .image-column {
             img {
                 width: 100%;
@@ -18,8 +31,17 @@
                 margin-left: 0;
             }
 
-            ul {
-                padding-left: 15px;
+
+            li {
+                font-size: 21px;
+
+                @media @medium-down {
+                    font-size: 19px;
+                }
+        
+                @media @x-small-down {
+                    font-size: 17px;
+                }
             }
         }
     }

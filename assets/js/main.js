@@ -4,6 +4,19 @@
       event.stopPropagation();
     });
 
+    const navigation = () => {
+      const linkClick = () => {
+        $('.navbar .dropdown-menu .accordion-button a').on('click', function(e) {
+          e.preventDefault()
+          if(e.target.href) {
+            window.location = e.target.href
+          }
+        })
+      }
+
+      linkClick();
+    }
+
     const searchFunction = () => {
       $('.search-wrapper').click(function() {
         if(!$('.search-container').hasClass('show-search')) {
@@ -183,7 +196,7 @@
         })
       }
 
-
+    navigation();
     searchFunction();
     // menuHover();
     titleHeight();

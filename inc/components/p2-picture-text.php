@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-lg-6 content-column">
                         <h2 class="p2-title title-text _33"><?php echo $title; ?></h2>
-                        <div class="p2-content body-text _21">
+                        <div class="p2-content body-text _17">
                             <?php echo $content ?>
                         </div>
                     </div>

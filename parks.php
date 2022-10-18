@@ -48,29 +48,43 @@ global $post;
                 <?php $area_array = []; ?>
             <?php endif; ?>
 
-            <div class="col-md-6">
-                <?php foreach($park_types as $park_type) : ?>
-                    <label for="<?php echo $park_type->slug ?>"><?php echo $park_type->name ?></label>
-                    <input type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $park_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
-
-                    <br>
-
-                <?php endforeach; ?>
+            <div class="col-lg-3 col-md-4">
+                <div class="dropdown show">
+      
+                    <a class="btn dropdown-toggle filter-dropdown-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Park Type
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <?php foreach($park_types as $park_type) : ?>
+                            <div class="dropdown-item">
+                                <label for="<?php echo $park_type->slug ?>"><?php echo $park_type->name ?></label>
+                                <input id="<?php echo $park_type->slug ?>" type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $park_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-md-6">
-                <?php foreach($areas as $area) : ?>
-                    <label for="<?php echo $area->slug ?>"><?php echo $area->name ?></label>
-                    <input type="checkbox" name="area[]" value="<?php echo $area->slug ?>" <?php if(in_array($area->slug, $area_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+            <div class="col-lg-3 col-md-4">
+                <div class="dropdown show">
 
-                    <br>
-
-                <?php endforeach; ?>
+                    <a class="btn dropdown-toggle filter-dropdown-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Areas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <?php foreach($areas as $area) : ?>
+                            <div class="dropdown-item">
+                                <label for="<?php echo $area->slug ?>"><?php echo $area->name ?></label>
+                                <input id="<?php echo $area->slug ?>" type="checkbox" name="area[]" value="<?php echo $area->slug ?>" <?php if(in_array($area->slug, $area_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-12">
-                <input type="submit" value="Submit" name="submit">
-                <input class="reset-filter" type="submit" value="Reset" name="reset">
+            <div class="col-lg-6 col-md-4 submit-reset-column">
+                <input type="submit" value="Submit" name="submit" class='submit-button'>
+                <input type="submit" value="Reset" name="reset" class="submit-button">
             </div>
 
         </form>
@@ -101,12 +115,14 @@ global $post;
             'tax_query' => array(
                 'relation' => 'AND',
                 array(
+                    'relation' => 'OR',
                     'taxonomy' => 'park_type',
                     'field' => 'slug',
                     'terms' => $submitted_park_types
                 ),
 
                 array(
+                    'relation' => 'OR',
                     'taxonomy' => 'area',
                     'field'    => 'slug',
                     'terms'    => $submitted_areas,
