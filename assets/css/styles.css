@@ -1271,6 +1271,56 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
   padding-left: 20px;
   margin: 25px 0;
 }
+.t3-container .t3-row .tabs #tabs-nav {
+  display: flex;
+  border-bottom: 2px solid #0054A5;
+  margin-bottom: 30px;
+}
+@media only screen and (max-width: 991px) {
+  .t3-container .t3-row .tabs #tabs-nav {
+    margin-bottom: 20px;
+    border-bottom: none;
+  }
+}
+.t3-container .t3-row .tabs .tab-item {
+  padding: 20px;
+  text-transform: uppercase;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+@media only screen and (max-width: 991px) {
+  .t3-container .t3-row .tabs .tab-item {
+    padding: 15px 20px;
+    border-top-right-radius: 0px;
+    border: 1px solid #baddff;
+  }
+}
+.t3-container .t3-row .tabs .tab-item a {
+  color: #475859;
+  text-decoration: none;
+}
+.t3-container .t3-row .tabs .tab-item.active {
+  background-color: #0054A5;
+  position: relative;
+}
+.t3-container .t3-row .tabs .tab-item.active::before {
+  position: absolute;
+  content: "";
+  background-color: #3099ff;
+  width: 10px;
+  height: calc(100% + 2px);
+  top: 0;
+  left: 0;
+}
+@media only screen and (max-width: 767px) {
+  .t3-container .t3-row .tabs .tab-item.active::before {
+    height: 100%;
+  }
+}
+.t3-container .t3-row .tabs .tab-item.active a {
+  color: white;
+}
 .site-component-row.b1-table-row .b1-table-column {
   max-width: 800px;
   padding: 25px 15px;

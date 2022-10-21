@@ -16,6 +16,7 @@
 <?php if( have_rows('custom_content') ): ?>
     <?php while( have_rows('custom_content') ): the_row(); ?>
         <?php get_template_part('inc/components/t1-text-group') ?>
+        <?php get_template_part('inc/components/t3-text-group') ?>
         <?php get_template_part('inc/components/b1-table') ?>
         <?php get_template_part('inc/components/h1-hero') ?>
         <?php get_template_part('inc/components/p2-picture-text') ?>
