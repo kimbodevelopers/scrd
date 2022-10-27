@@ -163,7 +163,7 @@ public function start_el( &$output, $data_object, $depth = 0, $args = null, $cur
     foreach($classes as $class) {
 
         if($class === 'menu-item-has-children' && $depth === 0) {
-            $classes[] =  ' nav-item dropdown has-megamenu  menu-item-' . $menu_item->ID;
+            $classes[] =  ' first-nav-item nav-item dropdown has-megamenu menu-item-' . $menu_item->ID;
         }
     }
 
@@ -208,7 +208,13 @@ public function start_el( &$output, $data_object, $depth = 0, $args = null, $cur
 
 
     if($depth > 0) {
-        $output .= '<div class="accordion-item">';
+        if($depth === 1 ) {
+            $output .= '<div class="accordion-item first-accordion-item">';
+
+        } else {
+            $output .= '<div class="accordion-item">';
+
+        }
     }
 
     $output .= $indent . '<li' . $id . $class_names . '>';
@@ -284,11 +290,22 @@ public function start_el( &$output, $data_object, $depth = 0, $args = null, $cur
 
     foreach($classes as $class) {
         if($depth > 0 && $class === "menu-item-has-children") {
-            $item_output .= 
-            "
-            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
-    
-            ";
+
+            if($depth === 1) {
+                $item_output .= 
+                "
+                <button class='first-nav-button accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
+        
+                ";
+            } else {
+                $item_output .= 
+                "
+                <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
+        
+                ";
+            }
+
+
         }
     }
 

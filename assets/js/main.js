@@ -1,10 +1,11 @@
 (function($) {
   $(document).ready(function () {
-    $('.dropdown-menu').click(function (event) {
-      event.stopPropagation();
-    });
-
     const navigation = () => {
+      $('.dropdown-menu').click(function (event) {
+        event.stopPropagation();
+      });
+
+
       const linkClick = () => {
         $('.navbar .dropdown-menu .accordion-button a').on('click', function(e) {
           e.preventDefault()
