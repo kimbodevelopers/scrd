@@ -24,4 +24,5 @@
     <?php get_template_part('inc/components/a1-accordion-faq') ?>
 
 
+
 <?php get_footer(); ?>

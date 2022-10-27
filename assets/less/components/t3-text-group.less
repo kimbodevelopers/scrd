@@ -56,6 +56,26 @@
                     }
                 }
             }
+
+            .carousel-inner {
+                .carousel-item {
+                    max-height: 400px;
+
+                    @media @medium-down {
+                        max-height: 300px;
+                    }
+                }
+                
+            }
+
+            .carousel-indicators {
+                button {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 100%;
+                    margin: 0 5px;
+                }
+            }
         }
     }
 }

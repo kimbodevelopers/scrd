@@ -111,7 +111,7 @@ header {
             .menu-nav-sub-menu-container {
 
                 margin-left: auto;
-
+                padding: 0 15px;
 
                 .header-sub-menu {
                     display: flex;
@@ -143,6 +143,7 @@ header {
                     @media @medium-up {
                         height: 100%;
                         padding-bottom: 5px;
+          
                     }
 
                     width: 100%;
@@ -152,6 +153,11 @@ header {
                         display: flex;
                         align-items: center;
                         text-decoration: none;
+
+                        @media @medium-down {
+                            padding: 15px;
+
+                        }
                     }
 
                     >.nav-link {
@@ -182,11 +188,14 @@ header {
                     .sub-menu {
                         border: 0;
                         border-radius: 0;
+
                     }
                 }
                 >.menu-item{
                     >.sub-menu {
                         box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+
 
                         @media @medium-up {
                             min-height: 200px;
@@ -196,9 +205,98 @@ header {
                             // }
                         }
 
+                        @media @large-down {
+                            padding: 0 15px;
+                        }
+
                         @media @medium-down  {
                             box-shadow: unset;
                         }
+
+
+                    }
+
+                    .accordion {
+                        display: flex;
+                        margin: auto;
+                        max-width: 1200px;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+            
+            
+            
+                        @media @medium-down {
+                            flex-direction: column;
+                        }
+            
+                        >.accordion-item {
+                            width: 25%;
+                            height: inherit; 
+                            display: flex;
+                            border: unset;
+                            background-color: unset;
+            
+                            a {
+                                align-items: unset;
+                                height: fit-content;
+                                padding: 5px;
+                            }
+                        }
+            
+                        .accordion-item {
+            
+                            @media @medium-down {
+                                width: 100%;
+                            }
+            
+                            .sub-menu {
+                                list-style: none;
+                            }
+            
+                            .accordion-button {
+                                border-top: unset;
+                                padding: 5px;
+                                border-radius: unset;
+                            }
+            
+            
+            
+                            .accordion-button, .accordion-button:not(.collapsed) {
+                                &:focus {
+                                    box-shadow: none;
+                                }
+            
+                                &::after {
+                                    content: '\f107';
+                                    font-family: "FontAwesome";
+                                    background-image: unset;
+                                    color: @dark-grey;
+                                    width: fit-content;
+                                    height: 100%;
+                                    margin-left: 15px;
+                                }
+                            }
+            
+            
+                            a {
+                                text-decoration: none;
+                                color: @dark-grey;
+                            }
+            
+                            .accordion-button:not(.collapsed) {
+                                background-color: @primary-light-blue-4;
+                                box-shadow: unset;
+                                width: ~'calc(100% - 5px)';
+                            }
+            
+            
+            
+                        }
+                        .accordion-item:first-of-type, .accordion-item:last-of-type, .accordion-collapse {
+                            border: unset;
+                        }
+            
+            
                     }
 
 
@@ -208,78 +306,7 @@ header {
             }
         }
 
-        .accordion {
-            display: flex;
-            margin: auto;
-            max-width: 1200px;
-            flex-wrap: wrap;
-            justify-content: flex-start;
 
-            @media @medium-down {
-                flex-direction: column;
-            }
-
-            >.accordion-item {
-                width: 25%;
-                height: inherit; 
-                display: flex;
-                border: unset;
-                background-color: unset;
-            }
-
-            .accordion-item {
-
-                @media @medium-down {
-                    width: 100%;
-                }
-
-                .sub-menu {
-                    list-style: none;
-                }
-
-                .accordion-button {
-                    border-top: unset;
-                    padding: 5px;
-                    border-radius: unset;
-                    margin-bottom: 5px;
-                }
-
-                .accordion-button, .accordion-button:not(.collapsed) {
-                    &:focus {
-                        box-shadow: none;
-                    }
-
-                    &::after {
-                        content: '\f107';
-                        font-family: "FontAwesome";
-                        background-image: unset;
-                        color: @dark-grey;
-                        width: fit-content;
-                        height: 100%;
-                    }
-                }
-
-
-                a {
-                    text-decoration: none;
-                    color: @dark-grey;
-                }
-
-                .accordion-button:not(.collapsed) {
-                    background-color: @primary-light-blue-4;
-                    box-shadow: unset;
-                    width: 100%;
-                }
-
-
-
-            }
-            .accordion-item:first-of-type, .accordion-item:last-of-type, .accordion-collapse {
-                border: unset;
-            }
-
-
-        }
     }
 }
 

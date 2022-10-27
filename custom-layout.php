@@ -18,6 +18,8 @@
         <?php get_template_part('inc/components/t1-text-group') ?>
         <?php get_template_part('inc/components/t3-text-group') ?>
         <?php get_template_part('inc/components/b1-table') ?>
+        <?php get_template_part('inc/components/b3-table') ?>
+        <?php get_template_part('inc/components/c4-cards') ?>
         <?php get_template_part('inc/components/h1-hero') ?>
         <?php get_template_part('inc/components/p2-picture-text') ?>
         <?php get_template_part('inc/components/p3-map') ?>
@@ -48,6 +50,8 @@
         </div>
     </div>
 <?php endif; ?>
+
+
 
 <?php get_footer(); ?>
 

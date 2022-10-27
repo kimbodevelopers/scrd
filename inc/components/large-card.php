@@ -4,7 +4,7 @@
             <?php if(wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0]) : ?>                
                 <img class="large-cards-image" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0] ; ?>" >
             <?php else : ?>
-                <img class="large-cards-image" src="<?php the_field('featured_placeholder', 'option') ?>" />
+                <img class="large-cards-image" src="<?php echo get_field('placeholder_image', 'option')['url'] ?>" />
             <?php endif; ?>
 
             <div class="large-card-content-wrapper">

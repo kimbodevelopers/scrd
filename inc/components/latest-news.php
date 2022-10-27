@@ -27,7 +27,7 @@
                         <?php if(wp_get_attachment_image_src(get_post_thumbnail_id())[0]) : ?>                
                             <img class="small-cards-image" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id())[0] ; ?>" >
                         <?php else : ?>
-                            <img class="small-cards-image" src="<?php the_field('featured_placeholder', 'option') ?>" />
+                            <img class="small-cards-image" src="<?php echo get_field('placeholder_image', 'option')['url'] ?>" />
                         <?php endif; ?>
 
                         <?php if(get_the_title()) : ?>
