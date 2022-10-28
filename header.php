@@ -45,8 +45,13 @@
 							<div><img src="<?php echo esc_url(get_field('brand_logo', 'option')['url']); ?>" alt="<?php echo esc_attr($operations_image['alt']); ?>" /></div>
 						<?php endif; ?>
 
-						<span class="title-text _27 header-title"><?php the_field('nav_title', 'option') ?></span>
+						<span class="title-text _25 header-title"><?php the_field('nav_title', 'option') ?></span>
 					</a>
+
+					<div class="search-wrapper mobile">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</div>
+
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -92,13 +97,13 @@
 
 						<form method="get" class="searchform" id="searchform" action="<?php echo esc_url( home_url( '/')); ?>">
 							<input type="text" class="field" name="s" id="searchInput" onkeyup="fetchResults()" placeholder="<?php esc_html_e('Search...'); ?>">
-							<?php if( 'any' != $post_type) { ?>
-								<input type="hidden" class="search-bar" name="post_type" value="<?php echo esc_attr($post_type); ?>">
-							<?php } ?>
+							<input type="hidden" class="search-bar" name="post_type" value="<?php echo esc_attr($post_type); ?>">
 						</form>
 
+						
+
 					</div>
-					<div class="col-1">
+					<div class="col-1 close-search-wrapper">
 						<div class="close-search"><i class="fa-solid fa-xmark"></i></div>
 					</div>
 

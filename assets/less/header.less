@@ -42,12 +42,26 @@ header {
                 }
 
                 .header-title {
-                    margin: auto auto 20px 20px;
+                    margin: 35px auto 0 20px;
                     line-height: 1.2;
 
                     @media @large-down {
                         display: none;
                     }
+                }
+            }
+
+            .search-wrapper {
+
+                &.mobile {
+                    margin: 2px 0 0 auto;
+
+
+                    @media @medium-up {
+                        display: none;
+                    }
+
+
                 }
             }
 
@@ -93,6 +107,7 @@ header {
                     display: flex;
                     align-items: center;
                     padding-right: 15px;
+
                 }
 
                 .switcher {
@@ -126,6 +141,10 @@ header {
                     list-style: none;
                     height: 60px;
                     margin: 0;
+
+                    a {
+                        font-size: 18px;
+                    }
                 }
                 .menu-item {
                     padding: 0 15px;
@@ -146,13 +165,13 @@ header {
                 height: 100%;
                 margin-left: auto;
 
-      
+                
                 
                 .menu-item {
 
                     @media @medium-up {
                         height: 100%;
-                        padding-bottom: 5px;
+                        padding-bottom: 15px;
           
                     }
 
@@ -163,6 +182,12 @@ header {
                         display: flex;
                         align-items: center;
                         text-decoration: none;
+                        font-size: 20px;
+
+                        @media @large-down {
+                            font-size: 18px;
+
+                        }
 
                         @media @medium-down {
                             padding: 15px;
@@ -204,6 +229,16 @@ header {
                     .sub-menu {
                         border: 0;
                         border-radius: 0;
+
+                        a {
+                            font-size: 18px;
+
+                            @media @large-down {
+                                font-size: 17px;
+    
+                            }
+                        }
+
                         
                     }
                 }
@@ -253,7 +288,7 @@ header {
                             a {
                                 align-items: unset;
                                 height: fit-content;
-                                padding: 10px 15px;
+                                padding: 5px 5px 5px 10px;
                             }
 
                             >.menu-item {
@@ -423,10 +458,38 @@ html {
             .search-form-row {
                 height: min-content;
 
+                @media @medium-down {
+                    margin-top: 40px;
+                }
+
                 .field {
                     width: ~'calc(100% - 15px)';
                     margin-left: auto;
+                    height: 45px;
+                    background-color: @primary-light-blue-4;
+                    padding-left: 15px;
+                    border: 0;
+
+                    &:focus {
+                        outline: 0;
+                    }
                 }
+
+                .close-search-wrapper {
+                    text-align: center;
+                    padding: 0;
+
+                    .close-search {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+
+                        svg {
+                            height: 30px;
+                        }
+                    }
+                }
+
             }
     
             #datafetch {
@@ -436,29 +499,42 @@ html {
                 flex-direction: column;
                 justify-content: flex-start;
                 flex-wrap: nowrap;
-
+                margin: 30px auto;
 
 
 
                 .search-post-row {
 
+                    .title-text {
+                        margin: 0;
+                        padding-left: 25px;
+                        color: @primary-dark-blue;
+                    }
+
                     .search-card-title {
                         white-space: normal;
-                        margin: 30px 0 15px;
-
+                        margin: 15px 0;
                     }
 
                     .search-post-column {
 
                         display: flex;
                         margin: 15px 0;
+
+                        @media @medium-down {
+                            margin: 5px 0;
+                        }
                         
                         .search-post-wrapper {
-                            border: 1px solid @primary-dark-blue;
                             padding: 15px;
                             height: 100%;
                             width: 100%;
+                            background-color: @off-white;
                             text-align: left;
+
+                            @media @medium-down {
+                                padding: 5px 15px;
+                            }
 
                             .content-wrapper {
                                 max-height: 100px;
@@ -468,6 +544,7 @@ html {
                                 display: -webkit-box;
                                 -webkit-line-clamp: 4;
                                 -webkit-box-orient: vertical;
+                                color: @primary-dark-blue;
                             }
                         }
 
@@ -479,6 +556,14 @@ html {
                             color: @primary-dark-blue;
                             justify-content: center;
                             height: 100%;
+
+                            max-height: 50px;
+                            overflow: hidden;
+                            position: relative;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
                         }
                     }
                 }

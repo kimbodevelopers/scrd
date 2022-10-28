@@ -259,6 +259,7 @@ function data_fetch() {
             's' => esc_attr( $_POST['keyword']),
 			'orderby'=>'post_type',
 			'order'=>'asc',
+			
         )
     );
  ?>
@@ -288,9 +289,23 @@ function data_fetch() {
 
 
 	<?php foreach(array_unique($post_types_array) as $post_type) : ?>
-		<?php  if($post_type !== 'attachment' && $post_type !== 'revision' && $post_type !== 'nav_menu_item' && $post_type !== 'custom_css' && $post_type !== 'customize_changeset' &&
-     $post_type !== 'oembed_cache' && $post_type !== 'user_request' && $post_type !== 'wp_block' && $post_type !== 'wp_template' &&
-     $post_type !== 'wp_template_part' && $post_type !== 'wp_global_styles' && $post_type !== 'wp_navigation' && $post_type !== 'acf-field-group' && $post_type !== 'acf-field-group' && $post_type !== 'acf-field')  : ?>
+		<?php  if($post_type !== 'attachment' 
+				&& $post_type !== 'revision' 
+				&& $post_type !== 'nav_menu_item' 
+				&& $post_type !== 'custom_css' 
+				&& $post_type !== 'customize_changeset' 
+				&& $post_type !== 'oembed_cache' 
+				&& $post_type !== 'user_request' 
+				&& $post_type !== 'wp_block' 
+				&& $post_type !== 'wp_template' 
+				&& $post_type !== 'wp_template_part' 
+				&& $post_type !== 'wp_global_styles' 
+				&& $post_type !== 'wp_navigation' 
+				&& $post_type !== 'acf-field-group' 
+				&& $post_type !== 'acf-field-group' 
+				&& $post_type !== "wpcf7_contact_form"
+				&& $post_type !== "post"
+				&& $post_type !== 'acf-field')  : ?>
 		
 			<?php 
 				$the_query_filtered = new WP_Query( 
@@ -303,9 +318,9 @@ function data_fetch() {
 			
 			?>
 
+
 			<?php $type_title = []; ?>
 			<div class="search-post-row row">
-
 
 				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
 					<?php if(get_the_title()) : ?>
@@ -315,7 +330,7 @@ function data_fetch() {
 				<?php endwhile; ?>
 
 				<?php if(str_replace('-', ' ', $type_title[0] ) == 'events announcements' ) : ?>
-					<?php if($type_title[0]) : ?><h1 class="title-text _25"><?php echo 'Events and Announcements' ; ?></h1><?php endif ?>
+					<?php if($type_title[0]) : ?><h1 class="title-text _25 mt-4 mb-2"><?php echo 'Events and Announcements' ; ?></h1><?php endif ?>
 				<?php else :  ?>
 
 					<?php 
@@ -336,22 +351,22 @@ function data_fetch() {
 						$newtitle = implode(' ', $words);
 					?>
 	
-					<h1 class="title-text _25"><?php echo $newtitle; ?></h1>
-					
+					<?php if($newtitle) : ?>
+					<h1 class="title-text _28 mt-4 mb-2"><?php echo $newtitle; ?></h1>
+					<?php endif; ?>
 				<?php endif; ?>
 
 				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
 
 					<div class="col-md-4 search-post-column">
 
-
 						<div class="search-post-wrapper">
-							<a href="<?php the_permalink(); ?>">
-								<h2 class="search-card-title body-text _20"><?php  the_title() ?></h2>
-								<section class="content-wrapper">
-									<?php the_content(); ?>
-								</section>
-							</a>
+							
+							<h2 class="search-card-title body-text _18"><a href="<?php the_permalink(); ?>"><?php  the_title() ?></a></h2>
+							<section class="content-wrapper">
+								<?php the_content(); ?>
+							</section>
+						
 						</div>
 					</div>
 				<?php endwhile; ?>
@@ -386,7 +401,7 @@ function ajax_fetch() {
                 type: 'post',
                 data: {
                     action: 'data_fetch', 
-                    keyword: keyword 
+                    keyword: keyword ,
                 },
                 success: function(data) {
                     $('#datafetch').html(data);
