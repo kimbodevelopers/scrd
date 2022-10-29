@@ -3,8 +3,8 @@
 /* Template Name: Custom Layout */
 ?>
 
-<div class="container-fluid site-component-container t1-container">
-    <div class="row site-component-row t1-row">
+<div class="container-fluid site-component-container">
+    <div class="row site-component-row">
         <?php
         if ( function_exists('yoast_breadcrumb') ) {
         yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );

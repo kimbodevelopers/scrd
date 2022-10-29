@@ -35,6 +35,8 @@
 
     <div class="row site-component-row large-cards-row">
 
+    <?php $posts_array_count = count($park_posts->posts) ?>
+
         <?php while($wp_query->have_posts()) : $wp_query->the_post(); ?>
             <?php get_template_part('inc/components/large-card') ?>
         <?php endwhile; ?>

@@ -4,7 +4,7 @@
 
     
     <div class="row site-component-row">
-        <h2 class="title-text _50 col-12"><?php the_field('featured_parks_and_rec_title', 'option') ?></h2>
+        <h2 class="title-text _33 col-12"><?php the_field('featured_parks_and_rec_title', 'option') ?></h2>
     </div>
 
     <div class="row site-component-row small-cards-row">

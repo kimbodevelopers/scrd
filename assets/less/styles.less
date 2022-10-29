@@ -44,13 +44,18 @@ html {
         }
     }
 
+    #breadcrumbs {
+        font-size: 22px;
+        margin: 0;
+    }
+
 
     a:hover {
         opacity: 0.7;
     }
 
     .site-component-container {
-        padding: 50px 0;
+        padding: 40px 0 30px;
 
         @media @medium-down {
             padding: 25px 0;
@@ -139,7 +144,7 @@ html {
                     border-radius: 3px;
                     text-decoration: none;
 
-                    &:hover {
+                    &:hover, &.current {
                         opacity: 1;
                         color: white;
                         background-color: @primary-dark-blue;

@@ -144,6 +144,7 @@ header {
 
                     a {
                         font-size: 18px;
+                        font-weight: 600;
                     }
                 }
                 .menu-item {
@@ -158,6 +159,8 @@ header {
                         
                     }
                 }
+
+
             }
 
 
@@ -171,8 +174,7 @@ header {
 
                     @media @medium-up {
                         height: 100%;
-                        padding-bottom: 15px;
-          
+                        padding-bottom: 5px;
                     }
 
                     width: 100%;
@@ -183,6 +185,7 @@ header {
                         align-items: center;
                         text-decoration: none;
                         font-size: 20px;
+                        font-weight: 600;
 
                         @media @large-down {
                             font-size: 18px;
@@ -229,6 +232,7 @@ header {
                     .sub-menu {
                         border: 0;
                         border-radius: 0;
+                        padding-left: 15px;
 
                         a {
                             font-size: 18px;
@@ -294,8 +298,6 @@ header {
                             >.menu-item {
                                 @media @medium-up {
                                     width: ~'calc(100% - 5px)';
-                                    
-   
 
                                     &:not(.menu-item-has-children) {
                                         a {
@@ -390,6 +392,18 @@ header {
 
 
                 }
+
+                .menu-item.quick-access {
+
+                    a {
+                        font-family: 'Montserrat', calibri, sans-serif;
+                    }
+
+                    a, a.nav-link:after {
+                        color: @primary-light-blue-1;
+                        
+                    }
+                }
                 
             }
         }
@@ -465,15 +479,23 @@ html {
                 .field {
                     width: ~'calc(100% - 15px)';
                     margin-left: auto;
-                    height: 45px;
+                    height: 50px;
                     background-color: @primary-light-blue-4;
                     padding-left: 15px;
                     border: 0;
+                    color: @primary-dark-blue;
+                    font-weight: bold;
+                    
 
                     &:focus {
                         outline: 0;
                     }
+
+                    &::placeholder {
+                        color: @primary-dark-blue;
+                    }
                 }
+
 
                 .close-search-wrapper {
                     text-align: center;

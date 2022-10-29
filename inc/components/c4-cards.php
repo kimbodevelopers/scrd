@@ -1,5 +1,10 @@
 <?php if(get_row_layout() === 'c4_cards') : ?>
     <div class="container-fluid site-component-container c4-cards-container">
+        
+        <div class="row site-component-row">
+            <h2 class="title-text _33 col-12"><?php the_sub_field('cards_title') ?></h2>
+        </div>
+
         <div class="row site-component-row c4-cards-row">
 
 
@@ -7,6 +12,8 @@
 
             <?php if($count % 4 === 0 || $count % 4 === 3 && $count > 12) : ?>
                 <?php $columns = 'col-md-3 col-sm-6 col-12 c4-card-column'; ?>
+            <?php elseif($count % 3 === 0) : ?>
+                <?php $columns = 'col-md-4 col-sm-6 col-12 c4-card-column'; ?>
             <?php elseif($count % 2 == 0 || $count > 12) : ?>
                 <?php $columns = 'col-md-3 col-sm-6 col-12 c4-card-column'; ?>
             <?php else : ?>
@@ -15,10 +22,12 @@
 
 
             <?php while(have_rows('cards')) : the_row(); 
+                $title = get_sub_field('cards_title');
                 $image = get_sub_field('image');
                 $label = get_sub_field('label');
                 $link = get_sub_field('link');
             ?>
+            
                 <div class="<?php echo $columns ?>">
                     <div class="c4-card-wrapper">
                         <?php if($image) : ?>                
@@ -42,11 +51,13 @@
                 $link = get_sub_field('view_button_link');
             ?>
 
-            <div class="row site-component-row button-row">
-                <div class="col-12 button-column">
-                    <a href="<?php echo $link ?>" class="site-button body-text _26"><?php echo $text ?></a>
+            <?php if($text || $link) : ?>
+                <div class="row site-component-row button-row">
+                    <div class="col-12 button-column">
+                        <a href="<?php echo $link ?>" class="site-button body-text _26"><?php echo $text ?></a>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
                 
             <?php endwhile; ?>
 

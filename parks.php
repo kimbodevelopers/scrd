@@ -30,11 +30,19 @@ global $post;
     require get_template_directory() . '/inc/park-filter.php';
 
     ?>
-
-
 	
-    <div  class="row site-component-row">
-        <form method="post" action="" class="parks-filter row">
+    <div  class="row site-component-row park-form-row">
+
+        <!-- localhost -->
+        <?php if(  $_SERVER['HTTP_HOST'] === 'localhost') : ?>
+            <?php $action_slug = 'http://' . $_SERVER['HTTP_HOST'] . '/scrd/parks/'; ?>
+
+        <?php elseif ($_SERVER['HTTP_HOST'] === 'scrd.kimboagency.com') : ?>
+            <?php $action_slug = 'http://' . $_SERVER['HTTP_HOST'] . '/parks/'; ?>
+        <?php endif; ?>
+
+
+        <form method="post" action="<?php echo $action_slug ?>" class="parks-filter row">
 
             <?php if(isset($_POST['park_type'])) : ?>
                 <?php $park_array = $_POST['park_type'] ?>
@@ -84,7 +92,7 @@ global $post;
 
             <div class="col-lg-6 col-md-4 submit-reset-column">
                 <input type="submit" value="Submit" name="submit" class='submit-button'>
-                <input type="submit" value="Reset" name="reset" class="submit-button">
+                <input type="submit" value="Reset" name="reset" class="submit-button reset-filter">
             </div>
 
         </form>
@@ -136,6 +144,8 @@ global $post;
     ?>    
 
     <div class="row site-component-row large-cards-row">
+
+    <?php $posts_array_count = count($park_posts->posts) ?>
 
         <?php while($wp_query->have_posts()) : $wp_query->the_post(); ?>
             <?php get_template_part('inc/components/large-card') ?>

@@ -1,4 +1,6 @@
-<div class="col-md-4 col-sm-6 col-12 large-cards-column">
+<?php global $posts_array_count ?>
+
+<div class="<?php if($posts_array_count % 4 === 0 && $posts_array_count <= 8 ) : ?>col-md-3<?php else :?> col-md-4<?php endif; ?> col-sm-6 col-12 large-cards-column">
     <a href="<?php the_permalink(); ?>">
         <div class="large-card-wrapper">
             <?php if(wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0]) : ?>                

@@ -15,6 +15,8 @@
         $wp_query = $current_projects;
     ?>
 
+<?php $posts_array_count = count($current_projects->posts) ?>
+
 
     <div class="row site-component-row large-cards-row">
         <?php while($wp_query->have_posts()) : $wp_query->the_post(); ?>
