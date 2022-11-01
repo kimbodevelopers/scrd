@@ -29,7 +29,10 @@
 					<?php wp_nav_menu($main_menu_param); ?>
 					</div>
 
+
 					<div class="col-md-5 footer-column top right">
+
+						<?php if(get_field('external_items', 'option')) : ?>
 						<div class="row external-links-row">
 							<?php while(have_rows('external_items', 'option')) : the_row(); 
 								$external_icon = get_sub_field('external_icon');
@@ -37,11 +40,12 @@
 								$external_link = get_sub_field('external_link');
 							?>
 								<div class="external-links-column">
-									<a href="<?php echo $external_link; ?>"><?php echo $external_icon; ?> <?php echo $external_label; ?></a>
+									<a href="<?php echo $external_link; ?>"><span><?php echo $external_icon; ?></span> <span><?php echo $external_label; ?></span></a>
 								</div>
 							<?php endwhile; ?>
 				
 						</div>
+						<?php endif; ?>
 
 						<div class="row social-icons-row">
 							<?php while(have_rows('social_media_items', 'option')) : the_row();

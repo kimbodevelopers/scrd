@@ -63,6 +63,71 @@
             padding-left: 20px;
             margin: 25px 0;
         }
+
+        #rCw {
+
+            @media @x-large-down {
+                width: 85vw;
+                max-width: 1160px;
+            }
+
+            @media @x-large-up {
+                width: 1160px;
+            }
+
+            @media @medium-down {
+                min-width: 100%;
+                margin: 0 -40px 0 -25px;
+
+                .recollect_form .btn-success {
+                    margin: 0;
+                    width: 100%;
+                }
+            
+                .page-section {
+                    .page-row {
+                        .page-row-content[data-type="search"] input[type=search]{
+                            width: 100%;
+                        }
+
+                        .page-row-content {
+                            padding: 15px;
+                        }
+                    }
+                }
+
+                ul {
+
+                    height: unset;
+
+                    &.nav-pills {
+                        li {
+                            width: calc(100% / 3);
+                            min-width: unset;
+    
+                            a {
+                                padding: 10px 0;
+                                margin: 0;
+                                height: unset;
+                            }
+                        }
+                    }
+
+
+
+                }
+
+                .page-section {
+                    margin: 0;
+                    padding: 0;
+                }
+
+            }
+
+
+
+
+        }
     }
 
     .carousel {

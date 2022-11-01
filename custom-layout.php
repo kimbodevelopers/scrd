@@ -23,6 +23,7 @@
         <?php get_template_part('inc/components/h1-hero') ?>
         <?php get_template_part('inc/components/p2-picture-text') ?>
         <?php get_template_part('inc/components/p3-map') ?>
+        <?php get_template_part('inc/components/p4-video-embed') ?>
         <?php get_template_part('inc/components/a1-accordion-faq') ?>
 
     <?php endwhile; ?>

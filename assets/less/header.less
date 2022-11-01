@@ -254,7 +254,7 @@ header {
 
 
                         @media @medium-up {
-                            min-height: 200px;
+                            min-height: 150px;
                         }
 
          
@@ -336,8 +336,12 @@ header {
                                 border-top: unset;
                                 padding: 5px;
                                 border-radius: unset;
+                                justify-content: space-between;
+                                width: ~'calc(100% - 15px)';
 
-       
+                                &:hover {
+                                    background-color: @primary-light-blue-4;
+                                }
 
                                 @media @medium-down {
                                     padding: 0 15px 0 30px;
@@ -359,6 +363,7 @@ header {
                                     width: fit-content;
                                     height: 100%;
                                     margin-left: 15px;
+                                    margin-right: 15px;
                                 }
                             }
             
@@ -394,10 +399,6 @@ header {
                 }
 
                 .menu-item.quick-access {
-
-                    a {
-                        font-family: 'Montserrat', calibri, sans-serif;
-                    }
 
                     a, a.nav-link:after {
                         color: @primary-light-blue-1;
@@ -466,7 +467,11 @@ html {
             bottom: 0;
             opacity: 0;
             transition: 1s linear opacity;
-        
+            top: 172px;
+
+            @media @medium-down {
+                top: 102px;
+            }
     
     
             .search-form-row {
