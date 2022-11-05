@@ -1,10 +1,12 @@
 footer {
     background-color: @primary-dark-blue;
-    padding: 50px 0px 30px;
+    padding: 0px 0px 30px;
     color: white;
+    border-bottom: 10px solid @primary-light-blue-2;
 
     @media @medium-up {
-        padding: 100px 0px 30px;
+        padding: 25px 0px 30px;
+        border-bottom: 20px solid @primary-light-blue-2;
     }
 
     .site-component-container {
@@ -45,13 +47,26 @@ footer {
         .footer-column.top.right {
     
             flex-wrap: wrap;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+
+            .footer-acknowledgement {
+                p {
+                    color: white;
+                }
+
+                @media @medium-down {
+                    margin: 15px 0 0;
+                }
+            }
     
             .external-links-row {
     
-                padding: 78px 0 35px;
+                padding: 55px 0 35px;
     
                 @media @medium-down {
-                    padding: 35px 0;
+                    padding: 10px 0 25px
                 }
     
                 .external-links-column {
@@ -65,10 +80,16 @@ footer {
             }
     
             .social-icons-row {
-                padding-bottom: 68px;
+                padding-bottom: 17px;
+                justify-content: space-between;
     
                 .social-icon-column {
                     width: max-content;
+
+                    @media @medium-down {
+                        width: 50%;
+                        padding-bottom: 15px;
+                    }
     
                     a {
                         color: white;
@@ -89,6 +110,7 @@ footer {
             }
     
             p {
+                color: white;
                 margin: 0;
             }
         }
@@ -137,10 +159,10 @@ footer {
             }
     
             .footer-bottom-column {
-                width: max-content;
     
                 &.footer-author {
-                    margin-left: auto;
+                    display: flex;
+                    justify-content: flex-end;
     
                     @media @medium-down {
                         margin-left: unset;

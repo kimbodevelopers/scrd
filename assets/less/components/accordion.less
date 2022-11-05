@@ -1,42 +1,113 @@
-.accordion {
-    .accordion-button:not(.collapsed) {
-        background-color: unset;
-    }
+.site-component-container {
+    .accordion {
+        --bs-accordion-transition: unset;
 
-    .accordion-item {
-        border: 0;
-    }
-
-    .accordion-button {
-        color: @primary-dark-blue;
-        border-top: 1px solid @grey-5;
-        margin: 0;
-        padding: 25px 15px;
-
-        &:focus {
-            box-shadow: unset;
-            border-color: unset;
+        .accordion-button:not(.collapsed) {
+            background-color: unset;
+        }
+    
+        .accordion-item {
+            border: 0;
+        }
+    
+        .accordion-button {
+            color: @primary-dark-blue;
             border-top: 1px solid @grey-5;
+            margin: 0;
+            padding: 25px 15px;
+            border-radius: 0;
+    
+            &:focus {
+                box-shadow: unset;
+                border-color: unset;
+                border-top: 1px solid @grey-5;
+            }
         }
-    }
+    
+        .accordion-collapse {
+            border-top: 1px solid @grey-5;
 
-    .accordion-collapse {
-        border-top: 1px solid @grey-5;
-    }
-
-    .accordion-body {
-        color: @dark-teal;
-        padding: 30px 40px;
-
-        ul {
-            padding-left: 20px;
         }
+    
+        .accordion-body {
+            color: @dark-teal;
+            padding: 30px 40px;
+    
+            ul {
+                padding-left: 20px;
+            }
+
+            h1, h2, h3 {
+                color: @primary-dark-blue;
+                margin: 30px 0;
+                font-family: 'Montserrat', calibri, sans-serif;
+            }
+    
+            h1 {
+                font-size: 50px;
+                font-weight: bold;
+                margin-top: 0;
+                font-family: 'Montserrat', calibri, sans-serif;
+        
+                @media @medium-down {
+                    font-size: 36px;
+                }
+        
+                @media @x-small-down {
+                    font-size: 30px;
+                }
+            }
+    
+            h2 {
+                font-size: 33px;
+                font-weight: 600;
+        
+                @media @medium-down {
+                    font-size: 28px;
+                }
+        
+                @media @x-small-down {
+                    font-size: 25px;
+                }
+            }
+    
+            h3 {
+                font-size: 25px;
+                font-weight: 600;
+        
+                @media @medium-down {
+                    font-size: 22px;
+                }
+        
+                @media @x-small-down {
+                    font-size: 16px;
+                }
+            }
+    
+    
+            h1, h2, h3, h4 {
+                margin-bottom: 30px;
+            }
+    
+        }
+
+        .accordion-item:last-of-type {
+
+            .accordion-button {
+                &:focus {
+                    box-shadow: unset;
+                    border-color: unset;
+                    border-top: 1px solid @grey-5;
+                }
+            }
+
+            .accordion-button.collapsed {
+                border-radius: 0;
+                border-bottom: 1px solid @grey-5;
+                
+            }
+        }
+    
     }
-
-
-    &.a1 {
-
-    }
-
-
 }
+

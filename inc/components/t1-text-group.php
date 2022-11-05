@@ -4,6 +4,7 @@
         $images = get_sub_field('gallery');
         $indicator_index = 1;
         $image_index = 1;
+        $multi_columns_title = get_sub_field('multi_column_title');
     ?>
         <div class="container-fluid site-component-container t1-container">
             <div class="row site-component-row t1-row">
@@ -38,7 +39,6 @@
                             <?php endforeach; ?>
                         </div>
 
-
                         <?php if(count($images) > 1) : ?>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselT1Indicator-<?php echo get_row_index() ?>" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -51,29 +51,69 @@
                         <?php endif; ?>
 
                     </div>
-                    <?php endif; ?>
-
-
-            </div>
-
-            <?php while(have_rows('two_columns')) : the_row(); 
-                $left_column = get_sub_field('left_column');
-                $right_column = get_sub_field('right_column');
-            ?>
-            <div class="row site-component-row">
-                <?php if ($left_column) : ?>
-                    <div class="col-md-6">
-                        <?php echo $left_column; ?>
-                    </div>
-                <?php endif; ?>
-                
-                <?php if ($right_column) : ?>
-                    <div class="col-md-6">
-                        <?php echo $right_column; ?>
-                    </div>
                 <?php endif; ?>
             </div>
-            <?php endwhile; ?>
+
+            <?php if($multi_columns_title) : ?>
+                <div class="row site-component-row t1-row">
+                    <h2 class="mb-1"><?php echo $multi_columns_title ?></h2>
+                </div>
+            <?php endif; ?>
+
+            <?php if(get_sub_field('column_numbers') === 'two') : ?>
+                <?php if(have_rows('two_columns')) : ?>
+                    <?php while(have_rows('two_columns')) : the_row(); 
+                        $left_column = get_sub_field('left_column');
+                        $right_column = get_sub_field('right_column');
+                    ?>
+                        <?php if ($left_column || $right_column) : ?>
+                            <div class="row site-component-row two-column-row">
+                                <div class="col-md-6 one-column">
+                                    <?php echo $left_column; ?>
+                                </div>
+                            
+                                <div class="col-md-6 one-column">
+                                    <?php echo $right_column; ?>
+                                </div>
+                                
+                            </div>
+
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+
+                <?php endif; ?>
+            <?php endif; ?>
+
+            <?php if(get_sub_field('column_numbers') === 'three') : ?>
+                <?php if(have_rows('three_columns')) : ?>
+                    <?php while(have_rows('three_columns')) : the_row(); 
+                        $left_column = get_sub_field('left_column');
+                        $mid_column = get_sub_field('mid_column');
+                        $right_column = get_sub_field('right_column');
+                    ?>
+                        <?php if ($left_column || $right_column || $mid_column) : ?>
+                            <div class="row site-component-row two-column-row">
+                                <div class="col-md-4 one-column">
+                                    <?php echo $left_column; ?>
+                                </div>
+
+                                <div class="col-md-4 one-column">
+                                    <?php echo $mid_column; ?>
+                                </div>
+                            
+                                <div class="col-md-4 one-column">
+                                    <?php echo $right_column; ?>
+                                </div>
+                                
+                            </div>
+
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+
+                <?php endif; ?>
+            <?php endif; ?>
+
+
         </div>
 
     <?php endwhile; ?>

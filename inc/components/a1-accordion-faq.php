@@ -3,10 +3,16 @@
 
     <div class="container-fluid large-cards-container site-component-container">
 
-        <?php if(get_sub_field('title')) : ?>
-        <div class="row site-component-row">
-            <h2 class="title-text _50 col-12"><?php echo get_sub_field('title') ?></h2>
-        </div>
+        <?php if(get_sub_field('title')) :?>
+            <div class="row site-component-row">
+                <h2 class="title-text _33 col-12"><?php echo get_sub_field('title') ?></h2>
+            </div>
+        <?php endif; ?>
+
+        <?php if(get_sub_field('description')) : ?>
+            <div class="row site-component-row">
+                <div class="mb-3"><?php echo get_sub_field('description') ?></div>
+            </div>
         <?php endif; ?>
 
         <div class="row site-component-row large-cards-row">

@@ -1,8 +1,9 @@
-<?php if(get_field('recreation_contact', 'option')) : ?>
-    <?php while(have_rows('recreation_contact', 'option')) : the_row(); 
+<?php if(get_field('water_contact', 'option')) : ?>
+    <?php while(have_rows('water_contact', 'option')) : the_row(); 
         $department_name = get_sub_field('department_name');
         $phone_number = get_sub_field('phone_number');
         $email = get_sub_field('email');
+        $secondary_number = get_sub_field('secondary_number')
     ?>
 
     <div class="container-fluid site-component-container pt-0">
@@ -21,6 +22,10 @@
 
                 <?php if($email) : ?>
                     <p class="body-text _17">Email: <a href="mailto:<?php echo $email ?>"><?php echo $email; ?></a></p>
+                <?php endif; ?>
+
+                <?php if($secondary_number) : ?>
+                    <p class="body-text _17">Emergency Water/Wastewater Answering Service: <a href="tel:<?php echo $secondary_number; ?>"><?php echo $secondary_number; ?></a></p>
                 <?php endif; ?>
             </div>
         </div>

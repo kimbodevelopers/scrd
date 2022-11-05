@@ -29,8 +29,18 @@
 					<?php wp_nav_menu($main_menu_param); ?>
 					</div>
 
+					<div class="col-md-1"></div>
 
-					<div class="col-md-5 footer-column top right">
+					
+
+					<div class="col-md-6 footer-column top right">
+
+						<?php if(get_field('footer_acknowledgement', 'option')) : ?>
+							<div class="footer-acknowledgement">
+								<p class="body-text _16"><?php the_field('footer_acknowledgement', 'option') ?></p>
+							</div>
+						<?php endif; ?>
+
 
 						<?php if(get_field('external_items', 'option')) : ?>
 						<div class="row external-links-row">
@@ -59,12 +69,10 @@
 							<?php endwhile; ?>
 						</div>
 
-						<div>
-							<p class="body-text _16"><?php the_field('footer_acknowledgement', 'option') ?></p>
-						</div>
-					</div>
 
-					<div class="col-md-3 footer-spacer"></div>
+					</div>
+					<div class="col-md-1"></div>
+
 				</div>
 
 				<div class="row site-component-row footer-bottom-row">
@@ -75,9 +83,9 @@
 						$footer_author = get_sub_field('footer_author');
 						$footer_author_link = get_sub_field('footer_author_link');
 					?>
-						<div class="footer-copyright footer-bottom-column"><?php echo $footer_copyright; ?></div>
-						<div class="footer-legal footer-bottom-column"><a href="<?php echo $footer_legal_link; ?>"><?php echo $footer_legal ?></a></div>
-						<div class="footer-author footer-bottom-column">Website by: <a href="<?php echo $footer_author_link ?>"><?php echo $footer_author ?></a></div>
+						<div class="footer-copyright footer-bottom-column col-md-5"><?php echo $footer_copyright; ?></div>
+						<div class="footer-legal footer-bottom-column col-md-4"><a href="<?php echo $footer_legal_link; ?>"><?php echo $footer_legal ?></a></div>
+						<div class="footer-author footer-bottom-column col-md-3">Website by: <a href="<?php echo $footer_author_link ?>"><?php echo $footer_author ?></a></div>
 					<?php endwhile; ?>
 				</div>
 

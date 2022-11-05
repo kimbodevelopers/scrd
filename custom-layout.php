@@ -1,6 +1,7 @@
 <?php defined('ABSPATH') or die(""); ?>
 <?php get_header(); 
 /* Template Name: Custom Layout */
+
 ?>
 
 <div class="container-fluid site-component-container">
@@ -30,27 +31,30 @@
 
 <?php endif; ?>
 
-<?php $parent_title = strtolower(get_the_title($post->post_parent)); ?>
+<?php 
+    if ( 0 == $post->post_parent ) {
+        get_the_title();
 
-<?php if($parent_title === 'parks') : ?>
-    <div class="container-fluid site-component-container pt-0">
-        <div class="row site-component-row">
-            <div class="col-12">
-                <?php get_template_part('inc/components/contacts/parks-contact') ?>
-            </div>
-        </div>
-    </div>
+        $parent_title = get_the_title();
+    } else {
+        $parents = get_post_ancestors( $post->ID );
+        $parent_title = apply_filters( "the_title", get_the_title( end ( $parents ) ) );
+    }
+?>
+
+<?php if(strtolower($parent_title) === 'parks') : ?>
+    <?php get_template_part('inc/components/contacts/parks-contact') ?>
 <?php endif; ?>
 
-<?php if($parent_title === 'recreation') : ?>
-    <div class="container-fluid site-component-container pt-0">
-        <div class="row site-component-row">
-            <div class="col-12">
-                <?php get_template_part('inc/components/contacts/recreation-contact') ?>
-            </div>
-        </div>
-    </div>
+<?php if(strtolower($parent_title) === 'recreation') : ?>
+    <?php get_template_part('inc/components/contacts/recreation-contact') ?>
 <?php endif; ?>
+
+
+<?php if(strtolower($parent_title) === 'water') : ?>
+    <?php get_template_part('inc/components/contacts/water-contact') ?>
+<?php endif; ?>
+
 
 
 

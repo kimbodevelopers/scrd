@@ -33,3 +33,42 @@
         opacity: 0%;
     }
 }
+
+
+/* .p4-slide-up {
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-duration: .5s;
+    transition-timing-function: ease-in-out;
+    animation-name: slideup;
+}
+
+.p4-slide-down {
+
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    transition-timing-function: ease-in-out;
+    animation-duration: .5s;
+    animation-name: slidedown;
+}
+
+
+@keyframes slideup {
+    0% {
+        height: 100%;
+    }
+
+    100% {
+        height: 150px;
+    }
+}
+
+@keyframes slidedown {
+    0% {
+        height: 150px;
+    }
+
+    100% {
+        height: 100%;
+    }
+} */

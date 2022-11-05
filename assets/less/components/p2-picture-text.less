@@ -1,8 +1,7 @@
 .p2-container {
+
+
     .p2-row {
-
-        padding-bottom: 50px;
-
         &:nth-child(even) {
             flex-direction: row-reverse;
             justify-content: flex-end;
@@ -12,6 +11,23 @@
                 justify-content: unset;
             }
         }
+    }
+
+    .p2-row-reverse {
+        &:nth-child(odd) {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+
+            @media @medium-down {
+                flex-direction: unset;
+                justify-content: unset;
+            }
+        }
+    }
+
+    .p2-row, .p2-row-reverse {
+
+        padding-bottom: 50px;
 
         .image-column {
             img {
@@ -31,6 +47,27 @@
                 margin-left: 0;
             }
 
+            h1, h2, h3 {
+                color: @primary-dark-blue;
+                margin: 30px 0;
+                font-family: 'Montserrat', calibri, sans-serif;
+            }
+    
+            h1 {
+                font-size: 50px;
+                font-weight: bold;
+                margin-top: 0;
+                font-family: 'Montserrat', calibri, sans-serif;
+        
+                @media @medium-down {
+                    font-size: 36px;
+                }
+        
+                @media @x-small-down {
+                    font-size: 30px;
+                }
+            }
+
 
             li {
                 font-size: 21px;
@@ -43,6 +80,52 @@
                     font-size: 17px;
                 }
             }
+
+            @media @medium-up {
+
+                .content-200 {
+                    max-height: 200px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .content-overlay {
+                    &.content-gradient-on {
+                        z-index: 2;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        position: absolute;
+                        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) , rgba(255, 255, 255, 0), rgba(255,255,255, 1));
+                    }
+
+                    &.content-gradient-off {
+                        z-index: 0;
+                        background-image: unset;
+
+                    }
+                }
+
+                .read-less-collapse {
+                    display: none;
+                }
+
+                .read-more-expand, .read-less-collapse {
+                    color: @primary-light-blue-1;
+                    cursor: pointer;
+                }
+
+
+
+                .content-max {
+                    overflow: hidden;
+                    position: relative;
+                }
+
+
+            }
         }
     }
+
 }

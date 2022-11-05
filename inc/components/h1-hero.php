@@ -1,3 +1,5 @@
+<?php if(have_rows('hero_slides')) : ?>
+
 <div id="carouselHeroIndicator" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <?php while(have_rows('hero_slides')) : the_row(); ?>
@@ -25,3 +27,4 @@
     </button>
 </div>
 
+<?php endif; ?>
