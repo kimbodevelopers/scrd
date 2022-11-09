@@ -477,3 +477,29 @@ add_action('wp_ajax_filter_meetings', 'filter_meetings');
 add_action('wp_ajax_nopriv_filter_meetings', 'filter_meetings');
 
 
+// function that runs when shortcode is called
+function wpb_button_shortcode($atts = []) { 
+
+	$wporg_atts = shortcode_atts(
+		array(
+			'title' => 'asdf',
+			'link' => '',
+		), $atts
+	);
+  
+	// Things that you want to do.
+	$message = '<div class="row site-component-row button-row mt-4">
+		<div class="col-12 button-column p-0">
+			<a class="site-button body-text _26 ml-0" href="'. esc_html__( $wporg_atts['link'], 'wysiwyg_button' ) . ' ">
+			' . esc_html__( $wporg_atts['title'], 'wysiwyg_button' ) .
+			'</a>
+		</div>'; 
+
+	return $message;
+}
+
+function wporg_shortcodes_init() {
+	add_shortcode('wysiwyg_button', 'wpb_button_shortcode');
+}
+
+add_action( 'init', 'wporg_shortcodes_init' );

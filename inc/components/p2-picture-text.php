@@ -10,8 +10,32 @@
             ?>
                 <div class="row site-component-row <?php if($image_position === 'image_left') : ?>p2-row <?php elseif ($image_position === 'image_right') : ?> p2-row-reverse<?php else : ?> p2-row<?php endif; ?>">
                     <div class="col-lg-4 image-column">
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <?php if($image) : ?>  
+                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            <?php else : ?>
+                                <img class="p6-card-image" src="<?php echo get_field('placeholder_image', 'option')['url'] ?>" />
+                            <?php endif; ?>
+                        </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <?php if($image) : ?>  
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                    <?php else : ?>
+                                        <img class="p6-card-image" src="<?php echo get_field('placeholder_image', 'option')['url'] ?>" />
+                                    <?php endif; ?>                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="col-lg-6 content-column">
                         <div class="content-wrapper">
                             <?php if($title) : ?>

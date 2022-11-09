@@ -8,6 +8,7 @@
             $label = get_sub_field('label');
             $file = get_sub_field('file');
             $link = get_sub_field('link');
+            $image = get_sub_field('image');
         ?>
             <div class="col-12 b1-table-column">
                 <?php if($file) : ?>
@@ -22,6 +23,35 @@
                         <span class="title-text _21"><?php echo $label ?></span>
                         <span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                     </a>
+                <?php endif; ?>
+
+                <?php if($image) : ?>
+
+
+
+
+                    <button type="button" class="btn image-row-wrapper" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <span class="title-text _21"><?php echo $label ?></span>
+                        <span><i class="fa-regular fa-image"></i></span>                    
+                    </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+        
                 <?php endif; ?>
 
             </div>

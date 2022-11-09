@@ -3,6 +3,7 @@
     <?php while(have_rows('table_group')) : the_row(); 
         $title = get_sub_field('title');
         $subtitle = get_sub_field('subtitle');
+        $sub_text = get_sub_field('sub_text');
     ?>
 
         <div class="container-fluid site-component-container b3-table-container">
@@ -59,6 +60,12 @@
 
                     ?>
 
+                </div>
+
+                <div class="col-12">
+                    <div class="body-text _17">
+                        <?php echo $sub_text ?>
+                    </div>
                 </div>
             </div>
         </div>

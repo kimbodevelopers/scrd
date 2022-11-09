@@ -234,13 +234,14 @@
               $(this).find(rows[i]).find('.read-more-expand').hide()
               $(this).find(rows[i]).find('.read-less-collapse').hide();
               $(this).find(rows[i]).find('.content-overlay').hide();
+              $('.p2-content').css({'max-height': imageHeight})
             }
           }
         }
 
         if($('.p2-row-reverse').length >= 1 ) {
           
-          let rows = $('.p2-row-reverse')
+          let rows = $('.p2-row-reverse');
 
           for(let i = 0; i <= rows.length - 1; i++) {
 
@@ -251,6 +252,7 @@
               $(this).find(rows[i]).find('.read-more-expand').hide()
               $(this).find(rows[i]).find('.read-less-collapse').hide();
               $(this).find(rows[i]).find('.content-overlay').hide();
+              $('.p2-content').css({'max-height': imageHeight })
             }
   
   

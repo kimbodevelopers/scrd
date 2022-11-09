@@ -6,6 +6,7 @@
 @import 'single-parks.less';
 @import 'parks.less';
 
+
 @import 'components/popular-services.less';
 @import 'components/small-cards.less';
 @import 'components/large-cards.less';
@@ -23,7 +24,10 @@
 @import 'components/p2-picture-text.less';
 @import 'components/p3-map.less';
 @import 'components/p4-video-embed.less';
+@import 'components/f1-form.less';
+@import 'components/p6-non-linked-cards.less';
 @import 'components/featured-services.less';
+@import 'components/form.less';
 
 @media screen and (max-width: 782px) {
     html #wpadminbar {
@@ -78,6 +82,10 @@ html {
 
             a {
                 color: @primary-dark-blue;
+            }
+
+            p, h1, h2, h3 {
+                padding-left: 0;
             }
         }
 
@@ -134,6 +142,71 @@ html {
             p {
                 margin-bottom: 10px;
             }
+        }
+
+        .btn {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 0;
+        }
+
+        .btn:hover, .btn:focus {
+            border-color: transparent;
+        }
+
+        .modal {
+
+            max-height: 100vh;
+
+            .modal-dialog {
+                max-width: unset;
+                height: 100%;
+
+                display: flex;
+                margin: auto;
+
+                .modal-content {
+                    width: fit-content;
+                    height: ~'calc(100% - 80px)';
+                    margin: auto;
+                    border-radius: 0;
+                    background-color: transparent;
+                    border: 0;
+
+                    .modal-header {
+
+                        border-bottom: 0;
+                        padding: 15px;
+
+                        .btn-close {
+                            filter: brightness(0) invert(1);
+                        }
+
+                        .btn-close:focus {
+                            border-color: transparent;
+                            box-shadow: none;
+                        }
+                    }
+
+                    .modal-header {
+                        background-color: transparent;
+                    }
+                    
+                    .modal-body {
+                        height: 100%;
+                        padding: 15px;
+
+                        img {
+                            height: ~'calc(100% - 15px)';
+                            width: 100%;
+                            max-height: ~'calc(100vh - 100px)';
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+
         }
 
         .pagination-row {

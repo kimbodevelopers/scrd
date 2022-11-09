@@ -1,16 +1,19 @@
 <?php defined('ABSPATH') or die(""); ?>
 <?php get_header(); 
 /* Template Name: Custom Layout */
+global $post;
 
 ?>
 
 <div class="container-fluid site-component-container">
     <div class="row site-component-row">
-        <?php
-        if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
+        <div class="col-12">
+            <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+            }
+            ?>
+        </div>
     </div>
 </div>
 
@@ -25,8 +28,9 @@
         <?php get_template_part('inc/components/p2-picture-text') ?>
         <?php get_template_part('inc/components/p3-map') ?>
         <?php get_template_part('inc/components/p4-video-embed') ?>
+        <?php get_template_part('inc/components/p6-non-linked-cards') ?>
         <?php get_template_part('inc/components/a1-accordion-faq') ?>
-
+        <?php get_template_part('inc/components/f1-form') ?>
     <?php endwhile; ?>
 
 <?php endif; ?>
@@ -38,20 +42,22 @@
         $parent_title = get_the_title();
     } else {
         $parents = get_post_ancestors( $post->ID );
-        $parent_title = apply_filters( "the_title", get_the_title( end ( $parents ) ) );
+        $top_parent_title = apply_filters( "the_title", get_the_title( end ( $parents ) ) );
+        $direct_parent_title = get_the_title($post->post_parent);
     }
 ?>
 
-<?php if(strtolower($parent_title) === 'parks') : ?>
+<?php if(strtolower($top_parent_title) === 'parks' || strtolower($direct_parent_title) === 'parks') : ?>
     <?php get_template_part('inc/components/contacts/parks-contact') ?>
 <?php endif; ?>
 
-<?php if(strtolower($parent_title) === 'recreation') : ?>
+
+<?php if(strtolower($top_parent_title) === 'recreation' || strtolower($direct_parent_title) === 'recreation') : ?>
     <?php get_template_part('inc/components/contacts/recreation-contact') ?>
 <?php endif; ?>
 
 
-<?php if(strtolower($parent_title) === 'water') : ?>
+<?php if(strtolower($top_parent_title) === 'water') : ?>
     <?php get_template_part('inc/components/contacts/water-contact') ?>
 <?php endif; ?>
 

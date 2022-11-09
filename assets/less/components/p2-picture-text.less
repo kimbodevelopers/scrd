@@ -2,9 +2,29 @@
 
 
     .p2-row {
+
+        &:nth-child(odd) {
+            .content-column {
+                padding-left: 20px;
+
+                @media @medium-down {
+                    padding-left: 0;
+                }
+            }
+        }
+
         &:nth-child(even) {
             flex-direction: row-reverse;
             justify-content: flex-end;
+
+            .content-column {
+                padding-right: 20px;
+
+                @media @medium-down {
+                    padding-right: 0;
+                }
+            }
+
 
             @media @medium-down {
                 flex-direction: unset;
@@ -30,6 +50,7 @@
         padding-bottom: 50px;
 
         .image-column {
+
             img {
                 width: 100%;
                 height: auto;
@@ -41,7 +62,6 @@
         }
 
         .content-column {
-            margin-left: 20px;
 
             @media @medium-down {
                 margin-left: 0;
@@ -84,7 +104,6 @@
             @media @medium-up {
 
                 .content-200 {
-                    max-height: 200px;
                     overflow: hidden;
                     position: relative;
                 }

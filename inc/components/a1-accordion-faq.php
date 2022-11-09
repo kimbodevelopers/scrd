@@ -5,7 +5,7 @@
 
         <?php if(get_sub_field('title')) :?>
             <div class="row site-component-row">
-                <h2 class="title-text _33 col-12"><?php echo get_sub_field('title') ?></h2>
+                <div class="col-12"><h2 class="title-text _33 col-12"><?php echo get_sub_field('title') ?></h2></div>
             </div>
         <?php endif; ?>
 
