@@ -1,0 +1,46 @@
+.upcoming-meeting-title {
+    color: @primary-dark-blue;
+}
+
+html .site-component-container.agendas-upcoming-container {
+    
+        
+    .agendas-row {
+
+        .meeting-header, .zoom-header {
+            @media @small-down {
+                display: none;
+            }
+        }
+
+        .agenda-item-header, .agenda-items-row {
+            max-width: 1000px;
+            margin-right: auto;
+            margin-left: 0;
+            padding: 0;
+            align-items: center;
+
+            .webinar-icon-column {
+
+                @media @small-down {
+                    text-align: left;
+                    margin-top: 20px;
+                }
+
+                .webinar-icon {
+                    width: 75px;
+                    margin-bottom: 15px;
+
+                    @media @medium-down {
+                        width: 40px;
+                        margin-bottom: 0px
+                    }
+                }
+            }
+        }
+
+        .agenda-items-row {
+            margin: 15px 0; 
+        }
+    }
+}

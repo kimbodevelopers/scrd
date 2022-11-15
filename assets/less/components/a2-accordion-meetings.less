@@ -1,0 +1,177 @@
+
+.agendas-button-row {
+
+    max-width: 1000px;
+
+    .meetings-title-column {
+        display: flex;
+        align-items: center;
+
+        .title-text {
+            margin: 0;
+            color: @primary-dark-blue;
+        }
+    }
+
+    .meetings-title-column, .meetings-dropdown-column {
+        max-width: 500px;
+    }
+
+    .dropdown {
+
+        max-width: 1000px;
+        text-align: right;
+
+        @media @medium-down {
+            text-align: left;
+        }
+
+
+        .btn {
+
+            color: white;
+
+            &.show:focus {
+                box-shadow: none;
+
+            }
+        }
+
+        .dropdown-toggle {
+            width: fit-content;
+            min-width: 100px;
+            margin: 50px 0;
+            height: 30px;
+            border: 0;
+            background-color: @primary-light-blue-2;
+
+            @media @medium-down {
+                margin: 15px 0;
+            }
+
+            &::after {
+                transform: translateY(2px);
+            }
+        }
+
+        .dropdown-menu {
+             padding: 0;
+             border-radius: 0;
+        }
+
+        .dropdown-item {
+            text-align: center;
+
+            &:active {
+                background-color: @primary-light-blue-4;
+            }
+        }
+
+
+    }
+
+
+}
+
+
+.agendas-container {
+    @media @medium-up {
+        min-height: 500px;
+    }
+}
+
+.agendas-row {
+
+    .agenda-item-header {
+        text-align: center;
+        font-weight: bold;
+        color: @dark-teal;
+
+        &.past {
+            margin: 30px 15px 15px 100px;
+
+            @media @medium-down {
+                margin: 15px 15px 15px 30px;
+            }
+    
+            @media @small-down {
+                margin: 15px 0 0;
+                align-items: center;
+            }
+        }
+
+
+        .time-header {
+            text-align: left;
+
+            @media @small-down {
+                display: none;
+            }
+        }
+
+    }
+
+    .agenda-items-row {
+        text-align: center;
+        border-bottom: 1px solid @grey-5;
+        margin: 15px 15px -1px 100px;
+        padding: 15px 0;
+
+        @media @medium-down {
+            margin: 15px 15px 15px 30px;
+        }
+
+        @media @small-down {
+            margin: 0;
+        }
+        .meeting-status {
+            text-transform: capitalize;
+        }
+        
+        .agenda-icon-column {
+            svg {
+                font-size: 40px;
+
+                @media @small-down {
+                    font-size: 30px;
+                }
+            }
+        }
+
+
+        
+
+        .time-item-column, .meeting-item-column {
+            text-align: left;
+
+            &.mobile {
+                display: none;
+            }
+
+            @media @small-down {
+                &.desktop {
+                    display: none;
+                }
+                &.mobile {
+                    display: flex;
+                    justify-content: center;
+                    margin: 30px 0 0 -5px;
+                }
+            }
+            @media @x-small-down {
+                &.mobile {
+                    display: flex;
+                    margin: 15px 0 15px 0;
+                    justify-content: flex-start;
+                }
+            }
+
+            
+        }
+
+        .meeting-item-column {
+            text-align: center;
+        }
+    }
+
+}
