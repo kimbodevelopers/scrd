@@ -3,7 +3,6 @@
     animation-fill-mode: forwards;
     animation-play-state: running;
     animation-duration: 0.5s;
-    animation-delay: 0.3s;
 }
 
 @keyframes fade-in {
@@ -26,13 +25,17 @@
 @keyframes fade-out {
     0% {
         opacity: 100%;
-        display: block;
+        display: block !important;
     }
+
 
     100% {
         opacity: 0%;
+        display: none !important;
     }
 }
+
+
 
 
 /* .p4-slide-up {

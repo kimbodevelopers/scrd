@@ -273,6 +273,7 @@ function data_fetch() {
         )
     );
  ?>
+
 	
 	<?php $post_types_array = [] ?>
 
@@ -298,8 +299,11 @@ function data_fetch() {
     <?php // die(); ?>
 
 
+
+
 	<?php foreach(array_unique($post_types_array) as $post_type) : ?>
-		<?php  if($post_type !== 'attachment' 
+		<?php  if(
+				$post_type !== 'attachment' 
 				&& $post_type !== 'revision' 
 				&& $post_type !== 'nav_menu_item' 
 				&& $post_type !== 'custom_css' 
@@ -315,7 +319,8 @@ function data_fetch() {
 				&& $post_type !== 'acf-field-group' 
 				&& $post_type !== "wpcf7_contact_form"
 				&& $post_type !== "post"
-				&& $post_type !== 'acf-field')  : ?>
+				&& $post_type !== 'acf-field'
+				)  : ?>
 		
 			<?php 
 				$the_query_filtered = new WP_Query( 
@@ -340,7 +345,7 @@ function data_fetch() {
 				<?php endwhile; ?>
 
 				<?php if(str_replace('-', ' ', $type_title[0] ) == 'events announcements' ) : ?>
-					<?php if($type_title[0]) : ?><h1 class="title-text _25 mt-4 mb-2"><?php echo 'Events and Announcements' ; ?></h1><?php endif ?>
+					<?php if($type_title[0]) : ?><h3 class="body-text _17 mt-4 mb-2"><span><?php echo 'Events and Announcements' ; ?></span></h3><?php endif ?>
 				<?php else :  ?>
 
 					<?php 
@@ -362,20 +367,20 @@ function data_fetch() {
 					?>
 	
 					<?php if($newtitle) : ?>
-					<h1 class="title-text _28 mt-4 mb-2"><?php echo $newtitle; ?></h1>
+					<h3 class="body-text _17 mt-4 mb-2"><span><?php echo $newtitle; ?></span></h3>
 					<?php endif; ?>
 				<?php endif; ?>
 
 				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
 
-					<div class="col-md-4 search-post-column">
+					<div class="col-6 search-post-column">
 
 						<div class="search-post-wrapper">
 							
-							<h2 class="search-card-title body-text _18"><a href="<?php the_permalink(); ?>"><?php  the_title() ?></a></h2>
-							<section class="content-wrapper">
-								<?php the_content(); ?>
-							</section>
+							<p class="search-card-title body-text _17"><a href="<?php the_permalink(); ?>"><?php  the_title() ?></a></p>
+							<!-- <section class="content-wrapper">
+								<?php // the_content(); ?>
+							</section> -->
 						
 						</div>
 					</div>

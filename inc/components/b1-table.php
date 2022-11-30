@@ -11,6 +11,7 @@
             $image = get_sub_field('image');
         ?>
             <div class="col-12 b1-table-column">
+
                 <?php if($file) : ?>
                     <a href="#" onclick='window.open("<?php echo $file; ?>"); return false;'>
                         <span class="title-text _21"><?php echo $label ?></span>
@@ -27,30 +28,23 @@
 
                 <?php if($image) : ?>
 
-
-
-
-                    <button type="button" class="btn image-row-wrapper" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn image-row-wrapper" data-bs-toggle="modal" data-bs-target="#imageModal-<?php echo $image['name'] ?>">
                         <span class="title-text _21"><?php echo $label ?></span>
                         <span><i class="fa-regular fa-image"></i></span>                    
                     </button>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                                    </div>
+                    <div class="modal fade" id="imageModal-<?php echo $image['name'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                                 </div>
                             </div>
                         </div>
-
-
-
-
+                    </div>
         
                 <?php endif; ?>
 

@@ -21,8 +21,6 @@
 
                 <div class="col-12 b3-table-column">
 
-
-
                     <?php 
 
                         $table = get_sub_field( 'table' );

@@ -1,13 +1,4 @@
-<?php defined('ABSPATH') or die(""); ?>
-<?php get_header(); 
-/* Template Name: Agendas */
-
-global $post;
-
-?>
-
-
-<?php 
+<?php defined('ABSPATH') or die(""); 
 
 $agenda_years = new WP_Query(array(
     'post_type' => 'agendas',
@@ -18,39 +9,25 @@ $agenda_years = new WP_Query(array(
 
 ));
 
-$wp_query = $agenda_years;
+$wp_query_years = $agenda_years;
+$post_years = [];
+
+foreach($agenda_years->posts as $agenda_post) {
+    array_push($post_years, intval($agenda_post->post_title));
+}
+
+header("Location: ". get_site_url() . "/" . "agendas" . "/" . max($post_years) . "/");
+
+die();
 ?>
 
 
+<?php get_header(); 
+/* Template Name: Agendas */
 
-<div class="row agendas-button-row">
-    <div class="col-md-6 meetings-title-column">
-        <h1 class="">Meetings <?php the_title(); ?></h1>
-    </div>
+global $post;
 
-    <div class="col-md-6">
-        <div class="dropdown">
+?>
 
-            <button class="btn btn-secondary dropdown-toggle right-aligned"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <?php the_title(); ?>
-            </button>
-
-            <ul class="dropdown-menu dropdown-menu-end">
-        
-
-                <?php while($wp_query->have_posts()) : $wp_query->the_post(); ?>
-
-                    <li>
-                        <a class="dropdown-item" href="<?php the_permalink() ?>">
-                            <?php the_title() ?>
-                        </a>
-                    </li>
-                <?php endwhile; wp_reset_postdata(); ?>
-            </ul>
-        </div>
-    </div>
-</div>
-
-    <?php get_template_part('inc/components/a2-accordion-meetings') ?>
 
 <?php get_footer(); ?>

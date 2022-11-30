@@ -14,7 +14,7 @@
             color: @primary-dark-blue;
             border-top: 1px solid @grey-5;
             margin: 0;
-            padding: 25px 15px;
+            padding: 25px 15px 25px 0;
             border-radius: 0;
     
             &:focus {
@@ -31,7 +31,7 @@
     
         .accordion-body {
             color: @dark-teal;
-            padding: 30px 40px;
+            padding: 30px 15px 15px 30px;
     
             ul {
                 padding-left: 20px;
@@ -87,6 +87,22 @@
     
             h1, h2, h3, h4 {
                 margin-bottom: 30px;
+            }
+
+            thead th {
+                text-align: left;
+            }
+
+            // table within accordion
+
+            .b3-table-container .site-component-row.b3-table-row table  {
+ 
+                thead th, tbody tr td {
+                    white-space: break-spaces;
+                    text-align: left;
+                    vertical-align: top;
+                }
+
             }
     
         }

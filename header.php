@@ -91,12 +91,12 @@
 				</div> <!-- container-fluid.// -->
 			</nav>
 			
-			<div class="search-container container-fluid site-component-container">
+			<div class="search-container hide-search container-fluid site-component-container">
 				<div class="row site-component-row search-form-row">
 					<div class="col-11">
 
 						<form method="get" class="searchform" id="searchform" action="<?php echo esc_url( home_url( '/')); ?>">
-							<input type="text" class="field" name="s" id="searchInput" onkeyup="fetchResults()" placeholder="<?php esc_html_e('Search...'); ?>">
+							<input type="text" class="field title-text _50" name="s" id="searchInput" onkeyup="fetchResults()" placeholder="<?php esc_html_e('Start Typing...'); ?>">
 							<input type="hidden" class="search-bar" name="post_type" value="<?php echo esc_attr($post_type); ?>">
 						</form>
 

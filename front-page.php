@@ -21,8 +21,4 @@
 
     <?php get_template_part('inc/components/upcoming-events-and-announcements') ?>
 
-    <?php get_template_part('inc/components/a1-accordion-faq') ?>
-
-
-
 <?php get_footer(); ?>

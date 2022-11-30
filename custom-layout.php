@@ -23,8 +23,10 @@ global $post;
         <?php get_template_part('inc/components/t3-text-group') ?>
         <?php get_template_part('inc/components/b1-table') ?>
         <?php get_template_part('inc/components/b3-table') ?>
+        <?php get_template_part('inc/components/c2-cards') ?>
         <?php get_template_part('inc/components/c4-cards') ?>
         <?php get_template_part('inc/components/h1-hero') ?>
+        <?php get_template_part('inc/components/p1-picture') ?>
         <?php get_template_part('inc/components/p2-picture-text') ?>
         <?php get_template_part('inc/components/p3-map') ?>
         <?php get_template_part('inc/components/p4-video-embed') ?>
@@ -47,19 +49,31 @@ global $post;
     }
 ?>
 
-<?php if(strtolower($top_parent_title) === 'parks' || strtolower($direct_parent_title) === 'parks') : ?>
-    <?php get_template_part('inc/components/contacts/parks-contact') ?>
-<?php endif; ?>
+
+<?php $parents_array = []; ?>
+
+<?php foreach($parents as $parent) : ?>
+    <?php array_push($parents_array, get_the_title($parent)); ?>
+<?php endforeach; ?>
+
+<?php foreach($parents_array as $parent) : ?>
+
+    <?php if(strtolower($parent) === 'parks') : ?>
+        <?php get_template_part('inc/components/contacts/parks-contact') ?>
+    <?php endif; ?>
+
+    <?php if(strtolower($parent) === 'recreation') : ?>
+        <?php get_template_part('inc/components/contacts/recreation-contact') ?>
+    <?php endif; ?>
+
+    <?php if(strtolower($parent) === 'water') : ?>
+        <?php get_template_part('inc/components/contacts/water-contact') ?>
+    <?php endif; ?>
 
 
-<?php if(strtolower($top_parent_title) === 'recreation' || strtolower($direct_parent_title) === 'recreation') : ?>
-    <?php get_template_part('inc/components/contacts/recreation-contact') ?>
-<?php endif; ?>
 
+<?php endforeach; ?>
 
-<?php if(strtolower($top_parent_title) === 'water') : ?>
-    <?php get_template_part('inc/components/contacts/water-contact') ?>
-<?php endif; ?>
 
 
 

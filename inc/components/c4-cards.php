@@ -2,7 +2,9 @@
     <div class="container-fluid site-component-container c4-cards-container">
         
         <div class="row site-component-row">
-            <h2 class="title-text _33 col-12"><?php the_sub_field('cards_title') ?></h2>
+            <div class="col-12">
+                <h2 class="title-text _33 "><?php the_sub_field('cards_title') ?></h2>
+            </div>
         </div>
 
         <div class="row site-component-row c4-cards-row">
@@ -30,10 +32,14 @@
             
                 <div class="<?php echo $columns ?>">
                     <div class="c4-card-wrapper">
-                        <?php if($image) : ?>                
-                            <img class="c4-card-image" src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" />
+                        <?php if($image || $link) : ?>
+                            <a href="<?php echo $link ?>" target="__blank">
+                                <img class="c4-card-image" src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" />
+                            </a>
                         <?php else : ?>
-                            <img class="c4-card-image" src="<?php echo get_field('placeholder_image', 'option')['url'] ?>" />
+                            <a href="<?php echo $link ?>" target="__blank">
+                                <img class="c4-card-image" src="<?php echo get_field('placeholder_image', 'option')['url'] ?>" />
+                            </a>
                         <?php endif; ?>
                     </div>
 
@@ -54,7 +60,7 @@
             <?php if($text || $link) : ?>
                 <div class="row site-component-row button-row">
                     <div class="col-12 button-column">
-                        <a href="<?php echo $link ?>" class="site-button body-text _26"><?php echo $text ?></a>
+                        <a href="<?php echo $link ?>" target="__blank" class="site-button body-text _26"><?php echo $text ?></a>
                     </div>
                 </div>
             <?php endif; ?>

@@ -1,10 +1,16 @@
 <?php defined('ABSPATH') or die(""); ?>
+
+<?php 
+if(get_the_title() === 'Dakota Ridge') {
+        header("Location: ". get_site_url() . "/" . "dakota-ridge" . "/" );
+    }
+?>
 <?php get_header(); 
 /* Template Name: Single Park */
 global $post;
+
 ?>
 <div class="container-fluid site-component-container single-parks-container">
-
     <div class="row site-component-row single-parks-row">
 
         <div class="col-12 single-parks-title-column">

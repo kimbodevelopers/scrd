@@ -1,10 +1,42 @@
 <?php defined('ABSPATH') or die(""); ?>
 <?php get_header(); 
-/* Template Name: Agendas */
 
 global $post;
 date_default_timezone_set('America/Los_Angeles');
 ?>
+
+<div class="container-fluid site-component-container t1-container">
+    <div class="row site-component-row t1-row">
+
+        
+
+        <div class="col-12 t1-column">
+
+        <h1><?php the_title() ?> Agendas</h1>
+
+            <?php 
+                function get_page_id_by_title($title)
+                {
+                    $page = get_page_by_title($title);
+                    $page_id = $page->ID;
+
+                    $agendas_content = get_post_meta($page->ID, 'agendas_content', true);
+                    
+                    if ($agendas_content)
+
+                    echo $agendas_content;
+
+                }
+
+
+                get_page_id_by_title('agendas');
+            ?>
+
+        </div>
+    </div>
+</div>
+
+
 
 <?php $post = $wp_query->post; 
         $post_id = get_queried_object_id();
@@ -47,11 +79,10 @@ date_default_timezone_set('America/Los_Angeles');
     <?php foreach($agenda_types as $agenda_type) : ?>
         <?php foreach($agenda_type['agenda'] as $agenda) : ?>
             <?php array_push($agenda_array, $agenda['date']); ?>
-
         <?php endforeach; ?>
     <?php endforeach; ?>
 
-    <?php get_template_part('inc/components/upcoming-meetings') ?>
+    <?php get_template_part('inc/components/upcoming-meetings') ?>   
 
     <div class="container-fluid site-component-container">
         <div class="row site-component-row agendas-button-row">

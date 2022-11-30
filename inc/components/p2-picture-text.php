@@ -11,7 +11,7 @@
                 <div class="row site-component-row <?php if($image_position === 'image_left') : ?>p2-row <?php elseif ($image_position === 'image_right') : ?> p2-row-reverse<?php else : ?> p2-row<?php endif; ?>">
                     <div class="col-lg-4 image-column">
                     
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#imageModal-<?php echo $image['name'] ?>">
                             <?php if($image) : ?>  
                                 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                             <?php else : ?>
@@ -19,7 +19,7 @@
                             <?php endif; ?>
                         </button>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="imageModal-<?php echo $image['name'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">

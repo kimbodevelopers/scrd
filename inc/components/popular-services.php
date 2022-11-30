@@ -5,7 +5,9 @@
 
 
         <div class="row site-component-row">
-            <h2 class="title-text _50 col-12">Popular for <?php echo date('F jS, Y'); ?></h2>
+            <div class="col-12">
+                <h2 class="title-text _50 col-12">Popular for <?php echo date('F jS, Y'); ?></h2>
+            </div>
         </div>
 
         <div class="popular-services-row row site-component-row">

@@ -22,21 +22,40 @@
       $('.search-wrapper').click(function() {
         if(!$('.search-container').hasClass('show-search')) {
           $('.search-container').addClass('show-search');
+          $('.search-container').removeClass('hide-search');
+
+          $('.search-container').addClass('fade-in');
+          $('.search-container').removeClass('fade-out');
+
           $('html').css({'overflow' : 'hidden'})
 
         } else {
           $('.search-container').removeClass('show-search')
+          $('.search-container').removeClass('fade-in');
+          $('.search-container').addClass('fade-out');
           $('html').css({'overflow' : 'unset'})
+
         }
       })
 
       $('.close-search').click(function() {
         if($('.search-container').hasClass('show-search')) {
+
           $('.search-container').removeClass('show-search');
+          $('.search-container').addClass('fade-out');
+
+          setTimeout(function() {
+            $('.search-container').addClass('hide-search');
+          }, 600)
+
+          $('.search-container').removeClass('fade-in');
           $('html').css({'overflow' : 'unset'})
 
         } else {
           $('.search-container').addClass('show-search')
+          $('.search-container').removeClass('show-search')
+          $('.search-container').removeClass('fade-out');
+          $('.search-container').addClass('fade-in');
           $('html').css({'overflow' : 'hidden'})
         }
       })   

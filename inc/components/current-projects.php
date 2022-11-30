@@ -1,6 +1,8 @@
 <div class="container-fluid large-cards-container site-component-container">
     <div class="row site-component-row">
-        <h2 class="title-text _50 col-12"><?php the_field('current_projects_title', 'option') ?></h2>
+        <div class="col-12">
+            <h2 class="title-text _50"><?php the_field('current_projects_title', 'option') ?></h2>
+        </div>
     </div>
 
 

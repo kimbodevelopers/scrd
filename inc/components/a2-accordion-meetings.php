@@ -16,10 +16,10 @@
                     <?php $has_upcoming_agenda_2 = true ?>
 
                     <?php foreach($agenda_type['agenda'] as $agenda) : ?>
-                            <?php if($agenda['upcoming_meeting'] !== "yes" ) : ?>
-                                <?php $has_upcoming_agenda_2 = false ?>
+                        <?php if($agenda['upcoming_meeting'] !== "yes" ) : ?>
+                            <?php $has_upcoming_agenda_2 = false ?>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
                     <?php endforeach; ?>
 
                     <?php if($has_upcoming_agenda_2 === false) : ?>

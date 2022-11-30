@@ -1,5 +1,9 @@
 .t3-container {
     .t3-row {
+
+        h2 {
+            color: @primary-dark-blue;
+        }
         .tabs {
 
             #tabs-nav {
@@ -76,6 +80,159 @@
                     margin: 0 5px;
                 }
             }
+
+
+
+            .tab-content {
+                width: 100%;
+                margin: 0;
+            }
+
+
+
+            .active {
+
+                &.tab-blue {
+                    background-color: @stage-blue;
+                    color: white;
+
+                    a {
+                        color: white;
+                    }
+
+                    &:before {
+                        background-color: @muted-black
+                    }
+                }
+    
+                &.tab-yellow {
+                    background-color: @stage-yellow;
+                    color: @muted-black;
+                    a {
+                        color: @muted-black;
+                    }
+                    &:before {
+                        background-color: @muted-black
+                    }
+                }
+    
+                &.tab-orange {
+                    background-color: @stage-orange;
+                    color: @muted-black;
+                    a {
+                        color: @muted-black;
+
+                    }
+                    &:before {
+                        background-color: @muted-black
+                    }
+                }
+    
+                &.tab-red {
+                    background-color: @stage-red;
+                    color: white;
+                    a {
+                        color: white;
+                    }
+                    &:before {
+                        background-color: @muted-black
+                    }
+                }
+    
+            }
+
+
+            table {
+
+                width: 100%;
+                margin-bottom: 15px;
+    
+                thead {
+                    background-color: @primary-dark-blue;
+                    color: white;
+
+                    th {
+                        white-space: break-spaces;
+
+                    }
+
+    
+                    th:nth-child(1) {
+                        position: -webkit-sticky;
+                        position: sticky;
+                        padding-left: 15px;
+                        left: 0;
+                        background-color: @primary-dark-blue;
+
+                    }
+                }
+    
+                tbody {
+                    tr {
+                    
+                        &:nth-child(even), &:nth-child(even) td {
+                            background-color: @brand-beige;
+                            white-space: break-spaces;
+                        }
+    
+                        &:nth-child(odd), &:nth-child(odd) td {
+                            background-color: white;
+                            white-space: break-spaces;
+                        }
+    
+                    }
+                }
+    
+                tr {
+    
+                    position: relative;
+                    overflow: auto;
+                    white-space: nowrap;
+    
+    
+                    td, th {
+                        padding: 20px 0;
+
+                        a {
+                            display: inline-flex;
+                        }
+
+                        svg {
+                            height: 40px;
+                        }
+
+                    }
+    
+                    td:nth-child(1) {
+                        min-width: 350px;
+                        position: sticky;
+                        position: -webkit-sticky;
+                        left: 0;
+                        padding-left: 15px;
+                        font-weight: bold;
+                        white-space: break-spaces;
+    
+                        @media @medium-down {
+                            min-width: 250px;
+                            max-width: 250px;
+                        }
+    
+                        @media @x-small-down {
+                            min-width: 170px;
+                        }
+                    }
+    
+                    td:not(:nth-child(1)), th:not(:nth-child(1)) {
+                        text-align: left;
+                    }
+    
+                    td:not(:nth-child(1)) {
+                        min-width: 200px;
+                    }
+                }
+    
+            }
+
         }
     }
 }
