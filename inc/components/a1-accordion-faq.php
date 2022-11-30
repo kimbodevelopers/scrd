@@ -121,18 +121,18 @@
 
                 <?php endif; ?>
 
-                <?php if(get_sub_field('accordion_option') === 'attachments') : ?>
+                <?php if(get_sub_field('accordion_option') === 'attachment') : ?>
 
                     <?php $accordion_option = get_sub_field('accordion_option') ?>
 
-                    <?php while(have_rows('attachments_rows')) : the_row(); 
-                        $attachment_topic = get_sub_field('attachment_topic');
+                    <?php while(have_rows('table_rows')) : the_row(); 
+                        $attachment_label = get_sub_field('attachment_label');
                     ?>
 
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="flush-heading-a1-<?php echo get_row_index() ?>-<?php echo $accordion_option ?>">
                                 <button class="accordion-button collapsed title-text _21" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-a1-<?php echo get_row_index() ?>-<?php echo $accordion_option ?>" aria-expanded="false" aria-controls="flush-collapse-a1-<?php echo get_row_index() ?>-<?php echo $accordion_option ?>">
-                                    <?php echo $attachment_topic ?>
+                                    <?php echo $attachment_label ?>
                                 </button>
                             </h3>
 
