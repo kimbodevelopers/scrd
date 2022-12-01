@@ -2480,6 +2480,8 @@ html .site-component-container.agendas-upcoming-container .agendas-row .agenda-i
   padding: 15px;
 }
 .featured-services-container .featured-services-row .featured-services-column {
+  display: flex;
+  flex-grow: 1;
   margin-bottom: 40px;
 }
 @media only screen and (max-width: 991px) {
@@ -2494,6 +2496,7 @@ html .site-component-container.agendas-upcoming-container .agendas-row .agenda-i
 }
 .featured-services-container .featured-services-row .featured-services-column a {
   text-decoration: none;
+  width: 100%;
 }
 .featured-services-container .featured-services-row .featured-services-column .featured-services-wrapper {
   display: flex;

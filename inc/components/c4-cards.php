@@ -44,7 +44,7 @@
                     </div>
 
                     <?php if($label || $link) : ?>
-                        <div class="c4-card-content-wrapper">
+                        <div class="c4-card-content-wrapper <?php if($label) : ?>text-center<?php endif; ?>">
                             <strong><a href="<?php echo $link ?>"><?php echo $label; ?></a></strong>
                         </div>
                     <?php endif; ?>
