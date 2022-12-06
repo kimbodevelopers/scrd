@@ -1,0 +1,75 @@
+.c8-card-column {
+    margin-bottom: 30px;
+
+    .c8-card-wrapper {
+        border: 1px solid @primary-dark-blue;
+        padding: 30px;
+        border-radius: 5px;
+        border-bottom: 10px solid @primary-dark-blue;
+        height: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .card-doc-type {
+            color: @primary-dark-blue;
+        }
+
+        .card-taxonomy {
+            position: relative;
+            // height: 25px;
+
+            &:after {
+                height: 1px ;
+                background-color: @grey-4;
+                width: 100%;
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -7px;
+            }
+        }
+        
+
+
+        .c8-card-title {
+            a {
+                color: @dark-teal;
+                text-decoration: none;
+            }
+
+            max-height: 80px;
+            min-height: 80px;
+            overflow: hidden;
+            position: relative;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+
+        }
+
+        svg {
+            font-size: 43px;
+            color: @primary-light-blue-2
+        }
+
+        .files-wrapper {
+            display: flex;
+            height: 45px;
+
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+
+                .text-wrapper {
+                    margin-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

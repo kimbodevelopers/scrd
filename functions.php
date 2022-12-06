@@ -367,9 +367,9 @@ function data_fetch() {
 					?>
 	
 					<?php if($newtitle) : ?>
-					<h3 class="body-text _17 mt-4 mb-2"><span><?php echo $newtitle; ?></span></h3>
+						<h3 class="body-text _17 mt-4 mb-2"><span><?php echo $newtitle; ?></span></h3>
+						<?php endif; ?>
 					<?php endif; ?>
-				<?php endif; ?>
 
 				<?php while($the_query_filtered->have_posts() ) : $the_query_filtered->the_post(); ?>
 
@@ -458,3 +458,32 @@ function wporg_shortcodes_init() {
 }
 
 add_action( 'init', 'wporg_shortcodes_init' );
+
+add_filter( 'facetwp_indexer_query_args', function( $args ) {
+    $args['post_status'] = [ 'publish', 'inherit' ];
+    return $args;
+});
+
+add_filter( 'facetwp_indexer_query_args', function( $args ) {
+    $args['post_type'] = (array) get_post_types();
+    $args['post_type'][] = 'wprm_recipe';
+    return $args;
+});
+
+
+add_filter( 'facetwp_facet_sources', function( $sources ) {
+    $sources['posts']['choices']['post_mime_type'] = 'application/pdf';
+    return $sources;
+});
+
+
+// removes content section from editor
+add_action('init', 'remove_editor');
+
+function remove_editor() {
+    global $post;
+
+    //change 'page' to whatever post type you want to apply this to.
+        remove_post_type_support( 'page', 'editor' );
+
+}

@@ -562,6 +562,7 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
 .title-text {
   margin-bottom: 30px;
   color: #475859;
+  font-family: 'Montserrat', calibri, sans-serif;
 }
 @media only screen and (max-width: 576px) {
   .title-text {
@@ -713,6 +714,12 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
 .body-text {
   font-family: 'Nunito Sans', sans-serif;
   color: #45453E;
+}
+.body-text._15 {
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 900;
 }
 .body-text._16 {
   font-size: 16px;
@@ -941,22 +948,6 @@ footer .site-component-container .footer-bottom-row .footer-bottom-column a {
   .park-form-row .parks-filter .submit-reset-column {
     display: flex;
     justify-content: space-between;
-  }
-}
-.park-form-row .parks-filter .submit-reset-column .submit-button {
-  height: 100%;
-  background-color: white;
-  padding: 15px 20px;
-  border: 1px solid #747F80;
-}
-@media only screen and (min-width: 992px) {
-  .park-form-row .parks-filter .submit-reset-column .submit-button {
-    margin-right: 15px;
-  }
-}
-@media only screen and (max-width: 991px) {
-  .park-form-row .parks-filter .submit-reset-column .submit-button {
-    width: calc(50% - 7.5px);
   }
 }
 .minutes-container .minutes-title {
@@ -2613,6 +2604,140 @@ html .site-component-container.agendas-upcoming-container .agendas-row .agenda-i
   background-color: white;
   padding: 7.5px 30px;
 }
+.document-library-container .document-library-filter-row {
+  padding-bottom: 30px;
+}
+@media only screen and (max-width: 991px) {
+  .document-library-container .document-library-filter-row {
+    padding-bottom: 15px;
+  }
+}
+.document-library-container .document-library-filter-row .facetwp-facet {
+  width: calc(100% / 4);
+  margin: 0;
+}
+@media only screen and (max-width: 991px) {
+  .document-library-container .document-library-filter-row .facetwp-facet {
+    width: calc(100% / 3);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .document-library-container .document-library-filter-row .facetwp-facet {
+    width: calc(100% / 2);
+  }
+}
+@media only screen and (max-width: 576px) {
+  .document-library-container .document-library-filter-row .facetwp-facet {
+    width: 100%;
+  }
+}
+.document-library-container .document-library-filter-row .facetwp-facet .facetwp-input-wrap {
+  width: 100%;
+}
+.document-library-container .document-library-filter-row .facetwp-facet .facetwp-input-wrap .facetwp-icon {
+  height: 55px;
+}
+@media only screen and (max-width: 991px) {
+  .document-library-container .document-library-filter-row .facetwp-facet .facetwp-input-wrap .facetwp-icon {
+    height: 45px;
+  }
+}
+.document-library-container .document-library-filter-row .facetwp-facet select.facetwp-dropdown,
+.document-library-container .document-library-filter-row .facetwp-facet input,
+.document-library-container .document-library-filter-row .facetwp-facet input.facetwp-search {
+  background-color: white;
+  padding: 15px 20px;
+  border: 1px solid #747F80;
+  min-width: unset;
+  width: 100%;
+  height: 55px;
+  margin-bottom: 15px;
+}
+@media only screen and (max-width: 991px) {
+  .document-library-container .document-library-filter-row .facetwp-facet select.facetwp-dropdown,
+  .document-library-container .document-library-filter-row .facetwp-facet input,
+  .document-library-container .document-library-filter-row .facetwp-facet input.facetwp-search {
+    height: 45px;
+    padding: 10px;
+  }
+}
+.document-library-container .document-library-filter-row .facetwp-facet select.facetwp-dropdown:focus-visible,
+.document-library-container .document-library-filter-row .facetwp-facet input:focus-visible,
+.document-library-container .document-library-filter-row .facetwp-facet input.facetwp-search:focus-visible {
+  outline: 0;
+}
+.document-library-container .document-library-filter-row .global-submit {
+  width: 100%;
+  margin-bottom: 15px;
+  height: 55px;
+}
+@media only screen and (max-width: 991px) {
+  .document-library-container .document-library-filter-row .global-submit {
+    height: 45px;
+    padding: 10px;
+  }
+}
+.c8-card-column {
+  margin-bottom: 30px;
+}
+.c8-card-column .c8-card-wrapper {
+  border: 1px solid #0054A5;
+  padding: 30px;
+  border-radius: 5px;
+  border-bottom: 10px solid #0054A5;
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.c8-card-column .c8-card-wrapper .card-doc-type {
+  color: #0054A5;
+}
+.c8-card-column .c8-card-wrapper .card-taxonomy {
+  position: relative;
+}
+.c8-card-column .c8-card-wrapper .card-taxonomy:after {
+  height: 1px;
+  background-color: #b2b2b2;
+  width: 100%;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+}
+.c8-card-column .c8-card-wrapper .c8-card-title {
+  max-height: 80px;
+  min-height: 80px;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.c8-card-column .c8-card-wrapper .c8-card-title a {
+  color: #475859;
+  text-decoration: none;
+}
+.c8-card-column .c8-card-wrapper svg {
+  font-size: 43px;
+  color: #3099ff;
+}
+.c8-card-column .c8-card-wrapper .files-wrapper {
+  display: flex;
+  height: 45px;
+}
+.c8-card-column .c8-card-wrapper .files-wrapper a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.c8-card-column .c8-card-wrapper .files-wrapper a .text-wrapper {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (max-width: 782px) {
   html #wpadminbar {
     top: 0 !important;
@@ -2777,4 +2902,36 @@ html .site-component-container .pagination-row .pagination-wrapper .page-numbers
   opacity: 1;
   color: white;
   background-color: #0054A5;
+}
+html .facetwp-dropdown {
+  padding: 15px 20px;
+  border: 1px solid #747F80;
+  text-decoration: none;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  border-radius: 0;
+}
+html .facetwp-dropdown:after {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+html .global-submit {
+  height: 100%;
+  background-color: white;
+  padding: 15px 20px;
+  border: 1px solid #747F80;
+}
+@media only screen and (min-width: 992px) {
+  html .global-submit {
+    margin-right: 15px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  html .global-submit {
+    width: calc(50% - 7.5px);
+  }
 }

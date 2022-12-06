@@ -91,8 +91,8 @@ global $post;
             </div>
 
             <div class="col-lg-6 col-md-4 submit-reset-column">
-                <input type="submit" value="Submit" name="submit" class='submit-button'>
-                <input type="submit" value="Reset" name="reset" class="submit-button reset-filter">
+                <input type="submit" value="Submit" name="submit" class='global-submit'>
+                <input type="submit" value="Reset" name="reset" class="global-submit reset-filter">
             </div>
 
         </form>
@@ -109,9 +109,6 @@ global $post;
         } else {
             $paged = 1;
         }
-
-
-
 
         $park_posts = new WP_Query(array(
             'post_type' => 'parks',

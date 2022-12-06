@@ -100,8 +100,6 @@
 							<input type="hidden" class="search-bar" name="post_type" value="<?php echo esc_attr($post_type); ?>">
 						</form>
 
-						
-
 					</div>
 					<div class="col-1 close-search-wrapper">
 						<div class="close-search"><i class="fa-solid fa-xmark"></i></div>

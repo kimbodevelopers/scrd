@@ -31,6 +31,9 @@
 @import 'components/p6-non-linked-cards.less';
 @import 'components/featured-services.less';
 @import 'components/form.less';
+@import 'components/document-library.less';
+
+@import 'components/partials/c8-cards-component.less';
 
 @media screen and (max-width: 782px) {
     html #wpadminbar {
@@ -231,6 +234,39 @@ html {
                     }
                 }
             }
+        }
+    }
+
+    .facetwp-dropdown {
+        padding: 15px 20px;
+        border: 1px solid @grey-6;
+        text-decoration: none;
+        width: 100%;
+        text-align: left;
+        position: relative;
+        border-radius: 0;
+
+        &:after {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        } 
+    }
+
+    .global-submit {
+        height: 100%;
+        background-color: white;
+        padding: 15px 20px;
+        border: 1px solid @grey-6;
+
+        @media @medium-up {
+            margin-right: 15px;
+        }
+
+        @media @medium-down {
+            width: ~'calc(50% - 7.5px)';
         }
     }
 
