@@ -477,13 +477,12 @@ add_filter( 'facetwp_facet_sources', function( $sources ) {
 });
 
 
-// removes content section from editor
-add_action('init', 'remove_editor');
+add_action('admin_head', 'remove_content_section'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
 
-function remove_editor() {
-    global $post;
-
-    //change 'page' to whatever post type you want to apply this to.
-        remove_post_type_support( 'page', 'editor' );
-
+function remove_content_section() {
+  echo '<style>
+    #postdivrich{
+        display: none;   
+    }
+  </style>';
 }

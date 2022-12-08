@@ -18,7 +18,7 @@ global $post;
             <?php echo do_shortcode('[facetwp facet="type"]') ?>
             <?php echo do_shortcode('[facetwp facet="bylaw_type"]') ?>
             <?php echo do_shortcode('[facetwp facet="year_issued"]') ?>
-
+            <?php echo do_shortcode('[facetwp facet="water_test_types"]') ?>
             <div class="col-lg-3 col-md-4 col-sm-6  col-12">
                 <button onclick="FWP.reset()" class="global-submit">Reset</button>
             </div>
@@ -52,7 +52,7 @@ global $post;
                     }
                  
                     $all_posts_args = array (
-                        'post_type' => array('bylaws', 'area-map', 'agendas', 'board-minutes', 'attachment', ),
+                        'post_type' => array('bylaws', 'area-map', 'annual-reports', 'agendas', 'board-minutes', 'bid-opportunities', 'bid-results', 'water-quality-report', 'ocp', 'attachment', ),
                         'posts_per_page' => 16, 
                         'hide_empty'=> 1, 
                         'paged' => $paged,

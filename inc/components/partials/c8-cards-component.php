@@ -7,6 +7,8 @@
         <div class="body-text _15 card-doc-type">
             <?php if($post->post_type === 'attachment') : ?>
                 DOCUMENT
+            <?php elseif($post->post_type === 'ocp') : ?>
+                OFFICIAL COMMUNITY PLAN
             <?php else : ?>
                 <?php echo strtoupper(str_replace('-', ' ', $post->post_type)) ?>
             <?php endif; ?>
@@ -33,7 +35,11 @@
         <h3 class="title-text _21 c8-card-title">
             <?php if($post->post_type !== 'attachment') : ?>
                 <a href="<?php the_permalink(); ?>" target="__blank">
-                    <?php the_title(); ?>
+                    <?php if($post->post_type === 'agendas') : ?>
+                        <?php the_field('date') ?>
+                    <?php else : ?>
+                        <?php the_title(); ?>
+                    <?php endif; ?>
                 </a>
             <?php else : ?>
                 <?php the_title(); ?>
@@ -41,69 +47,33 @@
         </h3>
 
         <div class="files-wrapper">
-            <?php while(have_rows('files')) : the_row(); 
-                $file = get_sub_field('file');
-            ?>
-                <?php if($file) : ?>
-                    <a href="<?php echo $file['url'] ?>" target="__blank">
-                        <i class="fa-solid fa-file-pdf"></i>
-                        <div class="text-wrapper">
-                            <span class="view-text">View this document</span>
-                            <span class="file-size">
 
-                                <?php if(intval($file['filesize']) * 0.001 < 1) : ?>
-                                        <?php echo number_format($file['filesize'], 2) ?> KB
-                                    <?php else : ?>
-                                        <?php echo number_format($file['filesize'] * 0.001) ?> KB
-                                <?php endif; ?>
-                            </span>
-                        </div>
-                    </a>
-                <?php endif; ?>
-            <?php endwhile; ?>
-
-            <?php if($post->post_type === 'attachment') : ?>
-                <a href="<?php the_permalink(); ?>" target="__blank">
-                    <i class="fa-solid fa-file-pdf"></i>
-
-                    <div class="text-wrapper">
-                        <span class="view-text">View this document</span>
-                        <span class="file-size">
-                            <?php if(intval(wp_get_attachment_metadata(get_the_ID())['filesize']) * 0.001 < 1) : ?>
-                                    <?php echo number_format(wp_get_attachment_metadata(get_the_ID())['filesize'], 2) ?> KB
-                            <?php else : ?>
-                                <?php echo number_format(wp_get_attachment_metadata(get_the_ID())['filesize'] * 0.001) ?> KB
-                            <?php endif; ?>
-                        </span>
-                    </div>
-
-                </a>
+            <!-- standard files -->
+            <?php if(have_rows('files')) : ?>
+                <?php get_template_part('inc/components/partials/c8-conditional-partials/view-doc-standard') ?>
             <?php endif; ?>
 
+            <!-- Bid Opportunity Files -->
+            <?php if($post->post_type === 'bid-opportunities') : ?>
+                <?php get_template_part('inc/components/partials/c8-conditional-partials/view-doc-bid-opportunities') ?>
+            <?php endif; ?>
 
+            <!-- Attachment Files -->
+
+            <?php if($post->post_type === 'attachment') : ?>
+                <?php get_template_part('inc/components/partials/c8-conditional-partials/view-doc-attachment') ?>
+            <?php endif; ?>
+
+            <!-- Agenda Files -->
             <?php if($post->post_type === 'agendas') : ?>
-                <?php while(have_rows('agenda_files')) : the_row(); 
-                        $file = get_sub_field('file');
-                    ?>
+                <?php get_template_part('inc/components/partials/c8-conditional-partials/view-doc-agendas') ?>
+            <?php endif; ?>
 
-                    <?php if($file) : ?>
-                        <a href="<?php echo $file['url'] ?>" target="__blank">
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <div class="text-wrapper">
-                                <span class="view-text">View this document</span>
-                                <span class="file-size">
+            <!-- OCP Files -->
 
-                                    <?php if(intval($file['filesize']) * 0.001 < 1) : ?>
-                                            <?php echo number_format($file['filesize'], 2) ?> KB
-                                        <?php else : ?>
-                                            <?php echo number_format($file['filesize'] * 0.001) ?> KB
-                                    <?php endif; ?>
-                                </span>
-                            </div>
-                        </a>
-                    <?php endif; ?>
+            <?php if($post->post_type === 'ocp') : ?>
+                <?php get_template_part('inc/components/partials/c8-conditional-partials/view-doc-ocp') ?>
 
-                <?php endwhile; ?>
             <?php endif; ?>
 
         </div>
