@@ -2651,7 +2651,7 @@ html .site-component-container.agendas-upcoming-container .agendas-row .agenda-i
   min-width: unset;
   width: 100%;
   height: 55px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 991px) {
   .document-library-container .document-library-filter-row .facetwp-facet select.facetwp-dropdown,
@@ -2707,8 +2707,9 @@ html .site-component-container.agendas-upcoming-container .agendas-row .agenda-i
   bottom: -7px;
 }
 .c8-card-column .c8-card-wrapper .c8-card-title {
-  max-height: 80px;
-  min-height: 80px;
+  max-height: 75px;
+  min-height: 75px;
+  padding-bottom: 5px;
   overflow: hidden;
   position: relative;
   text-overflow: ellipsis;

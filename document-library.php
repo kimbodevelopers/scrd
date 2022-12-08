@@ -20,7 +20,7 @@ global $post;
             <?php echo do_shortcode('[facetwp facet="year_issued"]') ?>
             <?php echo do_shortcode('[facetwp facet="water_test_types"]') ?>
             <div class="col-lg-3 col-md-4 col-sm-6  col-12">
-                <button onclick="FWP.reset()" class="global-submit">Reset</button>
+                <button onclick="FWP.reset()" class="global-submit document-reset">Reset</button>
             </div>
         </div>
 
@@ -52,7 +52,19 @@ global $post;
                     }
                  
                     $all_posts_args = array (
-                        'post_type' => array('bylaws', 'area-map', 'annual-reports', 'agendas', 'board-minutes', 'bid-opportunities', 'bid-results', 'water-quality-report', 'ocp', 'attachment', ),
+                        'post_type' => array(
+                            'bylaws', 
+                            'area-map', 
+                            'annual-reports', 
+                            'agendas', 
+                            'board-minutes', 
+                            'water-quality-report', 
+                            'ocp',
+                            'bid-opportunities', 
+                            'bid-results',  
+                            'swmp',
+                            'attachment'
+                        ),
                         'posts_per_page' => 16, 
                         'hide_empty'=> 1, 
                         'paged' => $paged,
@@ -83,7 +95,7 @@ global $post;
 
 
 
-                <div class="row pagination-row site-component-row">
+                <div class="row pagination-row site-component-row mt-5 mb-5">
                     <div class="col-12 text-center">
                         <div class="pagination-wrapper">
                             <?php echo paginate_links(array(
