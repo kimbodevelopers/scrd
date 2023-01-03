@@ -11,7 +11,7 @@ global $post;
         <div class="row site-component-row document-library-filter-row">
 
             <div class="col-12">
-                <h1 class="title-text _50"><?php the_title() ?></h1>
+                <h1 class="title-text _50 dark-blue"><?php the_title() ?></h1>
             </div>
 
             <?php echo do_shortcode('[facetwp facet="search_repository"]') ?>
@@ -40,8 +40,6 @@ global $post;
                     } else {
                         $paged = 1;
                     }
-
-
 
                     add_filter( 'posts_where' , 'remove_images' );
 
@@ -82,19 +80,14 @@ global $post;
             $wp_query = new WP_Query( $all_posts_args ); 
             
             ?>
-
-
             <?php if ( $wp_query->have_posts() ): ?>
-
-
                 <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
-
                     <?php get_template_part('inc/components/partials/c8-cards-component') ?>
-
                 <?php endwhile; ?>
 
 
 
+                <?php if(paginate_links()) : ?>
                 <div class="row pagination-row site-component-row mt-5 mb-5">
                     <div class="col-12 text-center">
                         <div class="pagination-wrapper">
@@ -105,9 +98,9 @@ global $post;
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
 
                 <?php wp_reset_query();?>
-
 
             <?php endif; ?>
 

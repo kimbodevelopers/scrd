@@ -253,7 +253,6 @@
               $(this).find(rows[i]).find('.read-more-expand').hide()
               $(this).find(rows[i]).find('.read-less-collapse').hide();
               $(this).find(rows[i]).find('.content-overlay').hide();
-              $('.p2-content').css({'max-height': imageHeight})
             }
           }
         }
