@@ -43,7 +43,10 @@ global $post;
 	</div>
 <?php endif; ?>
 
-<?php get_template_part('inc/components/archive/accordion-faq') ?>
+
+<?php  get_template_part('inc/components/archive/accordion-faq', null, array('component_id' => 1)) ?>
+
+<?php  get_template_part('inc/components/archive/accordion-faq', null, array('component_id' => 2)) ?>
 
 
 <div class="container-fluid site-component-container">
