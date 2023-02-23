@@ -9,7 +9,7 @@
         <div class="container-fluid site-component-container b3-table-container">
             <div class="row site-component-row b3-table-row">
 
-                <div class="col-12">
+                <div class="col-12 b3-column">
                     <?php if($title) : ?>
                         <h3 class="title-text _33 table-title"><?php echo $title ?></h3>
                     <?php endif; ?>
@@ -19,7 +19,7 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="col-12 b3-table-column">
+                <div class="col-12 b3-table-column b3-column">
 
                     <?php 
 
@@ -60,7 +60,7 @@
 
                 </div>
 
-                <div class="col-12">
+                <div class="col-12 mt-4 pl-3 b3-column">
                     <div class="body-text _17">
                         <?php echo $sub_text ?>
                     </div>

@@ -1,4 +1,6 @@
 .popular-services-container {
+	
+	margin-top: 30px;
 
     .popular-services-row {
 
@@ -17,7 +19,7 @@
 
             @media @large-down {
                 width: ~'calc(100% / 3)';
-                margin-bottom: 15px;
+                margin-bottom: 25px;
             }
 
             @media @medium-down {
@@ -28,6 +30,11 @@
             @media @x-small-down {
                 width: 100%;
             }
+			
+			a {
+				text-decoration: none;
+			}
+			
             .popular-service-item-wrapper {
                 background-color: @off-white;
                 display: flex;
@@ -38,6 +45,11 @@
                 transition: 0.25s ease-in-out border-bottom;
                 word-break: break-word;
                 height: 100%;
+				text-align: center;
+				
+				@media @medium-down {
+					padding: 10px 20px;
+				}
 
                 &:hover {
 
@@ -50,6 +62,10 @@
                             font-size: 45px;
                             color: @primary-dark-blue;
                             transition: 0.25s ease-in-out color;
+							
+							@media @medium-down {
+								font-size: 20px;
+							}
                         }
                     }
                 }
@@ -59,6 +75,7 @@
                     margin: 0;
                     color: @primary-dark-blue;
                     padding-right: 5px;
+					text-align: left;
                 }
 
                 .icon-wrapper {
@@ -68,6 +85,10 @@
                         font-size: 45px;
                         color: @primary-light-blue-2;
                         transition: 0.25s ease-in-out color;
+						
+						@media @medium-down {
+							font-size: 20px;
+						}
                     }
                 }
             }

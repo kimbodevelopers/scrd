@@ -290,14 +290,26 @@ public function start_el( &$output, $data_object, $depth = 0, $args = null, $cur
 
     foreach($classes as $class) {
         if($depth > 0 && $class === "menu-item-has-children") {
+			
+			$item_output .= '<a ';
+
+			$item_output .=  $attributes . '>';
+
+			$item_output .= $args->link_before . $title . $args->link_after;
+			$item_output .= '</a>';
+			$item_output .= $args->after;
+			
 
             if($depth === 1) {
+				
                 $item_output .= 
                 "
                 <button class='first-nav-button accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
         
                 ";
             } else {
+				
+				
                 $item_output .= 
                 "
                 <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse$this->idx-$depth' aria-expanded='true' aria-controls='collapse$this->idx-$depth'>
@@ -319,9 +331,16 @@ public function start_el( &$output, $data_object, $depth = 0, $args = null, $cur
     }
 
     $item_output .=  $attributes . '>';
-    
-    $item_output .= $args->link_before . $title . $args->link_after;
+	
+    $item_output .= $args->link_before;
+	
+
+			$item_output .= $title;
+
+	$args->link_after;
+	
     $item_output .= '</a>';
+	
     $item_output .= $args->after;
 
     foreach($classes as $class) {

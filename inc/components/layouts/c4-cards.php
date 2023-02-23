@@ -1,11 +1,13 @@
 <?php if(get_row_layout() === 'c4_cards') : ?>
     <div class="container-fluid site-component-container c4-cards-container">
         
-        <div class="row site-component-row">
-            <div class="col-12">
-                <h2 class="title-text _33 "><?php the_sub_field('cards_title') ?></h2>
-            </div>
-        </div>
+		<?php if(get_sub_field('cards_title')) : ?>
+			<div class="row site-component-row">
+				<div class="col-12">
+					<h2 class="title-text _33 "><?php the_sub_field('cards_title') ?></h2>
+				</div>
+			</div>
+		<?php endif; ?>
 
         <div class="row site-component-row c4-cards-row">
 
@@ -28,6 +30,7 @@
                 $image = get_sub_field('image');
                 $label = get_sub_field('label');
                 $link = get_sub_field('link');
+				$description = get_sub_field('description');
             ?>
             
                 <div class="<?php echo $columns ?>">
@@ -48,6 +51,12 @@
                             <strong><a href="<?php echo $link ?>"><?php echo $label; ?></a></strong>
                         </div>
                     <?php endif; ?>
+					
+					<?php if($description) : ?>
+						<div class="body-text _17">
+							<?php echo $description; ?>
+						</div>
+					<?php endif; ?>
                 </div>
 
             <?php endwhile; ?>
@@ -58,7 +67,7 @@
             ?>
 
             <?php if($text || $link) : ?>
-                <div class="row site-component-row button-row">
+                <div class="row site-component-row button-row <?php if(!have_rows('cards') || !get_sub_field('cards_title') ) : ?>mt-0 mb-3<?php endif; ?>">
                     <div class="col-12 button-column">
                         <a href="<?php echo $link ?>" target="__blank" class="site-button body-text _26"><?php echo $text ?></a>
                     </div>

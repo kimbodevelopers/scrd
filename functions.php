@@ -89,32 +89,15 @@ if(function_exists('acf_add_options_page')) {
 		'icon_urol' => 'false',
 	));
 
-	acf_add_options_sub_page('Featured Parks and Rec', array(
-		'page_title' => 'Featured Parks and Rec',
-		'menu_title' => 'Featured Parks and Rec',
+	acf_add_options_sub_page('Featured Parks and Recreation', array(
+		'page_title' => 'Featured Parks and Recreation',
+		'menu_title' => 'Featured Parks and Recreation',
 		'capability' => 'edit_posts',
 		'parent_slug' => 'theme-option',
 		'position' => 'false',
 		'icon_urol' => 'false',
 	));
 
-	acf_add_options_sub_page('Featured Parks', array(
-		'page_title' => 'Featured Parks',
-		'menu_title' => 'Featured Parks',
-		'capability' => 'edit_posts',
-		'parent_slug' => 'theme-option',
-		'position' => 'false',
-		'icon_urol' => 'false',
-	));
-
-	acf_add_options_sub_page('Featured Recreation', array(
-		'page_title' => 'Featured Recreation',
-		'menu_title' => 'Featured Recreation',
-		'capability' => 'edit_posts',
-		'parent_slug' => 'theme-option',
-		'position' => 'false',
-		'icon_urol' => 'false',
-	));
 
 	acf_add_options_sub_page('Featured Services', array(
 		'page_title' => 'Featured Services',
@@ -161,14 +144,6 @@ if(function_exists('acf_add_options_page')) {
 		'icon_urol' => 'false',
 	));
 
-	acf_add_options_sub_page('Upcoming Events and Announcements', array(
-		'page_title' => 'Upcoming Events and Announcements',
-		'menu_title' => 'Upcoming Events and Announcements',
-		'capability' => 'edit_posts',
-		'parent_slug' => 'theme-option',
-		'position' => 'false',
-		'icon_urol' => 'false',
-	));
 
 	acf_add_options_sub_page('Departments Contact List', array(
 		'page_title' => 'Departments Contact List',
@@ -187,6 +162,33 @@ if(function_exists('acf_add_options_page')) {
 		'position' => 'false',
 		'icon_urol' => 'false',
 	));
+	
+	acf_add_options_sub_page('Wastewater Global', array(
+		'page_title' => 'Wastewater Global',
+		'menu_title' => 'Wastewater Global',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+	
+	acf_add_options_sub_page('Breadcrumb Link Remove', array(
+		'page_title' => 'Breadcrumb Link Remove',
+		'menu_title' => 'Breadcrumb Link Remove',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
+
+	acf_add_options_sub_page('Parks', array(
+		'page_title' => 'Parks',
+		'menu_title' => 'Parks',
+		'capability' => 'edit_posts',
+		'parent_slug' => 'theme-option',
+		'position' => 'false',
+		'icon_urol' => 'false',
+	));
 
 }
 
@@ -199,17 +201,20 @@ function gp_register_taxonomy_for_object_type() {
 
 
 
-
 add_filter( 'use_block_editor_for_post', '__return_false' ); 
 add_theme_support('post-thumbnails');
 add_post_type_support( 'parks-and-recreation', 'thumbnail' );
+
 
 function add_acf_columns ( $columns ) {
 	return array_merge ( $columns, array ( 
 	  'date_of_event' => __ ( 'Date of Event' ),
 	) );
   }
-  add_filter ( 'manage_events-announcements_posts_columns', 'add_acf_columns' );
+add_filter ( 'manage_events-announcements_posts_columns', 'add_acf_columns' );
+
+// 
+
 
 /*
  * Add columns to exhibition post list
@@ -226,8 +231,13 @@ function add_acf_columns ( $columns ) {
 		}
 		break;
 	}
-  }
-  add_action ( 'manage_events-announcements_posts_custom_column', 'events_announcements_custom_column', 10, 2 );
+ }
+
+add_action ( 'manage_events-announcements_posts_custom_column', 'events_announcements_custom_column', 10, 2 );
+
+$role_object = get_role( 'editor' );
+$role_object->add_cap( 'edit_theme_options' );
+
 
 /**
 * make column sortable
@@ -257,6 +267,59 @@ function events_announcements_columns_orderby( $query ) {
 }
 
 add_action( 'pre_get_posts', 'events_announcements_columns_orderby' );
+
+// News Admin Column
+
+function columns_news( $columns ) {
+	return array_merge ( $columns, array ( 
+	  'date_released' => __ ( 'Date Released' ),
+	) );
+}
+add_filter('manage_news_posts_columns', 'columns_news');
+
+ function news_custom_column ( $column, $post_id ) {
+	switch ( $column ) {
+	  case 'date_released':
+
+		if(get_post_meta ( $post_id, 'date_released', true )) {
+			$new_date = date('F j Y', strtotime(get_post_meta ( $post_id, 'date_released', true )));
+			echo $new_date;
+		} else {
+			echo '-';
+		}
+		break;
+	}
+  }
+  add_action ( 'manage_news_posts_custom_column', 'news_custom_column', 10, 2 );
+
+
+// 
+
+function news_column_register_sortable($columns){
+	$columns['date_released'] = 'date_released';
+	return $columns;
+  }
+  
+add_filter('manage_edit-news_sortable_columns','news_column_register_sortable');
+
+function news_columns_orderby( $query ) {
+
+    if( ! is_admin() )
+        return;
+
+    $orderby = $query->get( 'orderby');
+
+    switch( $orderby ){
+        case 'date_of_event': 
+            $query->set('meta_key','date_released');
+            $query->set('orderby','meta_value');
+            break;
+        default: break;
+    }
+
+}
+
+add_action( 'pre_get_posts', 'news_columns_orderby' );
 
 
 add_action('wp_ajax_data_fetch', 'data_fetch');
@@ -293,7 +356,7 @@ function data_fetch() {
 
 
     <?php else : ?>
-        <?php echo '<h3>No Results Found</h3>'; ?>
+        <?php echo '<div class="col-12"><h3>No Results Found</h3></div>'; ?>
     <?php endif; ?>
 
     <?php // die(); ?>
@@ -459,6 +522,20 @@ function wporg_shortcodes_init() {
 
 add_action( 'init', 'wporg_shortcodes_init' );
 
+function wastewater_shortcode() { 
+  
+	// Things that you want to do.
+	$template = get_template_part('inc/components/global-component/wastewater-qa'); 
+
+	return $template;
+}
+
+function wastewater_shortcodes_init() {
+	add_shortcode('wastewater_qa', 'wastewater_shortcode');
+}
+
+add_action( 'init', 'wastewater_shortcodes_init' );
+
 add_filter( 'facetwp_indexer_query_args', function( $args ) {
     $args['post_status'] = [ 'publish', 'inherit' ];
     return $args;
@@ -477,13 +554,63 @@ add_filter( 'facetwp_facet_sources', function( $sources ) {
 });
 
 
-// removes content section from editor
-add_action('init', 'remove_editor');
+add_action('admin_head', 'remove_content_section'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
 
-function remove_editor() {
+function remove_content_section() {
+  echo '<style>
+    #postdivrich{
+        display: none;   
+    }
+	
+	.post-type-parks #postdivrich {
+		display: initial;
+	}
+  </style>';
+}
+
+
+add_filter( 'wpseo_breadcrumb_links', 'yoast_seo_breadcrumb_append_link' );
+
+function yoast_seo_breadcrumb_append_link( $links ) {
     global $post;
 
-    //change 'page' to whatever post type you want to apply this to.
-        remove_post_type_support( 'page', 'editor' );
+    if ( is_singular ( 'parks' ) ) {
+        $breadcrumb[] = array(
+            'url' => site_url( '/parks/' ),
+            'text' => 'Parks',
+        );
 
+        array_splice( $links, 1, -2, $breadcrumb );
+    }
+
+    return $links;
+}
+
+add_filter( 'wpseo_breadcrumb_single_link' ,'wpseo_just_remove_breadcrumb_link', 10 ,2);
+function wpseo_just_remove_breadcrumb_link( $link_output , $link ){
+    //In case you want to remove multiple links put those texts here in this array.
+
+    $text_to_remove = []; 
+
+	while(have_rows('remove_breadcrumb_links', 'option')) : the_row(); 
+		$remove_link = get_sub_field('remove_link');
+		array_push($text_to_remove, $remove_link);
+	endwhile;
+    
+    if(in_array($link['url'] , $text_to_remove )) {
+        $link_output = str_replace('href="'.$link['url'].'"' , "" , $link_output);
+		
+        return str_replace('data-wpel-link="internal"' , "" , $link_output);
+    }
+	
+	
+    return $link_output;
+}
+
+add_action( 'template_redirect', 'my_callback' );
+function my_callback() {
+  if ( is_page_template('events.php') ) {
+    wp_redirect( "http://scrd.kimboagency.com/calendar/" );
+    exit();
+  }
 }

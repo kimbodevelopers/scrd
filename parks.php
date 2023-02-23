@@ -5,17 +5,33 @@
 global $post;
 
 ?>
-
+<div class="container-fluid site-component-container">
+	<div class="row site-component-row">
+		<div class="col-12">
+			<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+				yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+			}
+			?>
+		</div>
+	</div>
+</div>
 
 <div class="container-fluid large-cards-container site-component-container">
     <div class="row site-component-row">
-        <h2 class="title-text _50 col-12"><?php the_title() ?></h2>
+		<div class="col-12">
+			<h2 class="title-text _50 mb-0"><?php the_title() ?></h2>
+		</div>
     </div>
+	
+</div>
+
+<?php get_template_part('inc/components/custom-text-group') ?>
 
     <?php 
     
-    $park_types = get_terms(array(
-        'taxonomy' => 'park_type',
+    $park_amenities = get_terms(array(
+        'taxonomy' => 'park_amenities',
         'hide_empty' => true,
     )); 
 
@@ -24,12 +40,14 @@ global $post;
         'hide_empty' => true,
     )); 
     
-    $submitted_park_types = [];
+    $submitted_park_amenities = [];
     $submitted_areas = [];
 
     require get_template_directory() . '/inc/park-filter.php';
 
     ?>
+	
+<div class="container-fluid large-cards-container site-component-container">
 	
     <div  class="row site-component-row park-form-row">
 
@@ -44,8 +62,8 @@ global $post;
 
         <form method="post" action="<?php echo $action_slug ?>" class="parks-filter row">
 
-            <?php if(isset($_POST['park_type'])) : ?>
-                <?php $park_array = $_POST['park_type'] ?>
+            <?php if(isset($_POST['park_amenity'])) : ?>
+                <?php $park_array = $_POST['park_amenity'] ?>
             <?php else : ?>
                 <?php $park_array = []; ?>
             <?php endif; ?>
@@ -60,13 +78,13 @@ global $post;
                 <div class="dropdown show">
       
                     <a class="btn dropdown-toggle filter-dropdown-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Park Type
+                        Park Amenities
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php foreach($park_types as $park_type) : ?>
+                        <?php foreach($park_amenities as $park_amenity) : ?>
                             <div class="dropdown-item">
-                                <label for="<?php echo $park_type->slug ?>"><?php echo $park_type->name ?></label>
-                                <input id="<?php echo $park_type->slug ?>" type="checkbox" name="park_type[]" value="<?php echo $park_type->slug ?>" <?php if(in_array($park_type->slug, $park_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
+                                <label for="<?php echo $park_amenity->slug ?>"><?php echo $park_amenity->name ?></label>
+                                <input id="<?php echo $park_amenity->slug ?>" type="checkbox" name="park_amenity[]" value="<?php echo $park_amenity->slug ?>" <?php if(in_array($park_amenity->slug, $park_array )) : ?>checked='checked'<?php else: ?><?php endif; ?>/>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -121,9 +139,9 @@ global $post;
                 'relation' => 'AND',
                 array(
                     'relation' => 'OR',
-                    'taxonomy' => 'park_type',
+                    'taxonomy' => 'park_amenities',
                     'field' => 'slug',
-                    'terms' => $submitted_park_types
+                    'terms' => $submitted_park_amenities
                 ),
 
                 array(
@@ -161,6 +179,8 @@ global $post;
             </div>
         </div>
     </div>
+	
+	<?php get_template_part('inc/components/contacts/parks-contact') ?>
 
 </div>
 <?php get_footer(); ?>

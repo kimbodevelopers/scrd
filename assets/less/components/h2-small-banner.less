@@ -1,0 +1,51 @@
+.h2-small-banner-wrapper {
+	position: relative;
+	min-height: 380px;
+	display: flex;
+	margin-bottom: 30px;
+	
+	@media @large-down {
+		min-height: 320px;
+	}
+		
+	@media @medium-down {
+		min-height: 260px;
+		margin-down: 15px;
+	}
+
+	@media @small-down {
+		min-height: 180px;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+
+	}
+	
+	.headline-wrapper {
+		max-width: ~'calc(1200px + 30px)';
+		height: fit-content;
+		width: 100%;
+		display: flex;
+		position: relative;
+		z-index: 2;
+		padding: 80px 15px 0;
+		margin: auto auto 80px;
+		bottom: 0;
+		align-items: flex-end;
+	
+		
+		@media @medium-down {
+			margin: auto auto 40px;
+			padding: 40px 15px 0;
+		}
+		
+		h2 {
+			max-width: 600px;
+		}
+
+	}
+}

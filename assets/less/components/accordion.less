@@ -1,6 +1,11 @@
 .site-component-container {
     .accordion {
         --bs-accordion-transition: unset;
+		margin-bottom: 30px;
+		
+		@media @medium-down {
+			margin-bottom: 15px;
+		}
 
         .accordion-button:not(.collapsed) {
             background-color: unset;
@@ -32,6 +37,10 @@
         .accordion-body {
             color: @dark-teal;
             padding: 30px 15px 15px 30px;
+			
+			@media @medum-down {
+				padding: 15px 0px 15px 15px;
+			}
     
             ul {
                 padding-left: 20px;

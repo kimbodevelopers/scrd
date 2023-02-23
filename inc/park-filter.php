@@ -1,9 +1,9 @@
 <?php 
 
 
-if(empty($_POST['park_type'])) {
-    foreach($park_types as $park_type) {
-        $submitted_park_types[] = $park_type->slug;
+if(empty($_POST['park_amenity'])) {
+    foreach($park_amenities as $park_amenity) {
+        $submitted_park_amenities[] = $park_amenity->slug;
     }
 }
 
@@ -16,18 +16,18 @@ if(empty($_POST['area'])) {
 
 if(isset($_POST['submit'])){
 
-    if(!empty($_POST['park_type'])) {
+    if(!empty($_POST['park_amenity'])) {
 
-        foreach($_POST['park_type'] as $value){
-            $submitted_park_types[] = $value;
+        foreach($_POST['park_amenity'] as $value){
+            $submitted_park_amenities[] = $value;
         }
     }
 
-    if(empty($_POST['park_type'])) {
+    if(empty($_POST['park_amenity'])) {
 
-        if(isset($park_types)) {
-            foreach($park_types as $park_type) {
-                $submitted_park_types[] = $park_type->slug;
+        if(isset($park_amenities)) {
+            foreach($park_amenities as $park_amenity) {
+                $submitted_park_amenities[] = $park_amenity->slug;
             }
         }
     }
@@ -52,9 +52,9 @@ if(isset($_POST['submit'])){
 if(isset($_POST['reset'])){
     if(!empty($_POST['reset'])) {
 
-        if(isset($park_types)) {
-            foreach($park_types as $park_type) {
-                $submitted_park_types[] = $park_type->slug;
+        if(isset($park_amenities)) {
+            foreach($park_amenities as $park_amenity) {
+                $submitted_park_amenities[] = $park_amenity->slug;
             }
         }
 

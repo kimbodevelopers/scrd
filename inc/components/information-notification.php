@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="notification-information-wrapper bottom">
-                    <div class="notification-information-content body-text ._27"><?php echo $description ?></div>
+                    <div class="notification-information-content"><?php echo $description ?></div>
                 </div>
             </div>
         <?php endwhile; ?>

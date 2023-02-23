@@ -1,0 +1,91 @@
+.site-component-row.a2-upcoming-meetings-row {
+	.date-column {
+		@media @medium-down {
+			display: flex;
+			order: 1
+		}
+	
+		.seperator {
+			@media @medium-up {
+				display: none;
+			}
+		}
+	}
+	
+	.meeting-type {
+		@media @medium-down {
+			order: 2;
+		}
+	}
+	
+	.zoom-icon {
+		
+		p {
+			margin-bottom: 5px;
+		}
+		
+
+		
+		@media @medium-down {
+			order: 3;
+			display: flex;
+			margin: 15px 0;
+			
+			a {
+				display: flex;
+				margin-right: 15px;
+				
+				img {
+					width: 100%;
+					min-width: 50px;
+					max-width: 120px;
+					height: auto;
+					margin-top: 5px;
+				}
+			}
+			
+			p {
+				font-size: 16px;
+				margin-bottom: 0px;
+			}
+			
+			.zoom-info {
+				display: flex;
+				flex-direction: column;
+				width: -webkit-fill-available;
+				
+				span {
+					min-width: 90px;
+				}
+				
+				.webinar, .passcode {
+					display: flex;
+					text-align: left;
+				}
+				
+			}
+		}
+		
+		@media @x-small-down {
+			flex-direction:column; 
+		}
+	}
+	
+	.agenda-file {
+		@media @medium-down {
+			order: 4;
+		}
+	}
+	
+	.late-file {
+		@media @medium-down {
+			order: 5;
+		}
+	}
+	
+	.video-audio-link {
+		@media @medium-down {
+			order: 6;
+		}
+	}
+}

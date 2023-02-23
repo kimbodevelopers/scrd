@@ -61,7 +61,7 @@
                                 <?php if($tab_colour === 'orange') : ?>tab-orange<?php endif; ?>
                                 <?php if($tab_colour === 'red') : ?>tab-red<?php endif; ?> 
                                 ">
-                                <a href="#tab-<?php echo $title_replaced ?>-<?php echo get_row_index(); ?>">
+                                <a href="#tab-<?php echo preg_replace("/[^A-Za-z0-9 ]/", '', $title_replaced) ?>-<?php echo get_row_index(); ?>">
                                     <?php echo $title; ?>
                                 </a>
                             </div>
@@ -88,7 +88,7 @@
                             $tab_colour = get_sub_field('tab_colour');
 
                         ?>
-                            <div id="tab-<?php echo $title_replaced ?>-<?php echo get_row_index(); ?>" class="tab-content row">
+                            <div id="tab-<?php echo preg_replace("/[^A-Za-z0-9 ]/", '', $title_replaced) ?>-<?php echo get_row_index(); ?>" class="tab-content row">
                                 
                                 <?php if($tab_options === 'gallery_and_content') : ?>
 
@@ -156,7 +156,15 @@
                                                 }
                                     ?>
                                     
-                                                <?php if ( ! empty( $table['header'] ) ) : ?>
+									<?php $table_header_array = [] ?>
+								
+									<?php foreach($table['header'] as $th) : ?>
+										<?php if( $th['c'] !== '') : ?>
+											<?php array_push($table_header_array, $th['c']) ?>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								
+                                                <?php if ( ! empty( $table_header_array ) ) : ?>
                                                     <?php echo '<thead>' ?>
                                                         <?php echo '<tr>'; ?>
                                                             <?php foreach ( $table['header'] as $th ) : ?>

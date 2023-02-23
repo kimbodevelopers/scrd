@@ -1,11 +1,17 @@
 footer {
     background-color: @primary-dark-blue;
-    padding: 0px 0px 30px;
+   
     color: white;
     border-bottom: 10px solid @primary-light-blue-2;
+	margin-top: 60px; 
+	
+	@media @medium-down {
+		margin-top: 15px;
+		padding: 15px 0px 30px;
+	}
 
     @media @medium-up {
-        padding: 25px 0px 30px;
+        padding: 60px 0px 30px;
         border-bottom: 20px solid @primary-light-blue-2;
     }
 
@@ -22,12 +28,18 @@ footer {
         }
 
         .footer-column.top.left {
+			
+			@media @medium-down {
+				padding-top: 30px;
+			}
+			
             .address-wrapper {
                 .address-title {
                     margin-bottom: 30px;
-    
                 }
-                
+				a {
+					color: white;
+				}
                 p {
                     margin-bottom: 5px;
     
@@ -152,7 +164,7 @@ footer {
     
         .footer-bottom-row {
     
-            padding-top: 35px;
+            padding-top: 22px;
     
             @media @medium-down {
                 padding-top: 20px;
@@ -166,6 +178,7 @@ footer {
     
                     @media @medium-down {
                         margin-left: unset;
+						justify-content: flex-start;
                     }
                 }
     

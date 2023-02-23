@@ -1,0 +1,49 @@
+.agendas-filter-container.site-component-container {
+	    padding: 15px 0 0px;
+	
+	.document-library-filter-row {
+		padding-bottom: 0;
+	}
+}
+
+.agendas-container {
+	.agenda-file-header {
+		text-align: center;
+		.body-text {
+			font-weight: bold;
+		}
+	}
+	
+	.date-column {
+		@media @medium-down {
+			margin-bottom: 15px;
+		}
+	}
+	
+	.meeting-status-column {
+		@media @medium-down {
+			display: none;
+		}
+	}
+	
+	.title-header {
+		display: none;
+
+		@media @medium-down {
+			height: 50px;
+			z-index: 2;
+			position: sticky;
+			margin: 0;
+			width: 100%;
+			background: @grey-3;
+			bottom: 0;
+			top: 70px;
+			text-align: center;
+			display: flex;
+			align-items: center;
+		}
+
+
+	}
+
+}

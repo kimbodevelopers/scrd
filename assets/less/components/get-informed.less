@@ -1,12 +1,20 @@
-.get-informed-container {
+html .site-component-container.get-informed-container {
 
-    
+	padding-left: 15px;
+	padding-right: 15px;
     color: white;
 
     .get-informed-row {
         background-color: @primary-dark-blue;
         border-bottom: 15px solid @primary-light-blue-2;
         padding: 60px 45px;
+		max-width: ~'calc(1200px - 30px)';
+		
+
+		&.small {
+			max-width: 900px;
+			width: ~'calc(100% - 30px)'
+		}
 
         @media @medium-down {
             padding: 25px 0;
@@ -59,6 +67,10 @@
 
             @media @x-small-down {
                 padding: 0;
+				
+				img {
+					display: none;
+				}
             }
 
             img {

@@ -5,6 +5,7 @@
         <div class="row site-component-row">
             <div class="col-12">
                 <?php echo get_row('p3_map')['map'] ?>
+				
             </div>
         </div>
     </div>

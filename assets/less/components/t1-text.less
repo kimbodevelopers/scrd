@@ -3,10 +3,13 @@
 
         .t1-column {
             max-width: 800px;
+			
+			p {
+				font-size: 17px;
+			}
 
             .t1-content {
                 margin-right: 30px;
-                
             }
         }
 
@@ -80,7 +83,6 @@
 
             @media @medium-down {
                 min-width: 100%;
-                margin: 0 -40px 0 -25px;
 
                 .recollect_form .btn-success {
                     margin: 0;
@@ -131,6 +133,10 @@
 
     .two-column-row {
         margin-top: 30px;
+		
+		@media @medium-down {
+			margin-top: 15px;
+		}
 
         .one-column {
             max-width: 400px;

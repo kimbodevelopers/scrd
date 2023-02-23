@@ -3,6 +3,7 @@
         .featured-services-column {
             display: flex;
             flex-grow: 1;
+			max-width: 800px;
 
             margin-bottom: 40px;
 
@@ -27,15 +28,27 @@
                 background-color: @off-white;
                 height: 100%;
                 border-radius: 6px;
-                border-bottom: 7px solid @primary-light-blue-2;
+                border-bottom: 10px solid @primary-light-blue-2;
                 transition: 0.25s ease-in-out border-bottom;
 
                 @media @medium-down {
                     margin: 15px 0;
                 }
+				
+				.title-icon {
+					.icon-wrapper {
+						margin-top: -10px;
+						
+						svg {
+							@media @medium-down {
+								font-size: 20px;
+							}
+						}
+					}
+				}
 
                 &:hover {
-                    border-bottom: 7px solid @primary-dark-blue;
+                    border-bottom: 10px solid @primary-dark-blue;
                     transition: 0.25s ease-in-out border-bottom;
 
                     .icon-wrapper {
@@ -55,6 +68,13 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+					
+		
+					@media @medium-down {
+						.body-text._20 {
+							font-size: 20px;
+						}
+					}
 
                     svg {
                         font-size: 45px;

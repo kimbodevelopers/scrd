@@ -5,7 +5,7 @@
     
     <div class="row site-component-row">
         <div class="col-12">
-            <h2 class="title-text _50"><?php the_field('featured_parks_title', 'option') ?></h2>
+            <h2 class="title-text _44"><?php the_field('featured_parks_title', 'option') ?></h2>
         </div>
     </div>
 
