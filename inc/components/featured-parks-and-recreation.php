@@ -21,16 +21,16 @@
 		<?php endwhile; ?>
 
         <?php foreach($featured_parks_items as $featured_parks_item) : ?>
-		
-			
 					
 			<div class="col-md-3 col-sm-6 col-12 small-cards-column">
-				
-				<a href="<?php if(get_post_meta($featured_parks_item->ID, 'recreation_page_link', true)['url']) : ?>
-						 	<?php echo get_post_meta($featured_parks_item->ID, 'recreation_page_link', true)['url'] ?>
+				<?php $page_link = get_post_meta($featured_parks_item->ID, 'recreation_page_link', true) ?>
+					<a href="
+						<?php if($page_link) : ?>
+						 	<?php echo $page_link['url'] ?>
 						 <?php else : ?>
 						 	<?php echo $featured_parks_item->guid; ?>
-						 <?php endif; ?>">
+						 <?php endif; ?>
+					">
 					<div class="small-card-wrapper">
 						<?php if(wp_get_attachment_image_src(get_post_thumbnail_id($featured_parks_item->ID), 'full')[0]) : ?>                
 							<img class="small-cards-image" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($featured_parks_item->ID), 'full')[0] ; ?>" >
@@ -49,10 +49,11 @@
 								<?php echo $featured_parks_item->post_content	?>
 							</div>
 						<?php endif; ?>
-						
-						<?php if(get_post_meta($featured_parks_item->ID)['recreation_snippet'][0]) : ?>
+
+						<?php $recreation_snippet =  get_post_meta($featured_parks_item->ID)['recreation_snippet'] ?>
+						<?php if($recreation_snippet) : ?>
 							<div class="park-recreation-snippet">
-								<?php echo get_post_meta($featured_parks_item->ID)['recreation_snippet'][0]	?>
+								<?php echo $recreation_snippet[0]	?>
 							</div>
 						<?php endif; ?>
 											
