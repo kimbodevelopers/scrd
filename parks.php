@@ -169,16 +169,9 @@ global $post;
     </div>
 
 
-    <div class="row pagination-row site-component-row">
-        <div class="col-12 text-center">
-            <div class="pagination-wrapper">
-                <?php echo paginate_links(array(
-                    'next_text' => '<span class="paginate-icon next-icon"><i class="fa-solid fa-chevron-right"></i></span>',
-                    'prev_text' => '<span class="paginate-icon prev-icon"><i class="fa-solid fa-chevron-left"></i></span>'
-                )); ?>
-            </div>
-        </div>
-    </div>
+    <?php if(paginate_links()) : ?>
+        <?php get_template_part('inc/components/archive/pagination') ?>
+    <?php endif; ?>
 	
 	<?php get_template_part('inc/components/contacts/parks-contact') ?>
 
