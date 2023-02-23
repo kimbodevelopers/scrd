@@ -225,6 +225,31 @@
 				}
 			})
 
+    const documentLibrary = () => {
+        // hide doc library
+        $(document).on('facetwp-loaded', function() {
+          $('.facetwp-type-dropdown select').each(function () {
+            if ($(this).children('option').length == 1) {
+              $(this).closest('.facetwp-type-dropdown').hide();
+            } else {
+              $(this).closest('.facetwp-type-dropdown').show();
+            }
+          });
+        })
+
+        $('.document-reset').click(function() {
+          window.location.href = $(location).attr('href')
+        })
+
+        setTimeout(function() {
+          let mediaOption = $('.facetwp-facet-type[data-name="type"]').find('[value="attachment"]')
+          let mediaOptionArray = mediaOption.text().split(' ');
+          mediaOptionArray[0] = 'Document';
+          mediaOption.text(mediaOptionArray.join(' '));
+
+        }, 300)
+    }
+
 
 			$(window).resize(function() {
 				if ($(window).width() >= 991) {

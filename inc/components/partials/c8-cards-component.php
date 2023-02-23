@@ -78,6 +78,10 @@
 					<?php get_template_part('inc/components/partials/c8-conditional-partials/view-doc-standard') ?>
 				<?php endif; ?>
 
+            <!-- Bid Opportunity Files -->
+            <?php if($post->post_type === 'bid-opportunities') : ?>
+                <?php get_template_part('inc/components/partials/c8-conditional-partials/view-doc-bid-opportunities') ?>
+            <?php endif; ?>
 
 				<!-- Bid Opportunity Files -->
 				<?php if($post->post_type === 'bid-opportunities') : ?>

@@ -1,4 +1,3 @@
-
     <i class="fa-solid fa-file-pdf"></i>
 
     <div class="text-wrapper">
