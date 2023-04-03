@@ -160,6 +160,10 @@ global $post;
 							</div>
 						</div>
 
+	$wp_query = $minutes;
+?>   
+	
+<div class="container-fluid site-component-container minutes-container">
 
 				</div>
 			

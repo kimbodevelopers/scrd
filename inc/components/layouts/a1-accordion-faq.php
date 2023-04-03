@@ -20,9 +20,11 @@
         <div class="row site-component-row large-cards-row">
             <div class="accordion accordion-flush col-md-10 col-12 a1 <?php if($remove_padding[0]) : ?> mb-0 <?php endif; ?>" id="accordionFlushA1-<?php echo $count ?>">
 
-                <?php if(get_sub_field('accordion_option') === 'faq') : ?>
+                <?php $accordion_option = get_sub_field('accordion_option') ?>
 
-                    <?php $accordion_option = get_sub_field('accordion_option') ?>
+                <?php while(have_rows('attachments_rows')) : the_row(); 
+                    $attachment_topic = get_sub_field('attachment_topic');
+                ?>
 
                     <?php while(have_rows('frequently_asked_questions')) : the_row(); 
                         $question = get_sub_field('question');
@@ -41,11 +43,21 @@
                             </div>
                         </div>
 
-                    <?php endwhile; ?>
+                                <div class="container-fluid site-component-container b1-table-container">
+                                    <div class="row site-component-row b1-table-row">
 
-                    <?php wp_reset_postdata(); ?>
+                                    <?php while(have_rows('attachments')) : the_row(); 
+                                        $label = get_sub_field('label');
+                                        $file = get_sub_field('file');
+                                    ?>
+                                        <div class="col-12 b1-table-column">
 
-                <?php endif; ?>
+                                            <?php if($file) : ?>
+                                                <a href="#" onclick='window.open("<?php echo $file; ?>"); return false;'>
+                                                    <span class="title-text _21"><?php echo $label ?></span>
+                                                    <span class="icon-wrapper file"><i class="fa-solid fa-file-pdf"></i></span>
+                                                </a>
+                                            <?php endif; ?>
 
                 <?php if(get_sub_field('accordion_option') === 'table') : ?>
 
@@ -126,7 +138,9 @@
 										</div>
 									<?php endif; ?>
 
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -272,6 +286,7 @@
                 <?php endif; ?>
 
 
+                <?php endwhile; ?>
             </div>
 
         </div>

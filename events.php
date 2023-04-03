@@ -3,5 +3,4 @@
 /* Template Name: Events */
 
 ?>
-
 <?php get_footer(); ?>

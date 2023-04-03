@@ -2442,6 +2442,12 @@ html .site-component-container.agendas-upcoming-container .agendas-row .agenda-i
 .site-component-container.f1-form-container .f1-form-row .t1-column p {
   font-size: 17px;
 }
+.site-component-container.t1-container .t1-row .t1-column p,
+.site-component-container.t1-container .f1-form-row .t1-column p,
+.site-component-container.f1-form-container .t1-row .t1-column p,
+.site-component-container.f1-form-container .f1-form-row .t1-column p {
+  font-size: 17px;
+}
 .site-component-container.t1-container .t1-row .t1-column .t1-content,
 .site-component-container.t1-container .f1-form-row .t1-column .t1-content,
 .site-component-container.f1-form-container .t1-row .t1-column .t1-content,

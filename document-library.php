@@ -21,7 +21,8 @@ global $post;
             <?php echo do_shortcode('[facetwp facet="type"]') ?>
             <?php echo do_shortcode('[facetwp facet="bylaw_type"]') ?>
             <?php echo do_shortcode('[facetwp facet="year_issued"]') ?>
-
+            <?php echo do_shortcode('[facetwp facet="water_test_types"]') ?>
+			<?php echo do_shortcode('[facetwp facet="bid_opportunity_status"]') ?>
             <div class="col-lg-3 col-md-4 col-sm-6  col-12">
                 <button onclick="FWP.reset()" class="global-submit document-reset">Reset</button>
             </div>
