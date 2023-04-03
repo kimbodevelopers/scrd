@@ -7,6 +7,10 @@
         @media @medium-down {
             padding-bottom: 20px;
         }
+		
+		* {
+			color: @dark-teal;
+		}
 
         .single-parks-title-column {
             margin-bottom: 30px;
@@ -25,12 +29,10 @@
         }
 
         .title-text {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: @primary-dark-blue;
 
-            @media @medium-down {
-                margin-bottom: 10px;
-            }
+
         }
 
         .title-column {
@@ -40,16 +42,20 @@
 
                 &.english {
                     color: @primary-dark-blue;
+					-webkit-text-stroke: 1px @primary-dark-blue;
                 }
     
                 &.aboriginal {
-                    color: @dark-grey;
+                    color: @grey-6;
+					font-family: calibri;
+					letter-spacing: 2px;
                 }
             }
         }
 
         .text-section {
             margin-bottom: 20px;
+			color: white;
 
             @media @medium-down {
                 margin-bottom: 15px;
@@ -59,9 +65,35 @@
         .single-parks-column {
 
             &.left {
+				
                 img {
                     width: 100%;
                 }
+				
+				.intro {
+					p {
+						font-size: 25px;
+						font-weight: normal;
+						
+						margin-bottom: 30px;
+
+						@media @medium-down {
+							font-size: 23px;
+						}
+
+						@media @x-small-down {
+							font-size: 20px;
+						}
+					}
+				}
+				
+				.title-text {
+					margin-top: 30px;
+					
+					@media @medium-down {
+						margin-top: 15px;
+					}
+				}
 
                 .b1-table-row {
                     .b1-table-column {
@@ -77,18 +109,15 @@
             &.right {
                 .single-page-image {
                     width: 100%;
-                    margin-bottom: 30px;
-                    max-height: 375px;
-                    min-height: 300px;
+                    margin-bottom: 10px;
+//                     max-height: 375px;
+//                     min-height: 300px;
+					
+					height: unset;
+					max-height: unset;
+					min-height: unset;
                 }
 
-                #carouselParkIndicator {
-                    margin-bottom: 30px;
-
-                    @media @medium-down {
-                        margin-bottom: 20px;
-                    }
-                }
 
                 .carousel-item {
                     max-height: 500px;
@@ -97,9 +126,26 @@
                         max-height: 350px;
                     }
                 }
+				
+				.area-title {
+					font-size: 25px;
+					color: @dark-teal;
+					font-weight: 600;
+					padding-top: 15px;
+					padding-bottom: 10px;
+					font-family: 'Montserrat', calibri, sans-serif;
+
+					@media @medium-down {
+						font-size: 22px;
+					}
+
+					@media @x-small-down {
+						font-size: 18px;
+					}
+				}
 
                 p {
-                    margin: 0;
+                    margin: 0 0 5px;
                 }
             }
         }
@@ -109,6 +155,7 @@
     .pronunciation-row {
         margin: auto;
         max-width: 1200px;
+		font-family: calibri;
 
         @media @medium-down {
             padding: 20px 15px;
@@ -116,20 +163,41 @@
         
         .pronunciation-title-column {
             padding: 35px 30px 0;
-            background-color: @brand-beige;
+            background-color: @primary-dark-blue;
+			
+			@media @medium-down {
+				padding: 25px 15px 0;
+			}
         }
 
         .pronunciation-column {
-            background-color: @brand-beige;
-            padding: 0 30px 50px;
+            background-color: @primary-dark-blue;
+            padding: 0 0px 50px 30px;
 
             @media @medium-down {
-                padding: 0 20px 50px;
+                padding: 0 20px 15px;
             }
+			
+			.text-section {
+				color: white;
+				font-family: calibri;
+				
+			}
+			
+			.translation-file a {
+				color: white;
+			}
+			
         }
 
         .aboriginal-title {
             margin-bottom: 25px;
+			color: white;
+			font-family: calibri;
+			
+			&.title-text._50 {
+				font-weight: 500;
+			}
 
             @media @medium-down {
                 margin-bottom: 20px;

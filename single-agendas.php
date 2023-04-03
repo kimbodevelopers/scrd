@@ -2,124 +2,107 @@
 <?php get_header(); 
 
 global $post;
-date_default_timezone_set('America/Los_Angeles');
+
 ?>
 
-<div class="container-fluid site-component-container t1-container">
-    <div class="row site-component-row t1-row">
+<div class="container-fluid site-component-container">
+    <div class="row site-component-row">
 
-        
-
-        <div class="col-12 t1-column">
-
-        <h1><?php the_title() ?> Agendas</h1>
-
-            <?php 
-                function get_page_id_by_title($title)
-                {
-                    $page = get_page_by_title($title);
-                    $page_id = $page->ID;
-
-                    $agendas_content = get_post_meta($page->ID, 'agendas_content', true);
-                    
-                    if ($agendas_content)
-
-                    echo $agendas_content;
-
-                }
-
-
-                get_page_id_by_title('agendas');
-            ?>
-
-        </div>
+		<?php if(get_field('date')) : ?>
+			<div class="col-12">
+				<h1 class="title-text _50 dark-blue">Agenda for <?php the_field('date') ?></h1>
+			</div>
+		<?php endif; ?>
     </div>
+	
 </div>
 
+<div class="container-fluid site-component-container b1-table-container">
+	<div class="row site-component-row b1-table-row">
 
+		<?php while(have_rows('agenda_files')) : the_row(); 
+			$label = get_sub_field('label');
+			$file = get_sub_field('file');
+		?>
+			<div class="col-12 b1-table-column">
+				<?php if($file) : ?>
+				<a href="#" onclick='window.open("<?php echo $file['url']; ?>"); return false;'>
+					<span class="title-text _21">
+						<?php if($label) : ?>
+							<?php echo $label ?>
+						<?php else : ?>
+							Agenda File <?php echo get_row_index(); ?>
+						<?php endif; ?>
+					</span>
+					<span>
+						<i class="fa-solid fa-file-pdf"></i>
+					</span>
+				</a>
+				<?php endif; ?>
 
-<?php $post = $wp_query->post; 
-        $post_id = get_queried_object_id();
-    ?>
+			</div>
+		<?php endwhile; ?>
+		
+		<?php while(have_rows('late_items')) : the_row(); 
+			$label = get_sub_field('label');
+			$file = get_sub_field('file');
+		?>
+			<div class="col-12 b1-table-column">
+				<?php if($file) : ?>
+				<a href="#" onclick='window.open("<?php echo $file['url']; ?>"); return false;'>
+					<span class="title-text _21">
+						<?php if($label) : ?>
+							<?php echo $label ?>
+						<?php else : ?>
+							Late Item <?php echo get_row_index(); ?>
+						<?php endif; ?>
+					</span>
+					
+					<span>
+						<i class="fa-solid fa-file-pdf"></i>
+					</span>
+				</a>
+				<?php endif; ?>
 
-    <?php 
-    $agenda_single = new WP_Query(array(
-        'post_type' => 'agendas',
-        'posts_per_page' => -1,
-        'post__status' => 'published',
-        'order' => 'desc',
-        'orderby' => 'title',
-        'p' => $post_id,
+			</div>
+		<?php endwhile; ?>
+		
+		<?php while(have_rows('audio_video_links')) : the_row(); 
+			$audio_or_video = get_sub_field('audio_or_video');
+			$link = get_sub_field('link');
+			$label = get_sub_field('label');
+		?>
+			<div class="col-12 b1-table-column">
+				<?php if($link) : ?>
+				<a href="#" onclick='window.open("<?php echo $link ?>"); return false;'>
+					<span class="title-text _21">
+						<?php if($label) : ?>
+							<?php echo $label ?>
+						<?php else : ?>
+							Watch Video <?php echo get_row_index(); ?>
+						<?php endif; ?>
+					</span>
+					
+					<?php if($audio_or_video === 'audio') : ?>
+						<span>
+							<i class="fa-solid fa-headphones"></i>
+						</span>
+					<?php endif; ?>
+					
+					<?php if($audio_or_video === 'video') : ?>
+						<span>
+							<i class="fa-brands fa-youtube"></i>
+						</span>
+					<?php endif; ?>
+				</a>
+				<?php endif; ?>
 
-    ));
+			</div>
+		<?php endwhile; ?>
 
-    $wp_query = $agenda_single;
-    ?>
+	</div>
+</div>
 
-    <?php 
-
-    $agenda_years = new WP_Query(array(
-        'post_type' => 'agendas',
-        'posts_per_page' => -1,
-        'post__status' => 'published',
-        'order' => 'desc',
-        'orderby' => 'title',
-
-    ));
-
-    $wp_query_years = $agenda_years;
-    ?>
-
-    <?php $post_id = get_the_ID();
-            $agenda_types = get_field('agenda_type');
-    ?>
-
-    <?php $agenda_array = []; ?>
-
-    <?php foreach($agenda_types as $agenda_type) : ?>
-        <?php foreach($agenda_type['agenda'] as $agenda) : ?>
-            <?php array_push($agenda_array, $agenda['date']); ?>
-        <?php endforeach; ?>
-    <?php endforeach; ?>
-
-    <?php get_template_part('inc/components/upcoming-meetings') ?>   
-
-    <div class="container-fluid site-component-container">
-        <div class="row site-component-row agendas-button-row">
-            <div class="col-md-6 meetings-title-column">
-                <h1 class="title-text _33">Meetings <?php the_title(); ?></h1>
-            </div>
-
-            <div class="col-md-6 meetings-dropdown-column">
-                <div class="dropdown">
-
-                    <button class="btn dropdown-toggle right-aligned"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php the_title(); ?>&nbsp;
-             
-                            <span>
-                                (<?php echo count($agenda_array) ?>)
-                            </span>
-                    </button>
-
-                    <ul class="dropdown-menu dropdown-menu-end">
-                
-
-                        <?php while($wp_query_years->have_posts()) : $wp_query_years->the_post(); ?>
-
-                            <li>
-                                <a class="dropdown-item" href="<?php the_permalink() ?>">
-                                    <?php the_title() ?>
-                                </a>
-                            </li>
-                        <?php endwhile; wp_reset_query(); ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <?php get_template_part('inc/components/a2-accordion-meetings') ?>
 
 
 <?php get_footer(); ?>

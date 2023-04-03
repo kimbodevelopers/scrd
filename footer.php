@@ -9,10 +9,16 @@
 							<p class="body-text _20 address-title"><?php the_field('address_label', 'option') ?></p>
 
 							<?php while(have_rows('footer_address', 'option')) : the_row(); 
-								$address_icon = get_sub_field('address_icon');
 								$address_label = get_sub_field('address_label');
+								$address_link = get_sub_field('address_link');
 							?>
-								<p><?php echo $address_icon ?>&nbsp;<?php echo $address_label ?></p>
+								<?php if($address_link) : ?>
+									<p>
+										<a href="<?php echo $address_link ?>"><?php echo $address_label ?></a>	
+									</p>
+								<?php else : ?>
+									<p><?php echo $address_label ?></p>
+								<?php endif; ?>
 
 							<?php endwhile; ?>
 
@@ -50,7 +56,7 @@
 								$external_link = get_sub_field('external_link');
 							?>
 								<div class="external-links-column">
-									<a href="<?php echo $external_link; ?>"><span><?php echo $external_icon; ?></span> <span><?php echo $external_label; ?></span></a>
+									<a href="<?php echo $external_link['url']; ?>"><span><?php echo $external_icon; ?></span> <span><?php echo $external_label; ?></span></a>
 								</div>
 							<?php endwhile; ?>
 				
@@ -85,7 +91,7 @@
 					?>
 						<div class="footer-copyright footer-bottom-column col-md-5"><?php echo $footer_copyright; ?></div>
 						<div class="footer-legal footer-bottom-column col-md-4"><a href="<?php echo $footer_legal_link; ?>"><?php echo $footer_legal ?></a></div>
-						<div class="footer-author footer-bottom-column col-md-3">Website by: <a href="<?php echo $footer_author_link ?>"><?php echo $footer_author ?></a></div>
+						<div class="footer-author footer-bottom-column col-md-3">Website by:&nbsp;<a href="<?php echo $footer_author_link ?>"><?php echo $footer_author ?>&nbsp;&#174;</a></div>
 					<?php endwhile; ?>
 				</div>
 

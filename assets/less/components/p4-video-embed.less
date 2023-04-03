@@ -2,19 +2,34 @@
     .p4-row {
         .p4-column {
             position: relative; 
-            padding-bottom: 56.25%;
             overflow: hidden;
             height: auto;
-            max-width: ~'calc(100% - 30px)';
-            margin: auto;
-            height: auto;
+			margin-right: auto;
+			
+			&.video-size {
+				&.large {
+					max-width: ~'calc(100% - 30px)';
+					padding-bottom: 45%;
+				}
+				
+				&.medium {
+					max-width: ~'calc(65% - 30px)';
+					padding-bottom: 35%;
+				}
+
+				&.small {
+					max-width: ~'calc(50% - 30px)';
+					padding-bottom: 25.25%;
+				}
+			}
 
             iframe, embed, object {
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
+                width: ~'calc(100% - 30px)';
                 height: 100%;
+				margin-left: 15px;
             }
         }
     }

@@ -30,6 +30,10 @@
                     .icon-wrapper {
                         svg {
                             filter: ~'invert(54%) sepia(25%) saturate(5601%) hue-rotate(189deg) brightness(100%) contrast(101%)';
+							
+							@media @medium-down {
+								font-size: 40px;
+							}
                         }
                     }
 
@@ -63,16 +67,25 @@
     
                     .notification-information-content {
                         color: white;
+						
+						a {
+							color: white;
+						}
     
-                        p {
-                            font-size: 27px;
-                            font-weight: normal;
-                    
-                            @media @medium-down {
-                                font-size: 21px;
-                            }
-                        }
-                    }
+						p {
+							font-size: 23px;
+							font-weight: normal;
+							line-height: 1.3;
+
+							@media @medium-down {
+								font-size: 21px;
+							}
+
+							@media @x-small-down {
+								font-size: 19px;
+							}
+						}
+					}
                 }
             }
         }

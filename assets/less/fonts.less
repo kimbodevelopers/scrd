@@ -2,6 +2,10 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
+p {
+	font-size: 17px;
+}
+
 .title-text {
     margin-bottom: 30px;
     color: @dark-teal;
@@ -55,11 +59,11 @@
         font-weight: 600;
 
         @media @medium-down {
-            font-size: 23px;
+            font-size: 23.5px;
         }
 
         @media @x-small-down {
-            font-size: 17px;
+            font-size: 19.5px;
         }
     }
 
@@ -159,7 +163,6 @@
     &._16 {
         font-size: 16px;
         font-weight: 400;
-        font-style: italic;
     }
 
     &._17 {
@@ -180,6 +183,14 @@
     &._20 {
         font-size: 20px;
         font-weight: bold;
+		
+		@media @medium-down {
+            font-size: 18px;
+        }
+
+        @media @x-small-down {
+            font-size: 16px;
+        }
     }
 
     &._21 {
@@ -194,10 +205,31 @@
             font-size: 17px;
         }
     }
+	
+	&._25 {
+		font-size: 25px;
+		font-weight: normal;
+		
+		@media @medium-down {
+            font-size: 23px;
+        }
+
+        @media @x-small-down {
+            font-size: 20px;
+        }
+	}
 
     &._26 {
         font-size: 26px;
         font-weight: bold;
+		
+		@media @medium-down {
+            font-size: 23.5px;
+        }
+
+        @media @x-small-down {
+            font-size: 20px;
+        }
     }
 
     &._27 {

@@ -1,11 +1,12 @@
-.site-component-container.b1-table-container {
-    padding: 0 0 30px;
-
+html .site-component-container.b1-table-container {
+    padding: 0 0 15px;
+	
     .site-component-row.b1-table-row {    
-
+		
         .b1-table-column {
-            max-width: 800px;
+            max-width: 1000px;
             padding: 20px 15px;
+			height: 100%;
     
             @media @medium-down {
                 padding: 20px 15px;
@@ -32,10 +33,33 @@
                 margin: auto 0;
             }
     
-            svg {
-                font-size: 40px;
-                color: @primary-light-blue-2;
-            }
+
+			
+				.icon-wrapper {
+					
+					svg {
+						font-size: 36px;
+						color: @primary-dark-blue;
+					}
+					
+					
+					&.link {
+						svg {
+							font-size: 34px;
+
+						}
+					}
+					
+					&.image {
+						svg {
+							font-size: 31px;
+
+						}
+					}
+					
+				}
+			
+
         }
     }
 }

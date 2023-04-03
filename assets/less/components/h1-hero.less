@@ -1,4 +1,10 @@
 .carousel {
+	
+	margin-bottom: 30px;
+	
+	@media @margin-down {
+		margin-bottom: 15px;
+	}
 
     .active.carousel-item-right, .carousel-item-next,
     .active.carousel-item-left, .carousel-item-prev
@@ -19,10 +25,12 @@
 
             @media @small-down {
                 height: 450px;
+				min-height: 450px;
             }
 
             @media @x-small-down {
                 height: 350px;
+				min-height: 350px;
             }
         }
     }

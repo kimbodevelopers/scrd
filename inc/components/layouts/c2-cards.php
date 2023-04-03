@@ -21,6 +21,22 @@
                     </a>
                 </div>
             <?php endwhile; ?>
+			
+			<?php while(have_rows('view_button')) : the_row(); 
+                $text = get_sub_field('view_button_text');
+                $link = get_sub_field('view_button_link');
+            ?>
+
+            <?php if($text || $link) : ?>
+                <div class="row site-component-row button-row <?php if(!have_rows('cards') || !get_sub_field('cards_title') ) : ?>mt-0 mb-3<?php endif; ?>">
+                    <div class="col-12 button-column">
+                        <a href="<?php echo $link ?>" target="__blank" class="site-button body-text _26"><?php echo $text ?></a>
+                    </div>
+                </div>
+            <?php endif; ?>
+                
+            <?php endwhile; ?>
+			
         </div>
     </div>
 

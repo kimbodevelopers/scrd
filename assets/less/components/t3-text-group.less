@@ -63,6 +63,7 @@
 
             .carousel-inner {
                 .carousel-item {
+
                     max-height: 400px;
 
                     @media @medium-down {
@@ -81,14 +82,23 @@
                 }
             }
 
-
-
             .tab-content {
                 width: 100%;
                 margin: 0;
+				overflow-x: auto;
+				
+				.carousel {
+                    height: fit-content;
+
+                    .carousel-item {
+                        img {
+                            height: unset;
+                            max-height: unset;
+                            min-height: unset;
+                        }
+                    }
+                }
             }
-
-
 
             .active {
 
@@ -188,10 +198,29 @@
                     position: relative;
                     overflow: auto;
                     white-space: nowrap;
+					
+					>th:first-child, >td:first-child {
+						&:after {
+							@media @x-small-down {
+								width: 10px;
+								content: '';
+								position: absolute;
+								height: 100%;
+								background: -webkit-linear-gradient(left, rgba(0,0,0,0.05), rgba(0,0,0,0));
+								right: 0;
+								top: 0;
+							}
+
+						}
+					}
     
     
                     td, th {
                         padding: 20px 0;
+						
+						@media @medium-down {
+							padding: 10px 0;
+						}
 
                         a {
                             display: inline-flex;
@@ -204,7 +233,9 @@
                     }
     
                     td:nth-child(1) {
-                        min-width: 350px;
+                        min-width: 300px;
+						max-width: 300px;
+						width: 300px;
                         position: sticky;
                         position: -webkit-sticky;
                         left: 0;
@@ -218,12 +249,13 @@
                         }
     
                         @media @x-small-down {
-                            min-width: 170px;
+                            min-width: 150px;
                         }
                     }
     
                     td:not(:nth-child(1)), th:not(:nth-child(1)) {
                         text-align: left;
+						padding-left: 10px;
                     }
     
                     td:not(:nth-child(1)) {

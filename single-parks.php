@@ -1,15 +1,17 @@
 <?php defined('ABSPATH') or die(""); ?>
-
 <?php 
 if(get_the_title() === 'Dakota Ridge') {
         header("Location: ". get_site_url() . "/" . "dakota-ridge" . "/" );
     }
 ?>
+
 <?php get_header(); 
 /* Template Name: Single Park */
 global $post;
 
 ?>
+<?php get_template_part('inc/components/breadcrumb') ?>
+<?php get_template_part('inc/components/layouts/t1-text-group') ?>
 <div class="container-fluid site-component-container single-parks-container">
     <div class="row site-component-row single-parks-row">
 
@@ -27,29 +29,24 @@ global $post;
             <?php endif; ?>
         </div>
 
-        <div class="col-lg-5 col-md-6 single-parks-column left">
-            <?php $areas = get_the_terms($post->ID, array('taxonomy' => 'area')); ?>
-
-            <?php foreach($areas as $area) : ?>
-                <h2 class="title-text _33"><?php echo $area->name ?></h1>
-            <?php endforeach; ?>
+        <div class="col-lg-6 single-parks-column left">
 
             <?php if(get_the_content()) :  ?>
-                <div class="body-text _17"><?php the_content(); ?></div>
+                <div class="body-text intro"><?php the_content(); ?></div>
             <?php endif; ?>
 
             <?php if(get_field('location')) : ?>
-                <h3 class="title-text _25">Location</h3>
-                <p class="body-text _17"><?php the_field('location') ?></p>
+                <h3 class="title-text _25 pr-5">Location</h3>
+                <p class="body-text _17 pr-5"><?php the_field('location') ?></p>
             <?php endif; ?>
 
             <?php if(get_field('amenities')) : ?>
-                <h3 class="title-text _25">Amenities</h3>
-                <div class="body-text _17"><?php the_field('amenities'); ?></div>
+                <h3 class="title-text _25 pr-5">Amenities</h3>
+                <div class="body-text _17 pr-5"><?php the_field('amenities'); ?></div>
             <?php endif; ?>
 
             <?php if(get_field('features_list')) : ?>
-                <h3 class="title-text _25">Features</h3>
+                <h3 class="title-text _25 pr-5">Features</h3>
 
                 <div class="row site-component-row b1-table-row mr-4">
                     <?php while(have_rows('features_list')) : the_row(); 
@@ -67,7 +64,7 @@ global $post;
             <?php endif; ?>
         </div>
 
-        <div class="col-lg-4 col-md-6 single-parks-column right">
+        <div class="col-lg-6 single-parks-column right">
 
 
             <?php $park_images = get_field('parks_gallery'); ?>
@@ -101,7 +98,7 @@ global $post;
                     <?php if($park_images) : ?>
                         <?php foreach($park_images as $park_image) : ?>
                             <div class="carousel-item">
-                                <img src="<?php echo $park_image['url'] ?>" class="d-block w-100" alt="<?php echo $park_image['alt'] ?>">
+                                <img class="single-page-image" src="<?php echo $park_image['url'] ?>" class="d-block w-100" alt="<?php echo $park_image['alt'] ?>">
                             </div>
                             <?php echo $index; ?>
                         <?php $index++; ?>
@@ -121,7 +118,11 @@ global $post;
                 <?php endif; ?>
             </div>
 
+            <?php $areas = get_the_terms($post->ID, array('taxonomy' => 'area')); ?>
 
+            <?php foreach($areas as $area) : ?>
+                <p class="area-title"><?php echo $area->name ?></p>
+            <?php endforeach; ?>
 
             <?php if(get_field('address')) : ?>
                 <p class="body-text _17"><strong>Address</strong>: <?php the_field('address'); ?>
@@ -161,23 +162,23 @@ global $post;
         <div class="row pronunciation-row">
 
             <?php if(get_field('aboriginal_title')) : ?>
-                <div class="col-lg-9 pronunciation-title-column">
-                    <h2 class="title-text _33 aboriginal-title"><?php the_field('aboriginal_title'); ?></h2>
+                <div class="col-lg-10 col-12 pronunciation-title-column">
+                    <h2 class="title-text _50 aboriginal-title"><?php the_field('aboriginal_title'); ?></h2>
                 </div>
             <?php endif; ?>
 
 
-            <div class="col-lg-4 col-md-6 pronunciation-column">
+            <div class="col-lg-4 col-12 pronunciation-column">
                 <?php if(get_field('pronunciation_introduction')) : ?>
                     <p class="text-section"><?php the_field('pronunciation_introduction') ?></p>
                 <?php endif; ?>
 
-                <?php if(get_field('learn_more')) : ?>
-                    <div>Learn more about the <a href="<?php the_field('learn_more'); ?>">project in this document</a>.</div>
+                <?php if(get_field('park_names_translation_text', 'option')) : ?>
+                    <div class="translation-file"><a href="<?php the_field('park_names_translation_file', 'option'); ?>" target="__blank"><?php echo get_field('park_names_translation_text', 'option') ?></a></div>
                 <?php endif; ?>
             </div>
 
-            <div class="col-lg-5 col-md-6 pronunciation-column">
+            <div class="col-lg-6 col-12 pronunciation-column">
                 <?php if(get_field('pronunciation')) : ?>
                     <div class="text-section"><strong>Pronunciation</strong>: <?php the_field('pronunciation'); ?></div>
                 <?php endif; ?>

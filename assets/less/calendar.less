@@ -1,0 +1,82 @@
+.em-view-container {
+	width: 100%;
+	overflow: auto;
+	
+	.em.em-calendar {
+		.em-cal-head {
+			border-radius: 0;
+			border: 1px solid @primary-dark-blue;
+			
+		}
+	
+		.em-cal-head>div {
+			overflow-x: unset;
+			color: @primary-dark-blue;
+			border-left: 1px solid @primary-dark-blue;
+		}
+	}
+	
+
+	
+	.em.em-calendar {
+		min-width: 900px;
+
+		.em-cal-body, &.size-medium .em-cal-body {
+			@media @medium-down {
+				--grid-auto-rows: unset;
+				grid-auto-rows: unset;
+			}
+
+			&>div {
+				border: 0.5px solid @primary-dark-blue;
+				border-right-width: 0;
+				border-top-width: 0;
+			}
+			
+			.em-cal-day {
+				justify-items: flex-end;
+				align-items: flex-start;
+				padding: 10px;
+				position: relative;
+
+				.em-cal-event {
+					display: flex;
+					width: 100%;
+				}
+			}
+		}
+		
+
+		.em-cal-nav .month-nav .em-calnav-today.is-today, .input .button {
+			border: 1px solid @primary-dark-blue !important;
+			border-radius: 0 !important;
+		}
+			
+
+	}
+
+
+}
+
+.em-modal-popup {
+	header {
+		box-shadow: unset;
+		position: unset;
+	}
+	
+	footer {
+		background-color: transparent;
+	}
+	
+
+}
+
+.em.pixelbones {
+	.flatpickr-calendar.animate.open {
+		transform: translateY(-165px);
+		animation: unset;
+		-webkit-animation: unset;
+
+	}
+}
+

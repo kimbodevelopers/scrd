@@ -7,6 +7,7 @@
                 $image = get_sub_field('image');
                 $title = get_sub_field('title');
                 $content = get_sub_field('content');
+				$display_read_more_option = get_sub_field('display_read_more_option');
             ?>
                 <div class="row site-component-row <?php if($image_position === 'image_left') : ?>p2-row <?php elseif ($image_position === 'image_right') : ?> p2-row-reverse<?php else : ?> p2-row<?php endif; ?>">
                     <div class="col-lg-4 image-column">
@@ -39,15 +40,19 @@
                     <div class="col-lg-6 content-column">
                         <div class="content-wrapper">
                             <?php if($title) : ?>
-                            <h2 class="p2-title title-text _33"><?php echo $title; ?></h2>
+                            	<h2 class="p2-title title-text _33"><?php echo $title; ?></h2>
                             <?php endif; ?>
-                            <div class="p2-content body-text _17 content-200">
-                                <div class="content-overlay content-gradient-on"></div>
+                            <div class="p2-content body-text _17 <?php if($display_read_more_option === 'enable') : ?>content-200<?php endif ?>">
+                                <?php if($display_read_more_option === 'enable') : ?><div class="content-overlay content-gradient-on"></div><?php endif; ?>
                                 <?php echo $content ?>
                             </div>
                         </div>
-                        <div class="read-more-expand">Read More&nbsp;<i class="fa-solid fa-angle-down"></i></div>
-                        <div class="read-less-collapse">Collapse&nbsp;<i class="fa-solid fa-angle-up"></i></div>
+						
+					
+						<?php if($display_read_more_option === 'enable') : ?>
+							<div class="read-more-expand">Read More&nbsp;<i class="fa-solid fa-angle-down"></i></div>
+							<div class="read-less-collapse">Collapse&nbsp;<i class="fa-solid fa-angle-up"></i></div>
+						<?php endif; ?>
                     </div>
                     
                 </div>

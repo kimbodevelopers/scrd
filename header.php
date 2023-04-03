@@ -22,6 +22,16 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1X17VX13F"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-S1X17VX13F');
+	</script>
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito&display=swap" rel="stylesheet">
@@ -35,8 +45,11 @@
 	<?php wp_body_open(); ?>
 
 	<div id="wrapper">
+		
 		<header id="header">
-
+			
+			<?php get_template_part('inc/components/notification-bar') ?>
+			
 			<nav class="navbar navbar-expand-lg">
 				
 				<div class="container-fluid nav-container">
@@ -93,17 +106,24 @@
 			
 			<div class="search-container hide-search container-fluid site-component-container">
 				<div class="row site-component-row search-form-row">
-					<div class="col-11">
+					
+					<div class="col-12">
+						<div class="search-form-column">
 
-						<form method="get" class="searchform" id="searchform" action="<?php echo esc_url( home_url( '/')); ?>">
-							<input type="text" class="field title-text _50" name="s" id="searchInput" onkeyup="fetchResults()" placeholder="<?php esc_html_e('Start Typing...'); ?>">
-							<input type="hidden" class="search-bar" name="post_type" value="<?php echo esc_attr($post_type); ?>">
-						</form>
+							<form method="get" class="searchform" id="searchform" action="<?php echo esc_url( home_url( '/')); ?>">
+								<input type="text" class="field title-text _50" name="s" id="searchInput" onkeyup="fetchResults()" placeholder="<?php esc_html_e('Start Typing...'); ?>">
+								<input type="hidden" class="search-bar" name="post_type" value="<?php echo esc_attr($post_type); ?>">
+							</form>
 
+
+						</div>
+
+						<div class="close-search-wrapper">
+							<div class="close-search">CLOSE</div>
+							<div class="clear-search"><i class="fa-regular fa-circle-xmark"></i></div>
+						</div>
 					</div>
-					<div class="col-1 close-search-wrapper">
-						<div class="close-search"><i class="fa-solid fa-xmark"></i></div>
-					</div>
+
 
 				</div>
 				<div id="datafetch" class="row site-component-row"></div>
@@ -111,6 +131,6 @@
 			</div>
 
 		</header>
-
+		
 		<main id="main">
 	

@@ -1,4 +1,6 @@
 .park-form-row {
+	
+	
     @media @medium-down {
         justify-content: center;
     }
@@ -7,9 +9,9 @@
 
         margin-bottom: 50px;
     
-        @media @medium-down {
-            margin-bottom: 20px;
-            padding: 0;
+        @media @x-small-down {
+			margin: 0 auto 20px;
+
         }
     
         .dropdown {
@@ -19,13 +21,22 @@
             }
     
             .dropdown-menu {
-                width: 100%;
+                width: auto;
+				min-width: 100%;
                 border-radius: 0;
                 margin: -3px 0 0 0 !important;
     
                 .dropdown-item {
                     display: flex;
                     justify-content: space-between;
+					min-height: 40px;
+					
+					font-size: 20px;
+					
+					a {
+						color: @dark-teal;
+						text-decoration: none;
+					}
                     
                     &:focus {
                         background-color: unset;
@@ -53,20 +64,25 @@
             }
     
             .filter-dropdown-button {
-                padding: 15px 20px;
-                border: 1px solid @grey-6;
+                padding: 13px 20px;
                 text-decoration: none;
                 width: 100%;
                 text-align: left;
                 position: relative;
                 border-radius: 0;
+				background-color: @brand-beige;
+				color: @dark-teal;
+				font-size: 21px;
+				
+				&:after {
+					display: none;
+                }
         
-                &:after {
-                    position: absolute;
-                    right: 10px;
-                    top: 0;
-                    bottom: 0;
-                    margin: auto;
+                &:before {
+					font-family: "FontAwesome";
+					content: '\f107';
+					position: absolute;
+					right: 10px;
                 }
             }
     
