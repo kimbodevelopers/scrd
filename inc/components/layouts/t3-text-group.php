@@ -2,8 +2,6 @@
 
     <div class="container-fluid site-component-container t3-container">
 
-
-
         <?php if(get_sub_field('tab_header')) : ?>
             <div class="row site-component-row t3-row">
                 <div class="col-12">
@@ -149,7 +147,7 @@
 
                                         $table = get_sub_field( 'table' );
 
-                                        if ( ! empty ( $table ) ) {
+                                        if ( ! empty ( $table ) ) :
                                             echo '<table border="0">';
                                                 if ( ! empty( $table['caption'] ) ) {
                                                     echo '<caption>' . $table['caption'] . '</caption>';
@@ -193,7 +191,7 @@
                                                     }
                                                 echo '</tbody>';
                                             echo '</table>';
-                                        }
+                                        endif;
 
                                     ?>
 

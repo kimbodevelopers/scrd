@@ -63,6 +63,7 @@
 
             .carousel-inner {
                 .carousel-item {
+
                     max-height: 400px;
 
                     @media @medium-down {
@@ -81,17 +82,23 @@
                 }
             }
 
-
-
             .tab-content {
                 width: 100%;
                 margin: 0;
 				overflow-x: auto;
 				
-				
+				.carousel {
+                    height: fit-content;
+
+                    .carousel-item {
+                        img {
+                            height: unset;
+                            max-height: unset;
+                            min-height: unset;
+                        }
+                    }
+                }
             }
-
-
 
             .active {
 

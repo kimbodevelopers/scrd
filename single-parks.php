@@ -98,7 +98,7 @@ global $post;
                     <?php if($park_images) : ?>
                         <?php foreach($park_images as $park_image) : ?>
                             <div class="carousel-item">
-                                <img src="<?php echo $park_image['url'] ?>" class="d-block w-100" alt="<?php echo $park_image['alt'] ?>">
+                                <img class="single-page-image" src="<?php echo $park_image['url'] ?>" class="d-block w-100" alt="<?php echo $park_image['alt'] ?>">
                             </div>
                             <?php echo $index; ?>
                         <?php $index++; ?>
